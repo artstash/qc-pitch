@@ -261,8 +261,9 @@
             <!-- Step Navigation -->
             <div class="flex flex-wrap justify-center gap-2 mb-6 bg-aw-bg-sidebar p-1.5 rounded-lg border border-aw-border inline-flex">
                 <button onclick="setMockupStep(1)" id="btn-mockup-1" class="px-4 py-2 rounded text-sm font-bold bg-[#8b5cf6] text-white shadow-aw-subtle transition-all">1. AI Pre-Check</button>
-                <button onclick="setMockupStep(2)" id="btn-mockup-2" class="px-4 py-2 rounded text-sm font-bold text-aw-text-muted hover:text-white transition-all">2. Human Context</button>
-                <button onclick="setMockupStep(3)" id="btn-mockup-3" class="px-4 py-2 rounded text-sm font-bold text-aw-text-muted hover:text-white transition-all">3. Version Iteration</button>
+                <button onclick="setMockupStep(2)" id="btn-mockup-2" class="px-4 py-2 rounded text-sm font-bold text-aw-text-muted hover:text-white transition-all">2. Designer Fix</button>
+                <button onclick="setMockupStep(3)" id="btn-mockup-3" class="px-4 py-2 rounded text-sm font-bold text-aw-text-muted hover:text-white transition-all">3. Art Director Review</button>
+                <button onclick="setMockupStep(4)" id="btn-mockup-4" class="px-4 py-2 rounded text-sm font-bold text-aw-text-muted hover:text-white transition-all">4. AI Sign-off</button>
             </div>
 
             <!-- Dynamic Step Description -->
@@ -295,6 +296,14 @@
                             <!-- In Progress Button State -->
                             <div id="mockup-status-btn-prog" class="hidden items-center gap-2 bg-[#1a1a1a] border border-blue-500 text-blue-400 px-2 py-1.5 rounded text-[10px] font-bold cursor-pointer transition-colors">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> In Progress <svg class="w-3 h-3 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </div>
+                            <!-- Needs Review Button State -->
+                            <div id="mockup-status-btn-needs-review" class="hidden items-center gap-2 bg-[#1a1a1a] border border-yellow-500 text-yellow-500 px-2 py-1.5 rounded text-[10px] font-bold cursor-pointer transition-colors">
+                                <span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span> Needs Review <svg class="w-3 h-3 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </div>
+                            <!-- Passed Button State -->
+                            <div id="mockup-status-btn-passed" class="hidden items-center gap-2 bg-[#1a1a1a] border border-emerald-500 text-emerald-400 px-2 py-1.5 rounded text-[10px] font-bold cursor-pointer transition-colors shadow-[0_0_10px_rgba(16,185,129,0.1)]">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> QC Passed <span class="ml-1 text-[8px] bg-emerald-500/20 px-1 rounded text-emerald-300 uppercase font-bold">AI</span>
                             </div>
 
                             <!-- Dropdown Menu (Status) -->
@@ -359,18 +368,25 @@
                 <div class="flex flex-col md:flex-row flex-grow">
                     <!-- Left: Video Player Area -->
                     <div class="flex-grow relative flex flex-col justify-end p-4 border-r border-[#2e2e2e] overflow-hidden bg-black">
-                        <!-- Fake Video Background -->
-                        <div class="absolute inset-0 bg-gradient-to-tr from-[#022c22] via-[#0f172a] to-[#312e81] opacity-60"></div>
-                        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnPjxmaWx0ZXIgaWQ9J24nPjxmZVR1cmJ1bGVuY2UgdHlwZT0nZnJhY3RhbE5vaXNlJyBiYXNlRnJlcXVlbmN5PScwLjI1JyBzdGl0Y2hUaWxlcz0nc3RpdGNoJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoI24pJyBvcGFjaXR5PScwLjE1Jy8+PC9zdmc+')] mix-blend-overlay"></div>
+                        <!-- Dynamic Video Frame Background -->
+                        <img id="mockup-video-img" class="absolute inset-0 w-full h-full object-contain bg-[#050505] transition-opacity duration-300" src="media/Logo_Misplaced_1.webp" alt="Video Frame">
+                        <!-- Dark overlay to ensure UI elements remain visible over the image -->
+                        <div class="absolute inset-0 bg-black/20 pointer-events-none"></div>
                         
-                        <!-- AI Annotation Box on Canvas -->
-                        <div id="mockup-anno-box" class="absolute top-[20%] right-[30%] border border-[#f43f5e] bg-[#f43f5e]/10 p-2 rounded shadow-[0_0_15px_rgba(244,63,94,0.3)] animate-pulse transition-opacity duration-300">
-                             <div class="w-32 h-20 border border-dashed border-[#f43f5e]"></div>
+                        <!-- AI Annotation Box 1: Character Overlap (Step 1) -->
+                        <div id="mockup-anno-1" class="absolute top-[35%] right-[25%] border border-[#f43f5e] bg-[#f43f5e]/10 p-2 rounded shadow-[0_0_15px_rgba(244,63,94,0.3)] animate-pulse transition-opacity duration-300 pointer-events-none z-20">
+                             <div class="w-48 h-32 border border-dashed border-[#f43f5e]"></div>
+                             <div class="absolute -top-3 -right-3 w-6 h-6 rounded-full border-2 border-[#f43f5e] bg-[#f43f5e]/80 flex items-center justify-center pointer-events-auto cursor-pointer">
+                                 <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                             </div>
                         </div>
-                        
-                        <!-- AI Annotation Pin on Canvas -->
-                        <div id="mockup-anno-pin" class="absolute top-[35%] right-[25%] w-6 h-6 rounded-full border-2 border-[#f43f5e] bg-[#f43f5e]/30 flex items-center justify-center shadow-[0_0_15px_rgba(244,63,94,0.6)] cursor-pointer z-20 transition-opacity duration-300">
-                            <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+
+                        <!-- AI Annotation Box 2: Arrow Overlap (Step 3) -->
+                        <div id="mockup-anno-2" class="hidden absolute top-[40%] right-[10%] border border-[#f43f5e] bg-[#f43f5e]/10 p-2 rounded shadow-[0_0_15px_rgba(244,63,94,0.3)] animate-pulse transition-opacity duration-300 pointer-events-none z-20 opacity-0">
+                             <div class="w-32 h-20 border border-dashed border-[#f43f5e]"></div>
+                             <div class="absolute -top-3 -left-3 w-6 h-6 rounded-full border-2 border-[#f43f5e] bg-[#f43f5e]/80 flex items-center justify-center pointer-events-auto cursor-pointer">
+                                 <div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+                             </div>
                         </div>
 
                         <!-- Video Controls -->
@@ -419,31 +435,60 @@
 
                         <!-- Thread / Conversation -->
                         <div class="flex-grow overflow-y-auto space-y-4 pr-1 tailwind-scrollbar-hide" id="mockup-thread-container">
-                            <!-- AI Comment -->
-                            <div class="flex gap-3 group transition-opacity duration-300" id="mockup-comment-ai">
-                                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#6d28d9] flex items-center justify-center text-xs text-white shadow-[0_0_10px_rgba(139,92,246,0.5)] shrink-0 border border-white/20">🤖</div>
+                            <!-- Comment 1: AI Initial Pre-Check -->
+                            <div class="flex gap-3 group transition-opacity duration-300" id="comment-1-ai">
+                                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#6d28d9] flex items-center justify-center text-[10px] text-white shadow-[0_0_10px_rgba(139,92,246,0.3)] shrink-0 border border-white/20">🤖</div>
                                 <div class="flex flex-col flex-grow">
                                     <div class="flex items-center gap-2 mb-1.5">
                                         <span class="text-xs font-bold text-white">Gatekeeper AI</span>
                                         <span class="text-[9px] bg-[#2a2a2a] text-[#a855f7] border border-[#a855f7]/30 px-1.5 py-0.5 rounded font-mono font-bold">0:01</span>
                                     </div>
-                                    <div class="text-xs text-[#d1d5db] bg-[#1a1a1e] p-3 rounded-lg rounded-tl-none border border-[#f43f5e]/40 leading-relaxed shadow-sm">
-                                        <strong class="text-[#a855f7] cursor-pointer hover:underline">@rb</strong> The title safe-zone is violated for vertical 9:16 export. Please pad down by 40px.<br><br>
-                                        <span class="text-rose-400 font-medium">Policy check failed: Formats-09</span>
+                                    <div class="text-[11px] text-[#d1d5db] bg-[#1a1a1e] p-3 rounded-lg rounded-tl-none border border-[#f43f5e]/40 leading-relaxed shadow-sm">
+                                        <strong class="text-[#a855f7] cursor-pointer hover:underline">@designer</strong> According to brand guidelines, the logo is not allowed to overlap the primary subject or the Play Now button. Please reposition.<br><br>
+                                        <span class="text-rose-400 font-medium">Policy check failed: Visual-Safety-04</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Human Reply -->
-                            <div class="hidden gap-3 mt-4 transition-all duration-300 opacity-0 transform translate-y-2" id="mockup-comment-human">
-                                <div class="w-7 h-7 rounded-full bg-emerald-700 flex items-center justify-center text-[10px] text-white font-bold shadow-sm shrink-0 border border-[#222]">RB</div>
+                            <!-- Comment 2: Designer Fix -->
+                            <div class="hidden gap-3 mt-4 transition-all duration-500 opacity-0 transform translate-y-2" id="comment-2-designer">
+                                <div class="w-7 h-7 rounded-full bg-emerald-700 flex items-center justify-center text-[10px] text-white font-bold shadow-sm shrink-0 border border-[#222]">DS</div>
                                 <div class="flex flex-col flex-grow">
                                     <div class="flex items-center gap-2 mb-1.5">
-                                        <span class="text-xs font-bold text-white">RB Designer</span>
+                                        <span class="text-[11px] font-bold text-white">Designer</span>
                                         <span class="text-[9px] text-[#666]">Just now</span>
                                     </div>
-                                    <div class="text-xs text-[#d1d5db] bg-[#222] p-3 rounded-lg rounded-tl-none border border-[#333] leading-relaxed shadow-sm">
-                                        Got it, I'll push it down and adjust the global color space. Uploading v2 shortly for re-verifcation. 
+                                    <div class="text-[11px] text-[#d1d5db] bg-[#222] p-3 rounded-lg rounded-tl-none border border-[#333] leading-relaxed shadow-sm">
+                                        Okay, I'm pushing it out to the right and centering it so it's no longer overlapping the character. Ready for review.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Comment 3: Art Director Review -->
+                            <div class="hidden gap-3 mt-4 transition-all duration-500 opacity-0 transform translate-y-2" id="comment-3-ad">
+                                <div class="w-7 h-7 rounded-full bg-blue-700 flex items-center justify-center text-[10px] text-white font-bold shadow-sm shrink-0 border border-[#222]">AD</div>
+                                <div class="flex flex-col flex-grow">
+                                    <div class="flex items-center gap-2 mb-1.5">
+                                        <span class="text-[11px] font-bold text-white">Art Director</span>
+                                        <span class="text-[9px] text-[#666]">Just now</span>
+                                    </div>
+                                    <div class="text-[11px] text-[#d1d5db] bg-[#222] p-3 rounded-lg rounded-tl-none border border-[#333] leading-relaxed shadow-sm">
+                                        <strong class="text-blue-400 cursor-pointer hover:underline">@designer</strong> But you're still overlapping the arrow pointer. Can you please move it down a bit to clear it?
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Comment 4: AI Sign-off -->
+                            <div class="hidden gap-3 mt-4 transition-all duration-500 opacity-0 transform translate-y-2" id="comment-4-ai">
+                                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-[10px] text-white shadow-[0_0_10px_rgba(16,185,129,0.3)] shrink-0 border border-white/20">✅</div>
+                                <div class="flex flex-col flex-grow">
+                                    <div class="flex items-center gap-2 mb-1.5">
+                                        <span class="text-[11px] font-bold text-emerald-400 flex px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20">Gatekeeper Verified</span>
+                                        <span class="text-[9px] text-[#666]">Just now</span>
+                                    </div>
+                                    <div class="text-[11px] text-[#d1d5db] bg-[#1a1a1e] p-3 rounded-lg rounded-tl-none border border-emerald-500/40 leading-relaxed shadow-sm">
+                                        Verified manual fix on V3. Looks like everything is in order here. <br><br>
+                                        <strong class="text-[#a855f7] cursor-pointer hover:underline">@art_director</strong> Ready for final human sign-off flag.
                                     </div>
                                 </div>
                             </div>
@@ -458,7 +503,7 @@
             <script>
                 function setMockupStep(step) {
                     // Reset all buttons
-                    for(let i=1; i<=3; i++) {
+                    for(let i=1; i<=4; i++) {
                         const btn = document.getElementById('btn-mockup-' + i);
                         btn.className = 'px-4 py-2 rounded text-sm font-bold text-aw-text-muted hover:text-white transition-all';
                     }
@@ -470,91 +515,154 @@
                     const desc = document.getElementById('mockup-desc-text');
                     const statusFailed = document.getElementById('mockup-status-btn-failed');
                     const statusProg = document.getElementById('mockup-status-btn-prog');
+                    const statusNeedsRev = document.getElementById('mockup-status-btn-needs-review');
+                    const statusPassed = document.getElementById('mockup-status-btn-passed');
                     const statusDropdown = document.getElementById('mockup-status-dropdown');
                     
                     const versionBtn = document.getElementById('mockup-version-btn').querySelector('span');
                     const versionDropdown = document.getElementById('mockup-version-dropdown');
                     
-                    const aiComment = document.getElementById('mockup-comment-ai');
-                    const humanComment = document.getElementById('mockup-comment-human');
-                    const annoBox = document.getElementById('mockup-anno-box');
-                    const annoPin = document.getElementById('mockup-anno-pin');
-                    const timelineMarker = document.getElementById('mockup-timeline-marker');
+                    const c1AI = document.getElementById('comment-1-ai');
+                    const c2Designer = document.getElementById('comment-2-designer');
+                    const c3AD = document.getElementById('comment-3-ad');
+                    const c4AI = document.getElementById('comment-4-ai');
+                    
+                    const anno1 = document.getElementById('mockup-anno-1');
+                    const anno2 = document.getElementById('mockup-anno-2');
+                    
+                    const videoImg = document.getElementById('mockup-video-img');
 
                     desc.style.opacity = 0;
 
+                    // Reset Comments classes for animation
+                    const resetComments = () => {
+                        [c2Designer, c3AD, c4AI].forEach(c => {
+                            c.classList.remove('flex', 'opacity-100', 'translate-y-0');
+                            c.classList.add('hidden', 'opacity-0', 'translate-y-2');
+                        });
+                        [c1AI, c2Designer, c3AD].forEach(c => c.style.opacity = 1);
+                    };
+
+                    // Reset Status flags
+                    const hideAllStatuses = () => {
+                        [statusFailed, statusProg, statusNeedsRev, statusPassed].forEach(el => {
+                            el.classList.remove('flex');
+                            el.classList.add('hidden');
+                        });
+                    };
+
                     setTimeout(() => {
+                        hideAllStatuses();
+                        resetComments();
+                        
                         if(step === 1) {
-                            desc.innerText = "Gatekeeper AI scans the new asset automatically. It flags an issue, changes the status to 'QC Failed', and leaves a timestamped comment tagging the designer over the timeline.";
-                            // Status visually open and failed
+                            desc.innerText = "Gatekeeper AI scans V1. It catches the overlapping logo, changes status to 'QC Failed', and leaves a localized annotation on the error.";
+                            
                             statusFailed.classList.remove('hidden');
                             statusFailed.classList.add('flex');
-                            statusProg.classList.remove('flex');
-                            statusProg.classList.add('hidden');
                             statusDropdown.classList.remove('opacity-0', 'pointer-events-none');
                             
-                            // Version closed
                             versionBtn.innerText = 'v1';
                             versionDropdown.classList.add('hidden');
                             
-                            // Annotations visible
-                            annoBox.style.opacity = 1;
-                            annoPin.style.opacity = 1;
-                            timelineMarker.style.opacity = 1;
+                            videoImg.src = "media/Logo_Misplaced_1.webp";
+                            
+                            anno1.style.opacity = 1;
+                            anno1.classList.remove('hidden');
+                            anno2.style.opacity = 0;
+                            anno2.classList.add('hidden');
 
-                            // Comments
-                            aiComment.style.opacity = 1;
-                            humanComment.classList.remove('flex');
-                            humanComment.classList.add('hidden');
-                            humanComment.classList.remove('opacity-100', 'translate-y-0');
-                            humanComment.classList.add('opacity-0', 'translate-y-2');
+                            c1AI.style.opacity = 1;
                         } 
                         else if(step === 2) {
-                            desc.innerText = "The designer reviews the AI's feedback inside Artstash. They reply to the comment thread to acknowledge the issue and explain their incoming fix.";
-                            // Status closed
+                            desc.innerText = "The designer pushes the logo to the right to fix the overlap. They upload V2 and change the status to 'Needs Review' while leaving a context comment.";
+                            
+                            statusNeedsRev.classList.remove('hidden');
+                            statusNeedsRev.classList.add('flex');
                             statusDropdown.classList.add('opacity-0', 'pointer-events-none');
                             
-                            // Version closed
-                            versionBtn.innerText = 'v1';
-                            versionDropdown.classList.add('hidden');
+                            versionBtn.innerText = 'v2';
+                            versionDropdown.classList.remove('hidden');
 
-                            // Annotations visible
-                            annoBox.style.opacity = 1;
-                            annoPin.style.opacity = 1;
-                            timelineMarker.style.opacity = 1;
+                            videoImg.src = "media/Logo_Misplaced_2.webp";
 
-                            // Comments show human
-                            aiComment.style.opacity = 1;
-                            humanComment.classList.remove('hidden');
-                            humanComment.classList.add('flex');
-                            // slight delay for animation
+                            anno1.style.opacity = 0;
+                            anno1.classList.add('hidden');
+                            anno2.style.opacity = 0;
+                            anno2.classList.add('hidden');
+
+                            c1AI.style.opacity = 0.5;
+                            
+                            c2Designer.classList.remove('hidden');
+                            c2Designer.classList.add('flex');
                             setTimeout(() => {
-                                humanComment.classList.remove('opacity-0', 'translate-y-2');
-                                humanComment.classList.add('opacity-100', 'translate-y-0');
+                                c2Designer.classList.remove('opacity-0', 'translate-y-2');
+                                c2Designer.classList.add('opacity-100', 'translate-y-0');
                             }, 50);
                         }
                         else if(step === 3) {
-                            desc.innerText = "A new iteration (v2) is uploaded. The AI automatically evaluates v2 against the previous v1 comments. The Version Dropdown is now handling the history.";
+                            desc.innerText = "The Art Director jumps into the thread. They notice the logo now overlaps the UI arrow and instruct the designer to nudge it down.";
                             
-                            // Status changed to in progress, menu closed
-                            statusFailed.classList.remove('flex');
-                            statusFailed.classList.add('hidden');
-                            statusProg.classList.remove('hidden');
-                            statusProg.classList.add('flex');
+                            statusNeedsRev.classList.remove('hidden');
+                            statusNeedsRev.classList.add('flex');
                             statusDropdown.classList.add('opacity-0', 'pointer-events-none');
                             
-                            // Version open and looking at v2
                             versionBtn.innerText = 'v2';
                             versionDropdown.classList.remove('hidden');
                             
-                            // Annotations hidden (it's v2 now!)
-                            annoBox.style.opacity = 0;
-                            annoPin.style.opacity = 0;
-                            timelineMarker.style.opacity = 0;
+                            videoImg.src = "media/Logo_Misplaced_2.webp";
+                            
+                            anno1.style.opacity = 0;
+                            anno1.classList.add('hidden');
+                            anno2.style.opacity = 1;
+                            anno2.classList.remove('hidden');
 
-                            // Comments faded to show they are from history
-                            aiComment.style.opacity = 0.5;
-                            humanComment.style.opacity = 0.5;
+                            c1AI.style.opacity = 0.5;
+                            
+                            c2Designer.classList.remove('hidden');
+                            c2Designer.classList.add('flex');
+                            c2Designer.classList.remove('opacity-0', 'translate-y-2');
+                            c2Designer.classList.add('opacity-100', 'translate-y-0');
+                            c2Designer.style.opacity = 0.5;
+
+                            c3AD.classList.remove('hidden');
+                            c3AD.classList.add('flex');
+                            setTimeout(() => {
+                                c3AD.classList.remove('opacity-0', 'translate-y-2');
+                                c3AD.classList.add('opacity-100', 'translate-y-0');
+                            }, 50);
+                        }
+                        else if(step === 4) {
+                            desc.innerText = "The designer pushes V3. Gatekeeper AI actively verifies both its own historical concerns AND the Art Director's manual comment. It passes the file automatically.";
+                            
+                            statusPassed.classList.remove('hidden');
+                            statusPassed.classList.add('flex');
+                            statusDropdown.classList.add('opacity-0', 'pointer-events-none');
+                            
+                            versionBtn.innerText = 'v3';
+                            versionDropdown.classList.remove('hidden');
+                            
+                            videoImg.src = "media/Logo_Correct.webp";
+                            
+                            anno1.style.opacity = 0;
+                            anno1.classList.add('hidden');
+                            anno2.style.opacity = 0;
+                            anno2.classList.add('hidden');
+
+                            [c1AI, c2Designer, c3AD].forEach(c => {
+                                c.style.opacity = 0.4;
+                                c.classList.remove('hidden');
+                                c.classList.add('flex');
+                                c.classList.remove('opacity-0', 'translate-y-2');
+                                c.classList.add('opacity-100', 'translate-y-0');
+                            });
+
+                            c4AI.classList.remove('hidden');
+                            c4AI.classList.add('flex');
+                            setTimeout(() => {
+                                c4AI.classList.remove('opacity-0', 'translate-y-2');
+                                c4AI.classList.add('opacity-100', 'translate-y-0');
+                            }, 50);
                         }
                         desc.style.opacity = 1;
                     }, 300);
