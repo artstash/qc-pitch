@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pitch Deck: Artstash Gatekeeper Process</title>
+    <title>Pitch Deck: ArtStash QC Agent Process</title>
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -144,7 +144,7 @@
             <div class="w-8 h-8 rounded-full bg-aw-accent flex items-center justify-center text-white shadow-aw-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
             </div>
-            <span class="text-aw-text text-xl">Project Gatekeeper</span>
+            <span class="text-aw-text text-xl">ArtStash QC Agent</span>
         </div>
         <div class="hidden md:flex space-x-8 text-sm font-medium text-aw-text-secondary">
             <a href="#vision" class="hover:text-aw-text transition-colors">The Bottleneck</a>
@@ -161,92 +161,337 @@
         <section id="vision" class="animate-fade-up">
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <div class="inline-block border border-aw-border bg-aw-bg-sidebar text-aw-text-muted text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
-                    The Industry Challenge
+                    The Volume Challenge
                 </div>
                 <h1 class="text-4xl sm:text-5xl font-extrabold text-aw-text leading-tight mb-6">
-                    Breaking the Creative Revision Bottleneck
+                    Creative Production is Scaling.<br>Your QC Process Isn't.
                 </h1>
                 <p class="text-lg text-aw-text-secondary leading-relaxed">
-                    Highly paid Senior Designers and Project Managers are spending 40% of their day acting as glorified proofreaders. We are automating objective checking to clear the brush for subjective human creativity.
+                    Creative production volume is exploding as brands move toward thousands of automated variations. But higher volume shouldn't mean higher risk. ArtStash QC Agent automates the repetitive work of brand guideline compliance, catching "silent" errors so your senior talent can focus on high-impact storytelling, not manual proofreading.
                 </p>
             </div>
 
-            <div class="aw-highlight-box p-8 md:p-10 aw-card-large shadow-aw-medium flex flex-col md:flex-row items-center gap-8 border-t-2 border-t-aw-accent">
-                <div class="md:w-1/2">
-                    <h4 class="font-bold text-aw-accent-alt mb-3 flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" /></svg>
-                        The Exponential Math of Manual QC
-                    </h4>
-                    <p class="text-aw-text-secondary font-mono text-sm leading-loose p-4 bg-aw-bg-elevated border border-aw-border rounded-lg shadow-aw-subtle">
-                        1 Main Idea × 3 Sizes × 2 Lengths × 3 Revisions × 2 People <br>
-                        = <span class="text-2xl font-black text-aw-text ml-2 border-b-2 border-aw-accent">36 Reviews per Asset</span>
-                    </p>
-                    <p class="text-sm text-aw-text-muted mt-4">
-                        With standard ad variations and global localizations, this easily hits hundreds of cumulative manual revisions per concept. Error blindness becomes statistically inevitable.
-                    </p>
+            <div class="mb-24 text-center">
+                <div class="inline-block border border-aw-border bg-aw-bg-sidebar text-aw-accent-alt text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 border-aw-accent/30 shadow-[0_0_10px_rgba(168,85,247,0.15)]">
+                    The Equation
                 </div>
-                <div class="md:w-1/2 bg-aw-bg-elevated rounded-xl p-8 border border-aw-border shadow-aw-subtle">
-                    <h3 class="font-bold text-aw-text text-lg mb-4">The Active QC Solution</h3>
-                    <p class="text-sm text-aw-text-secondary mb-4 border-b border-aw-border-soft pb-4">Unlike current Artstash agents that passively tag metadata, the Gatekeeper AI operates as an active conversational reviewer, leaving timestamped comments just like Frame.io.</p>
-                    <ul class="space-y-4 text-sm text-aw-text-secondary">
-                        <li class="flex items-start">
-                            <span class="text-aw-accent mr-3 font-xl">1.</span> 
-                            <span><strong>The AI Engine (Objective):</strong> Sets asset status to "QC Failed" and leaves timestamped comments instantly, @-mentioning creators to fix technical breaches.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-aw-accent-alt mr-3 font-xl">2.</span> 
-                            <span><strong>The Human Eye (Subjective):</strong> Reviews only the files that pass technical specs, conversing with the AI by replying to comments about narrative pacing and emotional resonance.</span>
-                        </li>
-                    </ul>
+                <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-6">The Quality Control Wall</h2>
+                <p class="text-aw-text-secondary max-w-2xl mx-auto mb-12 text-lg">In an AI-augmented world where studios now test thousands of variations simultaneously, manual QC isn't just slow—it's impossible. Human error is statistically inevitable.</p>
+                
+                <!-- Visual Math Illustration -->
+                <div class="p-8 md:p-12 bg-aw-bg-sidebar border border-aw-border rounded-2xl shadow-aw-subtle max-w-5xl mx-auto relative overflow-hidden">
+                    
+                    <div class="flex flex-wrap items-center justify-center gap-4 text-center relative z-10">
+                        <!-- Concept -->
+                        <div class="bg-[#1a1a1a] border border-[#333] p-4 rounded-xl shadow-aw-subtle w-28 md:w-32 transition-transform hover:-translate-y-1">
+                            <div class="text-3xl mb-2">💡</div>
+                            <div class="font-bold text-aw-text text-lg">1</div>
+                            <div class="text-[10px] md:text-xs text-aw-text-muted uppercase tracking-wider font-semibold mt-1">Concept</div>
+                        </div>
+                        <div class="text-aw-text-muted text-xl md:text-2xl font-black opacity-50">×</div>
+                        
+                        <!-- Sizes -->
+                        <div class="bg-[#1a1a1a] border border-[#333] p-4 rounded-xl shadow-aw-subtle w-28 md:w-32 transition-transform hover:-translate-y-1">
+                            <div class="text-3xl mb-2">📱</div>
+                            <div class="font-bold text-aw-text text-lg">3</div>
+                            <div class="text-[10px] md:text-xs text-aw-text-muted uppercase tracking-wider font-semibold mt-1">Sizes</div>
+                        </div>
+                        <div class="text-aw-text-muted text-xl md:text-2xl font-black opacity-50">×</div>
+                        
+                        <!-- Lengths -->
+                        <div class="bg-[#1a1a1a] border border-[#333] p-4 rounded-xl shadow-aw-subtle w-28 md:w-32 transition-transform hover:-translate-y-1">
+                            <div class="text-3xl mb-2">⏱️</div>
+                            <div class="font-bold text-aw-text text-lg">2</div>
+                            <div class="text-[10px] md:text-xs text-aw-text-muted uppercase tracking-wider font-semibold mt-1">Lengths</div>
+                        </div>
+                        <div class="text-aw-text-muted text-xl md:text-2xl font-black opacity-50">×</div>
+                        
+                        <!-- Revisions -->
+                        <div class="bg-[#1a1a1a] border border-[#333] p-4 rounded-xl shadow-aw-subtle w-28 md:w-32 transition-transform hover:-translate-y-1">
+                            <div class="text-3xl mb-2">🔄</div>
+                            <div class="font-bold text-aw-text text-lg">3</div>
+                            <div class="text-[10px] md:text-xs text-aw-text-muted uppercase tracking-wider font-semibold mt-1">Revisions</div>
+                        </div>
+                        <div class="text-aw-text-muted text-xl md:text-2xl font-black opacity-50">×</div>
+                        
+                        <!-- Reviewers -->
+                        <div class="bg-[#1a1a1a] border border-[#333] p-4 rounded-xl shadow-aw-subtle w-28 md:w-32 transition-transform hover:-translate-y-1">
+                            <div class="text-3xl mb-2">👀</div>
+                            <div class="font-bold text-aw-text text-lg">2</div>
+                            <div class="text-[10px] md:text-xs text-aw-text-muted uppercase tracking-wider font-semibold mt-1">Reviewers</div>
+                        </div>
+                    </div>
+
+                    <!-- Result Block -->
+                    <div class="mt-12 relative z-10 flex flex-col items-center">
+                        <div class="inline-flex items-center gap-6 bg-gradient-to-r from-aw-bg-highlight to-[rgba(139,92,246,0.15)] border border-aw-accent/40 pl-6 pr-8 py-5 rounded-2xl shadow-[0_10px_30px_rgba(139,92,246,0.2)]">
+                            <div class="text-aw-accent text-4xl font-black">=</div>
+                            <div class="flex items-baseline gap-3">
+                                <h3 class="text-6xl md:text-7xl font-black text-white leading-none">36</h3>
+                                <div class="flex flex-col text-left">
+                                    <span class="text-xl md:text-2xl font-bold text-aw-text-secondary leading-tight">Reviews</span>
+                                    <span class="text-aw-accent-alt font-bold uppercase tracking-widest text-[10px] md:text-xs leading-tight">Per Single Concept</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-aw-text-muted mt-6 max-w-xl mx-auto italic">
+                            "With standard ad variations and global localizations, this easily hits hundreds of cumulative manual revisions."
+                        </p>
+                    </div>
                 </div>
             </div>
+
         </section>
 
-        <!-- SECTION 2: Two Paths to Value (Managed Service -> SaaS Roadmap) -->
+        <!-- SECTION 2: The Managed Service — Before & After -->
         <section id="business-model" class="scroll-mt-24">
-            <div class="mb-10">
-                <h2 class="text-3xl font-bold text-aw-text mb-3">Two Paths to Commercial Value</h2>
-                <p class="text-aw-text-secondary max-w-3xl">We are launching Gatekeeper as a premium Managed Service to dogfood our AI engine at scale, establishing trust and zero-defect delivery before rolling it out as a standalone Software-as-a-Service.</p>
+            <div class="text-center mb-10">
+                <div class="inline-block border border-aw-border bg-aw-bg-sidebar text-aw-text-muted text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
+                    The Managed Service
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-4">How ArtStash QC Agent Changes the Workflow</h2>
+                <p class="text-aw-text-secondary max-w-2xl mx-auto text-base">The same process your team runs today — but with AI injected at every high-friction point, compressing the revision loop.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Path A: Managed Service -->
-                <div class="aw-card aw-card-large p-8 border-t-4 border-t-aw-accent shadow-aw-strong relative overflow-hidden group">
-                    <div class="absolute top-4 right-4 bg-aw-accent-dark text-aw-accent-alt text-xs font-bold px-2 py-1 rounded">PHASE 1 (NOW)</div>
-                    <div class="text-aw-accent text-4xl mb-6 transform group-hover:scale-110 transition-transform">💼</div>
-                    <h3 class="text-2xl font-bold text-aw-text mb-2">Artstash Managed QC Service</h3>
-                    <p class="text-sm font-semibold text-aw-text-muted uppercase tracking-wider mb-6">The "Invisible QC Department"</p>
-                    
-                    <ul class="space-y-4 text-sm text-aw-text-secondary mb-8">
-                        <li class="flex items-start"><span class="text-aw-text mr-2">•</span> <strong>Target:</strong> Enterprise Game Studios & Global Campaigns.</li>
-                        <li class="flex items-start"><span class="text-aw-text mr-2">•</span> <strong>The Model:</strong> Clients upload their V1 rough cuts natively. Artstash acts as the external QA team. Our internal staff—hyper-augmented by the AI agent—handles the entire repetitive QC loop.</li>
-                        <li class="flex items-start"><span class="text-aw-text mr-2">•</span> <strong>The Value:</strong> Completely offloads production QA burden with flawless, SLA-backed "For Review" outputs.</li>
-                    </ul>
-                    <div class="bg-aw-bg-sidebar border border-aw-border p-4 rounded-lg flex items-center justify-between text-xs text-aw-text-muted">
-                        <span>Provides vital volume to train the AI</span>
-                        <span class="text-aw-accent-alt uppercase tracking-widest font-bold">Dogfooding Mode</span>
+            <!-- Color Legend -->
+            <div class="flex flex-wrap justify-center gap-3 mb-8 text-[10px] font-bold uppercase tracking-wider">
+                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-[#2a2a2a] px-3 py-1.5 rounded-full">
+                    <span class="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"></span><span class="text-aw-text-muted">Account Manager</span>
+                </div>
+                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-[#2a2a2a] px-3 py-1.5 rounded-full">
+                    <span class="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block"></span><span class="text-aw-text-muted">Project Manager</span>
+                </div>
+                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-[#2a2a2a] px-3 py-1.5 rounded-full">
+                    <span class="w-2.5 h-2.5 rounded-full bg-orange-500 inline-block"></span><span class="text-aw-text-muted">Production Team</span>
+                </div>
+                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-[#2a2a2a] px-3 py-1.5 rounded-full">
+                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span><span class="text-aw-text-muted">QC Reviewer</span>
+                </div>
+                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-aw-accent/40 px-3 py-1.5 rounded-full shadow-[0_0_8px_rgba(139,92,246,0.3)]">
+                    <span class="w-2.5 h-2.5 rounded-full bg-aw-accent inline-block shadow-[0_0_5px_rgba(139,92,246,0.8)]"></span><span class="text-aw-accent">🤖 QC Agent (AI)</span>
+                </div>
+                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-[#2a2a2a] px-3 py-1.5 rounded-full">
+                    <span class="w-2.5 h-2.5 rounded-full bg-teal-500 inline-block"></span><span class="text-aw-text-muted">Creative Director</span>
+                </div>
+                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-[#2a2a2a] px-3 py-1.5 rounded-full">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span><span class="text-aw-text-muted">Client Delivery</span>
+                </div>
+            </div>
+
+            <!-- Toggle Buttons -->
+            <div class="flex justify-center mb-8">
+                <div class="bg-aw-bg-sidebar border border-aw-border p-1 rounded-xl flex gap-1">
+                    <button id="flow-btn-before" onclick="setFlow('before')"
+                        class="px-5 py-2 rounded-lg text-sm font-bold transition-all bg-[#2a2a2a] text-white border border-[#444]">
+                        😰 Current Process
+                    </button>
+                    <button id="flow-btn-after" onclick="setFlow('after')"
+                        class="px-5 py-2 rounded-lg text-sm font-bold transition-all text-aw-text-muted hover:text-white">
+                        ⚡ With ArtStash QC Agent
+                    </button>
+                </div>
+            </div>
+
+            <!-- ======================== BEFORE FLOW ======================== -->
+            <div id="flow-before">
+                <div class="overflow-x-auto pb-4">
+                    <div class="flex items-start justify-start md:justify-center gap-0 min-w-max mx-auto px-4">
+
+                        <!-- Step card macro: color, icon, label, actor, desc -->
+                        <!-- 1: Account Manager -->
+                        <div class="flex flex-col items-center w-36">
+                            <div class="w-full rounded-xl border-2 border-blue-700 bg-gradient-to-b from-blue-900/60 to-blue-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
+                                <div class="text-2xl">📋</div>
+                                <div class="text-[10px] font-bold text-blue-300 uppercase tracking-widest">Brief & Setup</div>
+                                <div class="text-[10px] text-blue-200/70 leading-tight">Brand guidelines & tech specs</div>
+                            </div>
+                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Account Manager</span></div>
+                        </div>
+                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+
+                        <!-- 2: Production -->
+                        <div class="flex flex-col items-center w-36">
+                            <div class="w-full rounded-xl border-2 border-orange-700 bg-gradient-to-b from-orange-900/60 to-orange-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
+                                <div class="text-2xl">📤</div>
+                                <div class="text-[10px] font-bold text-orange-300 uppercase tracking-widest">V1 Upload</div>
+                                <div class="text-[10px] text-orange-200/70 leading-tight">Assets uploaded to Artstash</div>
+                            </div>
+                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Production Team</span></div>
+                        </div>
+                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+
+                        <!-- 3: PM -->
+                        <div class="flex flex-col items-center w-36">
+                            <div class="w-full rounded-xl border-2 border-indigo-700 bg-gradient-to-b from-indigo-900/60 to-indigo-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
+                                <div class="text-2xl">🗂️</div>
+                                <div class="text-[10px] font-bold text-indigo-300 uppercase tracking-widest">Queue & Flag</div>
+                                <div class="text-[10px] text-indigo-200/70 leading-tight">PM pushes assets, sets status manually</div>
+                            </div>
+                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Project Manager</span></div>
+                        </div>
+                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+
+                        <!-- 4: Human QC -->
+                        <div class="flex flex-col items-center w-36">
+                            <div class="w-full rounded-xl border-2 border-rose-700 bg-gradient-to-b from-rose-900/60 to-rose-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
+                                <div class="text-2xl">🔍</div>
+                                <div class="text-[10px] font-bold text-rose-300 uppercase tracking-widest">Manual QC Check</div>
+                                <div class="text-[10px] text-rose-200/70 leading-tight">Human reviews every asset, writes report</div>
+                            </div>
+                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span><span class="text-[9px] text-rose-400 font-semibold uppercase tracking-wide">QC Reviewer</span></div>
+                        </div>
+                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+
+                        <!-- 5: Fix Loop -->
+                        <div class="flex flex-col items-center w-36">
+                            <div class="w-full rounded-xl border-2 border-rose-900 bg-gradient-to-b from-red-900/70 to-red-950/90 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
+                                <div class="text-2xl">🔁</div>
+                                <div class="text-[10px] font-bold text-red-300 uppercase tracking-widest">Fix & Repeat</div>
+                                <div class="text-[10px] text-red-200/70 leading-tight">Fails loop back. ×3 revisions avg.</div>
+                            </div>
+                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-rose-700"></span><span class="text-[9px] text-rose-400 font-semibold uppercase tracking-wide">Everyone</span></div>
+                        </div>
+                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+
+                        <!-- 6: Client Delivery -->
+                        <div class="flex flex-col items-center w-36">
+                            <div class="w-full rounded-xl border-2 border-blue-800 bg-gradient-to-b from-blue-900/60 to-blue-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
+                                <div class="text-2xl">🚀</div>
+                                <div class="text-[10px] font-bold text-blue-300 uppercase tracking-widest">Client Delivery</div>
+                                <div class="text-[10px] text-blue-200/70 leading-tight">AM sends links, updates status manually</div>
+                            </div>
+                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Account Manager</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-6 text-center text-sm text-aw-text-muted bg-aw-bg-sidebar border border-rose-900/40 rounded-xl p-3 max-w-xl mx-auto">
+                    💸 ~<strong class="text-white">40%</strong> of senior staff time lost to manual QC tasks across every revision cycle. <strong class="text-rose-400">36+ reviews per single concept.</strong>
+                </div>
+            </div>
+
+            <!-- ======================== AFTER FLOW ======================== -->
+            <div id="flow-after" class="hidden">
+                <div class="overflow-x-auto pb-4">
+                    <div class="flex items-start justify-start md:justify-center gap-0 min-w-max mx-auto px-4">
+
+                        <!-- 1: AM (unchanged) -->
+                        <div class="flex flex-col items-center w-36">
+                            <div class="w-full rounded-xl border-2 border-blue-700 bg-gradient-to-b from-blue-900/60 to-blue-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
+                                <div class="text-2xl">📋</div>
+                                <div class="text-[10px] font-bold text-blue-300 uppercase tracking-widest">Brief & Setup</div>
+                                <div class="text-[10px] text-blue-200/70 leading-tight">Rules loaded into QC Agent once</div>
+                            </div>
+                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Account Manager</span></div>
+                        </div>
+                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+
+                        <!-- 2: Production (unchanged) -->
+                        <div class="flex flex-col items-center w-36">
+                            <div class="w-full rounded-xl border-2 border-orange-700 bg-gradient-to-b from-orange-900/60 to-orange-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
+                                <div class="text-2xl">📤</div>
+                                <div class="text-[10px] font-bold text-orange-300 uppercase tracking-widest">V1 Upload</div>
+                                <div class="text-[10px] text-orange-200/70 leading-tight">Assets uploaded to Artstash</div>
+                            </div>
+                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Production Team</span></div>
+                        </div>
+                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+
+                        <!-- 3: AI AUTO QC -->
+                        <div class="flex flex-col items-center w-36 relative">
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap">
+                                <span class="bg-aw-accent text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.6)]">🤖 AI</span>
+                            </div>
+                            <div class="w-full rounded-xl border-2 border-aw-accent bg-gradient-to-b from-[#2d1b69] to-[#3b0764] p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-[0_0_20px_rgba(139,92,246,0.35)]">
+                                <div class="text-2xl">⚡</div>
+                                <div class="text-[10px] font-bold text-aw-accent-alt uppercase tracking-widest">Instant QC Scan</div>
+                                <div class="text-[10px] text-purple-200/70 leading-tight">Agent flags violations, @-mentions designer</div>
+                            </div>
+                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-aw-accent shadow-[0_0_5px_rgba(139,92,246,0.8)]"></span><span class="text-[9px] text-aw-accent font-semibold uppercase tracking-wide">QC Agent</span></div>
+                        </div>
+                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+
+                        <!-- 4: Creative Director (human value) -->
+                        <div class="flex flex-col items-center w-36">
+                            <div class="w-full rounded-xl border-2 border-teal-700 bg-gradient-to-b from-teal-900/60 to-teal-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
+                                <div class="text-2xl">🎬</div>
+                                <div class="text-[10px] font-bold text-teal-300 uppercase tracking-widest">Creative Review</div>
+                                <div class="text-[10px] text-teal-200/70 leading-tight">Human reviews pacing, story & emotion only</div>
+                            </div>
+                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Creative Director</span></div>
+                        </div>
+                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+
+                        <!-- 5: AI Auto Re-verify -->
+                        <div class="flex flex-col items-center w-36 relative">
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap">
+                                <span class="bg-aw-accent text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.6)]">🤖 AI</span>
+                            </div>
+                            <div class="w-full rounded-xl border-2 border-aw-accent bg-gradient-to-b from-[#2d1b69] to-[#3b0764] p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-[0_0_20px_rgba(139,92,246,0.35)]">
+                                <div class="text-2xl">✅</div>
+                                <div class="text-[10px] font-bold text-aw-accent-alt uppercase tracking-widest">Auto Re-Verify</div>
+                                <div class="text-[10px] text-purple-200/70 leading-tight">Checks V2 against all historical comments</div>
+                            </div>
+                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-aw-accent shadow-[0_0_5px_rgba(139,92,246,0.8)]"></span><span class="text-[9px] text-aw-accent font-semibold uppercase tracking-wide">QC Agent</span></div>
+                        </div>
+                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+
+                        <!-- 6: Auto Delivery -->
+                        <div class="flex flex-col items-center w-36 relative">
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap">
+                                <span class="bg-aw-accent text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.6)]">🤖 AI</span>
+                            </div>
+                            <div class="w-full rounded-xl border-2 border-emerald-700 bg-gradient-to-b from-emerald-900/60 to-emerald-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+                                <div class="text-2xl">🚀</div>
+                                <div class="text-[10px] font-bold text-emerald-300 uppercase tracking-widest">Auto Delivery</div>
+                                <div class="text-[10px] text-emerald-200/70 leading-tight">100% brand-verified "For Review" portal generated</div>
+                            </div>
+                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span class="text-[9px] text-emerald-400 font-semibold uppercase tracking-wide">Client ✨</span></div>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- Path B: Standalone SaaS -->
-                <div class="aw-card aw-card-large p-8 border-t-4 border-t-aw-text-muted shadow-aw-medium relative opacity-90 transition-opacity hover:opacity-100">
-                    <div class="absolute top-4 right-4 bg-aw-bg-sidebar text-aw-text-muted border border-aw-border-soft text-xs font-bold px-2 py-1 rounded">PHASE 2 (ROADMAP)</div>
-                    <div class="text-aw-text-muted text-4xl mb-6">🌩️</div>
-                    <h3 class="text-2xl font-bold text-aw-text mb-2">Standalone SaaS Platform</h3>
-                    <p class="text-sm font-semibold text-aw-text-muted uppercase tracking-wider mb-6">Gatekeeper as a Licensed Tool</p>
-                    
-                    <ul class="space-y-4 text-sm text-aw-text-secondary mb-8">
-                        <li class="flex items-start"><span class="text-aw-text-muted mr-2">•</span> <strong>Target:</strong> High-functioning In-House Creative Teams & Mid-Sized Agencies.</li>
-                        <li class="flex items-start"><span class="text-aw-text-muted mr-2">•</span> <strong>The Model:</strong> Clients license the Gatekeeper platform directly. They leverage their own internal Project Managers and Reviewers, entirely inside the Artstash workspace.</li>
-                        <li class="flex items-start"><span class="text-aw-text-muted mr-2">•</span> <strong>The Value:</strong> Drastic cost-savings, accelerated delivery times, and centralized feedback.</li>
-                    </ul>
-                    <div class="bg-aw-bg-sidebar border border-aw-border p-4 rounded-lg flex items-center justify-between text-xs text-aw-text-muted">
-                        <span>The ultimate scalable product architecture</span>
-                        <span class="uppercase tracking-widest font-bold">Self-Serve</span>
+                <!-- Savings stats -->
+                <div class="mt-6 grid grid-cols-3 gap-4 max-w-lg mx-auto">
+                    <div class="text-center bg-aw-bg-sidebar border border-aw-accent/30 rounded-xl p-3">
+                        <div class="text-2xl font-black text-aw-accent">3/6</div>
+                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Steps AI-Automated</div>
+                    </div>
+                    <div class="text-center bg-aw-bg-sidebar border border-emerald-500/30 rounded-xl p-3">
+                        <div class="text-2xl font-black text-emerald-400">~60%</div>
+                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Human Time Saved</div>
+                    </div>
+                    <div class="text-center bg-aw-bg-sidebar border border-aw-border rounded-xl p-3">
+                        <div class="text-2xl font-black text-white">0</div>
+                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Manual Status Updates</div>
                     </div>
                 </div>
             </div>
+
+            <script>
+                function setFlow(state) {
+                    const before = document.getElementById('flow-before');
+                    const after = document.getElementById('flow-after');
+                    const btnBefore = document.getElementById('flow-btn-before');
+                    const btnAfter = document.getElementById('flow-btn-after');
+                    if (state === 'before') {
+                        before.classList.remove('hidden');
+                        after.classList.add('hidden');
+                        btnBefore.className = 'px-5 py-2 rounded-lg text-sm font-bold transition-all bg-[#2a2a2a] text-white border border-[#444]';
+                        btnAfter.className = 'px-5 py-2 rounded-lg text-sm font-bold transition-all text-aw-text-muted hover:text-white';
+                    } else {
+                        after.classList.remove('hidden');
+                        before.classList.add('hidden');
+                        btnAfter.className = 'px-5 py-2 rounded-lg text-sm font-bold transition-all bg-aw-accent text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]';
+                        btnBefore.className = 'px-5 py-2 rounded-lg text-sm font-bold transition-all text-aw-text-muted hover:text-white';
+                    }
+                }
+            </script>
         </section>
+
+    </main>
+
+
 
     </main>
 
@@ -256,7 +501,7 @@
             <div class="inline-block border border-aw-border bg-aw-bg-sidebar text-aw-text-muted text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
                 Product Integration
             </div>
-            <h2 class="text-3xl font-bold text-aw-text mb-6">The Gatekeeper Experience</h2>
+            <h2 class="text-3xl font-bold text-aw-text mb-6">The QC Agent Experience</h2>
             
             <!-- Step Navigation -->
             <div class="flex flex-wrap justify-center gap-2 mb-6 bg-aw-bg-sidebar p-1.5 rounded-lg border border-aw-border inline-flex">
@@ -268,7 +513,7 @@
 
             <!-- Dynamic Step Description -->
             <p id="mockup-desc-text" class="text-aw-text-secondary h-12 transition-opacity duration-300">
-                Gatekeeper AI scans the new asset automatically. It flags an issue, changes the status to 'QC Failed', and leaves a timestamped comment tagging the designer over the timeline.
+                ArtStash QC Agent scans the new asset automatically. It flags an issue, changes the status to 'QC Failed', and leaves a timestamped comment tagging the designer over the timeline.
             </p>
         </div>
 
@@ -542,7 +787,7 @@
                         resetComments();
                         
                         if(step === 1) {
-                            desc.innerText = "Gatekeeper AI scans V1. It catches the overlapping logo, changes status to 'QC Failed', and leaves a localized annotation on the error.";
+                            desc.innerText = "ArtStash QC Agent scans V1. It catches the overlapping logo, changes status to 'QC Failed', and leaves a localized annotation on the error.";
                             
                             statusFailed.classList.remove('hidden');
                             statusFailed.classList.add('flex');
@@ -647,7 +892,7 @@
                             }, 50);
                         }
                         else if(step === 4) {
-                            desc.innerText = "The designer pushes V3. Gatekeeper AI actively verifies both its own historical concerns AND the Art Director's manual comment. It passes the file automatically.";
+                            desc.innerText = "The designer pushes V3. ArtStash QC Agent actively verifies both its own historical concerns AND the Art Director's manual comment. It passes the file automatically.";
                             
                             statusPassed.classList.remove('hidden');
                             statusPassed.classList.add('flex');
@@ -837,11 +1082,11 @@
                 bgColor: 'bg-aw-bg-sidebar',
                 textColor: 'text-aw-text',
                 accentHex: '#9ca3af',
-                description: 'The foundation for the QC agent is laid. The PM configures the brand guidelines, hex palettes, typography, and technical boundaries (safe zones, format lengths) the AI will rigidly enforce.',
+                description: 'The foundation for the QC Agent is laid. The PM configures the brand guidelines, hex palettes, typography, and technical boundaries (safe zones, format lengths) that the AI will rigidly enforce at scale.',
                 interactions: [
                     'PM uploads Brand Guidelines & Tech Specs to the Artstash pipeline.',
-                    'AI extracts and indexes rules into the project Knowledge Graph.',
-                    'Guidance is locked to version control for the duration of the campaign.'
+                    'AI Agent indexes rules into a deterministic project Knowledge Graph.',
+                    'Guidance is locked to ensure zero brand-drift across thousands of variations.'
                 ]
             },
             {
@@ -862,31 +1107,31 @@
             {
                 id: 'step-3',
                 title: '3. AI Pre-Check Verification',
-                actor: 'Gatekeeper AI',
-                icon: '👾',
+                actor: 'ArtStash QC Agent',
+                icon: '🤖',
                 bgColor: 'bg-[rgba(139,92,246,0.1)]',
                 textColor: 'text-aw-accent',
                 accentHex: '#8b5cf6',
-                description: 'The core automated evaluation occurs instantly. The AI separates clean assets from mechanically flawed ones before human eyes ever see them by setting the asset status field ("QC Failed" or "QC Passed").',
+                description: 'The automated evaluation occurs instantly upon upload. The AI Agent acts as a high-precision guardrail, separating assets that violate brand guidelines from those ready for creative review.',
                 interactions: [
-                    'Agent scans frames against the PM\'s rigid ruleset. If violations are found, it sets the Status field to <span class="text-rose-400 font-bold mx-1 text-xs px-2 py-0.5 rounded bg-[rgba(244,63,94,0.1)] border border-[rgba(244,63,94,0.2)]">QC FAILED</span>.',
-                    'Agent leaves Frame.io-style timestamped comments directly on the asset canvas/timeline.',
-                    'Agent actively @-mentions the uploader or the assigned QC person (e.g., "@john Violates Instagram story safe zone at 0:04s").'
+                    'Agent scans frames against the rigid ruleset. If violations are found, it sets the Status field to <span class="text-rose-400 font-bold mx-1 text-xs px-2 py-0.5 rounded bg-[rgba(244,63,94,0.1)] border border-[rgba(244,63,94,0.2)]">QC FAILED</span>.',
+                    'Agent identifies "brand hallucinations" and technical drift in automated variations.',
+                    'Agent leaves Frame.io-style timestamped comments and actively @-mentions the designer with fix instructions.'
                 ]
             },
             {
                 id: 'step-4',
-                title: '4. Internal Subjective QC',
+                title: '4. Internal Creative QC',
                 actor: 'Creative Director',
                 icon: '👁️',
                 bgColor: 'bg-aw-bg-sidebar',
                 textColor: 'text-aw-qc text-yellow-500', 
                 accentHex: '#eab308',
-                description: 'For files passing the technical sweep (or receiving failed flags), the focus transitions to high-value human critique. Humans effectively have a conversation with the QC agent.',
+                description: 'With technical "stupid QA stuff" filtered by the Agent, the Director focuses exclusively on high-value human critique: emotional impact, narrative pacing, and story resonance.',
                 interactions: [
-                    'Human reviewer checks the technically pristine files, or reviews the AI\'s "QC Failed" flags.',
-                    'Human adds narrative context by replying to the Agent\'s comments or leaving new ones (e.g., "Pacing feels sluggish here").',
-                    'This creates an indirect conversational loop between the human and the QC Agent on the timeline.'
+                    'Human reviewer skips the brand-manual check and jumps straight to high-level impact.',
+                    'Human adds narrative context by replying to the Agent\'s comments or leaving new ones.',
+                    'This streamlines communication, reducing human review time by up to 60% per asset.'
                 ]
             },
             {
@@ -907,16 +1152,16 @@
             {
                 id: 'step-6',
                 title: '6. AI Loop Closing',
-                actor: 'Gatekeeper AI',
+                actor: 'ArtStash QC Agent',
                 icon: '🔄',
                 bgColor: 'bg-[rgba(139,92,246,0.1)]',
                 textColor: 'text-aw-accent',
                 accentHex: '#8b5cf6',
-                description: 'This is the technological differentiator. On V2 upload, the AI hasn\'t forgotten the context. It reads both its own previous comments AND the human comments to verify resolution.',
+                description: 'On V2 upload, the Agent reads both its own previous flags AND the human comments to verify resolution, autonomously clearing the path for delivery.',
                 interactions: [
-                    'Agent checks V2 against baseline tech rules.',
-                    'Agent looks at the old version\'s comment thread, checking if ITS OWN requests and the HUMAN\'s requests were actually done in V2.',
-                    'If verified, Agent autonomously resolves all comments, sets status to <span class="text-emerald-400 font-bold ml-1 text-xs px-2 py-0.5 rounded bg-[rgba(52,211,153,0.1)] border border-[rgba(52,211,153,0.2)]">QC PASSED</span>, and clears the flag.'
+                    'Agent verifies the designer correctly addressed the previous brand violations.',
+                    'Agent looks at human review feedback to confirm narrative adjustments were implemented.',
+                    'If verified, Agent autonomously resolves thread, sets status to <span class="text-emerald-400 font-bold ml-1 text-xs px-2 py-0.5 rounded bg-[rgba(52,211,153,0.1)] border border-[rgba(52,211,153,0.2)]">QC PASSED</span>, and clears the flag.'
                 ]
             },
             {
