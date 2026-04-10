@@ -250,10 +250,10 @@
                     The Managed Service
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-4">How ArtStash QC Agent Changes the Workflow</h2>
-                <p class="text-aw-text-secondary max-w-2xl mx-auto text-base">The same production steps — but AI eliminates the manual bottlenecks.</p>
+                <p class="text-aw-text-secondary max-w-2xl mx-auto text-base">Same creative loop — AI pre-screens every submission before the PM sees it.</p>
             </div>
 
-            <!-- Legend: 2 colors only -->
+            <!-- Legend -->
             <div class="flex justify-center gap-6 mb-6 text-[11px] font-bold uppercase tracking-widest">
                 <div class="flex items-center gap-2">
                     <span class="w-3 h-3 rounded-full bg-slate-500 inline-block"></span>
@@ -279,171 +279,175 @@
                 </div>
             </div>
 
-            <!-- ── BEFORE ── -->
+            <!-- ── BEFORE (SVG Loop) ── -->
             <div id="flow-before" class="mb-3">
                 <div class="flex items-center gap-3 mb-4 pl-1">
                     <span class="text-xs font-black uppercase tracking-widest text-rose-400 border border-rose-900/50 bg-rose-950/40 px-3 py-1 rounded-full">Before</span>
-                    <span class="text-xs text-aw-text-muted">Manual process — every step is a human handoff</span>
+                    <span class="text-xs text-aw-text-muted">Manual process — every revision depends on PM bandwidth</span>
                 </div>
-                <div class="overflow-x-auto pb-2">
-                    <div class="flex items-stretch gap-1.5 min-w-max">
+                <div class="flex justify-center">
+                    <svg viewBox="0 0 960 380" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-5xl">
+                        <style>.bf{font-family:Inter,system-ui,sans-serif}</style>
+                        <defs>
+                            <marker id="bA" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0,0 10,3.5 0,7" fill="#64748b"/></marker>
+                            <marker id="bR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0,0 10,3.5 0,7" fill="#f43f5e"/></marker>
+                        </defs>
 
-                        <!-- Human step template: slate -->
-                        <div class="flex flex-col items-center w-32">
-                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
-                                <div class="text-lg">📋</div>
-                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Brief & Setup</div>
-                            </div>
-                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Account Manager</div>
-                        </div>
-                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
+                        <!-- Brief / Guidelines doc (top-left) -->
+                        <rect x="85" y="8" width="70" height="46" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                        <line x1="96" y1="20" x2="144" y2="20" stroke="#475569" stroke-width="1.5"/>
+                        <line x1="96" y1="28" x2="138" y2="28" stroke="#475569" stroke-width="1.5"/>
+                        <line x1="96" y1="36" x2="141" y2="36" stroke="#475569" stroke-width="1.5"/>
+                        <line x1="96" y1="44" x2="130" y2="44" stroke="#475569" stroke-width="1.5"/>
+                        <text x="120" y="70" text-anchor="middle" class="bf" fill="#94a3b8" font-size="9" font-weight="600">Brief / Guidelines</text>
+                        <path d="M120 74 L120 98" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#bA)"/>
 
-                        <div class="flex flex-col items-center w-32">
-                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
-                                <div class="text-lg">📤</div>
-                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Asset Upload</div>
-                            </div>
-                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Production</div>
-                        </div>
-                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
+                        <!-- DESIGNER node -->
+                        <rect x="30" y="102" width="180" height="108" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                        <text x="120" y="144" text-anchor="middle" font-size="28">🎨</text>
+                        <text x="120" y="168" text-anchor="middle" class="bf" fill="#e2e8f0" font-size="13" font-weight="700">Designer</text>
+                        <text x="120" y="186" text-anchor="middle" class="bf" fill="#94a3b8" font-size="10">Creates &amp; Revises</text>
 
-                        <div class="flex flex-col items-center w-32">
-                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
-                                <div class="text-lg">🗂️</div>
-                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Queue & Flag</div>
-                            </div>
-                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Project Manager</div>
-                        </div>
-                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
+                        <!-- Arrow: Designer → PM -->
+                        <path d="M215 156 L345 156" stroke="#64748b" stroke-width="2" marker-end="url(#bA)"/>
 
-                        <div class="flex flex-col items-center w-32">
-                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
-                                <div class="text-lg">🔍</div>
-                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Manual QC Check</div>
-                            </div>
-                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">QC Reviewer</div>
-                        </div>
-                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
+                        <!-- PM / CREATIVE DIRECTOR (stressed) -->
+                        <rect x="350" y="102" width="220" height="108" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                        <text x="460" y="144" text-anchor="middle" font-size="28">😰</text>
+                        <text x="460" y="168" text-anchor="middle" class="bf" fill="#e2e8f0" font-size="13" font-weight="700">PM / Creative Director</text>
+                        <text x="460" y="186" text-anchor="middle" class="bf" fill="#94a3b8" font-size="10">Manual QC Review</text>
 
-                        <div class="flex flex-col items-center w-32">
-                            <div class="w-full rounded-lg border border-rose-900/60 bg-red-950/60 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
-                                <div class="text-lg">🔁</div>
-                                <div class="text-[10px] font-bold text-red-400 leading-tight">Fix & Repeat<br><span class="text-[9px] text-red-600 font-normal">×3 avg revisions</span></div>
-                            </div>
-                            <div class="text-[8px] text-rose-600 mt-1.5 font-semibold uppercase tracking-wider">Everyone</div>
-                        </div>
-                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
+                        <!-- Arrow: PM → Client -->
+                        <path d="M575 156 L695 156" stroke="#64748b" stroke-width="2" marker-end="url(#bA)"/>
 
-                        <div class="flex flex-col items-center w-32">
-                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
-                                <div class="text-lg">🚀</div>
-                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Manual Delivery</div>
-                            </div>
-                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Account Manager</div>
-                        </div>
+                        <!-- CLIENT node -->
+                        <rect x="700" y="102" width="190" height="108" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                        <text x="795" y="144" text-anchor="middle" font-size="28">👥</text>
+                        <text x="795" y="168" text-anchor="middle" class="bf" fill="#e2e8f0" font-size="13" font-weight="700">Client / Stakeholders</text>
+                        <text x="795" y="186" text-anchor="middle" class="bf" fill="#94a3b8" font-size="10">Reviews &amp; Gives Feedback</text>
 
-                    </div>
-                </div>
-                <!-- Divider with stat -->
-                <div class="flex items-center gap-4 my-4">
-                    <div class="flex-1 h-px bg-gradient-to-r from-transparent via-aw-border to-transparent"></div>
-                    <div class="text-[10px] text-rose-400 font-bold bg-rose-950/40 border border-rose-900/50 px-3 py-1.5 rounded-full whitespace-nowrap">
-                        ~40% of senior staff time consumed by manual QC
-                    </div>
-                    <div class="flex-1 h-px bg-gradient-to-r from-transparent via-aw-border to-transparent"></div>
+                        <!-- FEEDBACK LOOP (red dashed curve, bottom) -->
+                        <path d="M795 215 C795 310, 120 310, 120 215" stroke="#f43f5e" stroke-width="2" stroke-dasharray="6 3" fill="none" marker-end="url(#bR)"/>
+
+                        <!-- ×3 rounds pill -->
+                        <rect x="393" y="274" width="140" height="30" rx="15" fill="#1e293b" stroke="#9f1239" stroke-width="1"/>
+                        <text x="463" y="294" text-anchor="middle" class="bf" fill="#fb7185" font-size="11" font-weight="700">🔁 ×3 avg rounds</text>
+
+                        <!-- 40 % stat line -->
+                        <text x="460" y="355" text-anchor="middle" class="bf" fill="#fb7185" font-size="11" font-weight="600">~40 % of senior staff time consumed by manual QC</text>
+                    </svg>
                 </div>
             </div>
 
-            <!-- ── AFTER ── -->
+            <!-- ── AFTER (SVG Loop + AI Checkpoints) ── -->
             <div id="flow-after" class="hidden mt-3">
                 <div class="flex items-center gap-3 mb-4 pl-1">
                     <span class="text-xs font-black uppercase tracking-widest text-aw-accent border border-aw-accent/40 bg-aw-accent/10 px-3 py-1 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.25)]">After</span>
-                    <span class="text-xs text-aw-text-muted">AI handles the high-friction steps — humans focus on creative decisions</span>
+                    <span class="text-xs text-aw-text-muted">AI pre-screens every submission — humans focus on creative decisions</span>
                 </div>
-                <div class="overflow-x-auto pb-2">
-                    <div class="flex items-stretch gap-1.5 min-w-max">
 
-                        <!-- 1: Human (unchanged) -->
-                        <div class="flex flex-col items-center w-32">
-                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
-                                <div class="text-lg">📋</div>
-                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Brief & Setup</div>
-                            </div>
-                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Account Manager</div>
-                        </div>
-                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
+                <div class="flex justify-center">
+                    <svg viewBox="0 0 960 380" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-5xl">
+                        <style>.af{font-family:Inter,system-ui,sans-serif}</style>
+                        <defs>
+                            <marker id="aA" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0,0 10,3.5 0,7" fill="#64748b"/></marker>
+                            <marker id="aP" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0,0 10,3.5 0,7" fill="#8b5cf6"/></marker>
+                            <linearGradient id="aiG" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#2d1b69"/>
+                                <stop offset="100%" stop-color="#1e1035"/>
+                            </linearGradient>
+                        </defs>
 
-                        <!-- 2: Human (unchanged) -->
-                        <div class="flex flex-col items-center w-32">
-                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
-                                <div class="text-lg">📤</div>
-                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Asset Upload</div>
-                            </div>
-                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Production</div>
-                        </div>
-                        <div class="flex items-center pb-6 text-aw-accent/60 text-sm font-black">→</div>
+                        <!-- Brief / Guidelines doc -->
+                        <rect x="48" y="8" width="64" height="42" rx="5" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                        <line x1="58" y1="18" x2="102" y2="18" stroke="#475569" stroke-width="1.5"/>
+                        <line x1="58" y1="25" x2="96" y2="25" stroke="#475569" stroke-width="1.5"/>
+                        <line x1="58" y1="32" x2="99" y2="32" stroke="#475569" stroke-width="1.5"/>
+                        <line x1="58" y1="39" x2="88" y2="39" stroke="#475569" stroke-width="1.5"/>
+                        <text x="80" y="64" text-anchor="middle" class="af" fill="#94a3b8" font-size="8" font-weight="600">Brief / Guidelines</text>
+                        <path d="M80 68 L80 98" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#aA)"/>
 
-                        <!-- 3: AI -->
-                        <div class="flex flex-col items-center w-32 relative">
-                            <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap">
-                                <span class="bg-aw-accent text-white text-[8px] font-black px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.6)] uppercase tracking-wider">🤖 AI</span>
-                            </div>
-                            <div class="w-full rounded-lg border-2 border-aw-accent bg-gradient-to-b from-[#2d1b69]/80 to-[#1e1035]/90 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1 shadow-[0_0_18px_rgba(139,92,246,0.3)]">
-                                <div class="text-lg">⚡</div>
-                                <div class="text-[10px] font-bold text-aw-accent-alt leading-tight">Instant QC Scan</div>
-                            </div>
-                            <div class="text-[8px] text-aw-accent mt-1.5 font-semibold uppercase tracking-wider">QC Agent</div>
-                        </div>
-                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
+                        <!-- DESIGNER node -->
+                        <rect x="10" y="102" width="140" height="96" rx="12" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                        <text x="80" y="140" text-anchor="middle" font-size="24">🎨</text>
+                        <text x="80" y="160" text-anchor="middle" class="af" fill="#e2e8f0" font-size="12" font-weight="700">Designer</text>
+                        <text x="80" y="176" text-anchor="middle" class="af" fill="#94a3b8" font-size="9">Creates &amp; Revises</text>
 
-                        <!-- 4: Human (creative review — preserved) -->
-                        <div class="flex flex-col items-center w-32">
-                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
-                                <div class="text-lg">🎬</div>
-                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Creative Review</div>
-                            </div>
-                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Creative Director</div>
-                        </div>
-                        <div class="flex items-center pb-6 text-aw-accent/60 text-sm font-black">→</div>
+                        <!-- Arrow: Designer → AI Zone 1 -->
+                        <path d="M155 150 L188 150" stroke="#8b5cf6" stroke-width="2" marker-end="url(#aP)"/>
 
-                        <!-- 5: AI -->
-                        <div class="flex flex-col items-center w-32 relative">
-                            <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap">
-                                <span class="bg-aw-accent text-white text-[8px] font-black px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.6)] uppercase tracking-wider">🤖 AI</span>
-                            </div>
-                            <div class="w-full rounded-lg border-2 border-aw-accent bg-gradient-to-b from-[#2d1b69]/80 to-[#1e1035]/90 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1 shadow-[0_0_18px_rgba(139,92,246,0.3)]">
-                                <div class="text-lg">✅</div>
-                                <div class="text-[10px] font-bold text-aw-accent-alt leading-tight">Auto Re-Verify</div>
-                            </div>
-                            <div class="text-[8px] text-aw-accent mt-1.5 font-semibold uppercase tracking-wider">QC Agent</div>
-                        </div>
-                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
+                        <!-- ── AI ZONE 1 ── Ensures Feedback Is Implemented -->
+                        <rect x="192" y="58" width="170" height="210" rx="16" fill="#8b5cf6" fill-opacity="0.05" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="1.5"/>
+                        <text x="277" y="78" text-anchor="middle" class="af" fill="#a78bfa" font-size="9" font-weight="700" letter-spacing="0.5">ENSURES FEEDBACK</text>
+                        <text x="277" y="90" text-anchor="middle" class="af" fill="#a78bfa" font-size="9" font-weight="700" letter-spacing="0.5">IS IMPLEMENTED</text>
+                        <rect x="212" y="100" width="130" height="76" rx="10" fill="url(#aiG)" stroke="#8b5cf6" stroke-width="2"/>
+                        <text x="277" y="132" text-anchor="middle" font-size="22">🤖</text>
+                        <text x="277" y="150" text-anchor="middle" class="af" fill="#c4b5fd" font-size="10" font-weight="700">AI QC Agent</text>
+                        <text x="277" y="166" text-anchor="middle" class="af" fill="#a78bfa" font-size="9">Guideline Check</text>
+                        <rect x="217" y="188" width="120" height="28" rx="6" fill="#8b5cf6" fill-opacity="0.08" stroke="#8b5cf6" stroke-opacity="0.2" stroke-width="1"/>
+                        <text x="277" y="206" text-anchor="middle" class="af" fill="#a78bfa" font-size="8" font-weight="600">✓ Brand  ✓ Specs  ✓ FB</text>
+                        <rect x="222" y="224" width="110" height="32" rx="6" fill="#8b5cf6" fill-opacity="0.08" stroke="#8b5cf6" stroke-opacity="0.2" stroke-width="1"/>
+                        <text x="277" y="244" text-anchor="middle" class="af" fill="#a78bfa" font-size="8" font-weight="600">📋 Pre-Screened Report</text>
 
-                        <!-- 6: Client Delivery (Human) -->
-                        <div class="flex flex-col items-center w-32">
-                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
-                                <div class="text-lg">🚀</div>
-                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Client Delivery</div>
-                            </div>
-                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Account Manager</div>
-                        </div>
+                        <!-- Arrow: AI Zone 1 → PM -->
+                        <path d="M367 150 L400 150" stroke="#8b5cf6" stroke-width="2" marker-end="url(#aP)"/>
 
-                    </div>
+                        <!-- PM / CD (relaxed) -->
+                        <rect x="404" y="102" width="150" height="96" rx="12" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                        <text x="479" y="140" text-anchor="middle" font-size="24">😊</text>
+                        <text x="479" y="160" text-anchor="middle" class="af" fill="#e2e8f0" font-size="12" font-weight="700">PM / CD</text>
+                        <text x="479" y="176" text-anchor="middle" class="af" fill="#94a3b8" font-size="9">Reviews Pre-Screened</text>
+
+                        <!-- Arrow: PM → AI Zone 2 -->
+                        <path d="M559 150 L592 150" stroke="#8b5cf6" stroke-width="2" marker-end="url(#aP)"/>
+
+                        <!-- ── AI ZONE 2 ── Consolidates Feedback -->
+                        <rect x="596" y="58" width="170" height="210" rx="16" fill="#8b5cf6" fill-opacity="0.05" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="1.5"/>
+                        <text x="681" y="78" text-anchor="middle" class="af" fill="#a78bfa" font-size="9" font-weight="700" letter-spacing="0.5">CONSOLIDATES</text>
+                        <text x="681" y="90" text-anchor="middle" class="af" fill="#a78bfa" font-size="9" font-weight="700" letter-spacing="0.5">FEEDBACK</text>
+                        <rect x="616" y="100" width="130" height="76" rx="10" fill="url(#aiG)" stroke="#8b5cf6" stroke-width="2"/>
+                        <text x="681" y="132" text-anchor="middle" font-size="22">🤖</text>
+                        <text x="681" y="150" text-anchor="middle" class="af" fill="#c4b5fd" font-size="10" font-weight="700">AI QC Agent</text>
+                        <text x="681" y="166" text-anchor="middle" class="af" fill="#a78bfa" font-size="9">Feedback Tracker</text>
+                        <rect x="621" y="188" width="120" height="28" rx="6" fill="#8b5cf6" fill-opacity="0.08" stroke="#8b5cf6" stroke-opacity="0.2" stroke-width="1"/>
+                        <text x="681" y="206" text-anchor="middle" class="af" fill="#a78bfa" font-size="8" font-weight="600">📋 Organized &amp; Verified</text>
+                        <rect x="621" y="224" width="120" height="32" rx="6" fill="#8b5cf6" fill-opacity="0.08" stroke="#8b5cf6" stroke-opacity="0.2" stroke-width="1"/>
+                        <text x="681" y="244" text-anchor="middle" class="af" fill="#a78bfa" font-size="8" font-weight="600">🔄 Continuous Reinforcement</text>
+
+                        <!-- Arrow: AI Zone 2 → Client -->
+                        <path d="M771 150 L804 150" stroke="#64748b" stroke-width="2" marker-end="url(#aA)"/>
+
+                        <!-- CLIENT node -->
+                        <rect x="808" y="102" width="140" height="96" rx="12" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+                        <text x="878" y="140" text-anchor="middle" font-size="24">👥</text>
+                        <text x="878" y="160" text-anchor="middle" class="af" fill="#e2e8f0" font-size="12" font-weight="700">Client</text>
+                        <text x="878" y="176" text-anchor="middle" class="af" fill="#94a3b8" font-size="9">Reviews &amp; Feedback</text>
+
+                        <!-- FEEDBACK LOOP (gray, fewer rounds) -->
+                        <path d="M878 203 C878 310, 80 310, 80 203" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 3" fill="none" marker-end="url(#aA)"/>
+
+                        <!-- Fewer rounds pill -->
+                        <rect x="400" y="274" width="160" height="30" rx="15" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+                        <text x="480" y="294" text-anchor="middle" class="af" fill="#a78bfa" font-size="11" font-weight="700">✨ Fewer Rounds Needed</text>
+
+                        <!-- Key insight label -->
+                        <text x="480" y="355" text-anchor="middle" class="af" fill="#a78bfa" font-size="11" font-weight="600">AI acts as a multiplier of the PM — pre-checking every version</text>
+                    </svg>
                 </div>
 
                 <!-- Savings stats -->
                 <div class="mt-6 grid grid-cols-3 gap-4 max-w-lg mx-auto">
                     <div class="text-center bg-aw-bg-sidebar border border-aw-accent/30 rounded-xl p-3 shadow-[0_0_15px_rgba(139,92,246,0.08)]">
-                        <div class="text-2xl font-black text-aw-accent">2/6</div>
-                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Steps AI-Automated</div>
+                        <div class="text-2xl font-black text-aw-accent">2</div>
+                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">AI Checkpoints in Loop</div>
                     </div>
                     <div class="text-center bg-aw-bg-sidebar border border-emerald-500/30 rounded-xl p-3">
-                        <div class="text-2xl font-black text-emerald-400">~60%</div>
-                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Human Time Saved</div>
+                        <div class="text-2xl font-black text-emerald-400">100%</div>
+                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Pre-Screened Before PM</div>
                     </div>
                     <div class="text-center bg-aw-bg-sidebar border border-aw-border rounded-xl p-3">
-                        <div class="text-2xl font-black text-white">0</div>
-                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Manual Status Updates</div>
+                        <div class="text-2xl font-black text-white">~60%</div>
+                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Fewer Revision Rounds</div>
                     </div>
                 </div>
             </div>

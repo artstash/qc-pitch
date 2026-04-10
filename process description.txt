@@ -1,0 +1,33 @@
+Okay, okay, so let's take it from this point of view.
+
+What are we really trying to say by this?
+
+In most processes, there will typically be a designer the person actually doing the graphical design some kind of creative director product manager And finally the client Now the design is gonna get some kind of brief.
+
+It's gonna be some brand guidelines, whatever.
+
+They're gonna present create version one The PM is gonna do internal review or the creator director.
+
+They're gonna let the designer know what to approve according to the brand guidelines And they're understanding over the client what light to see This goes back to the designer the talents are revisions There's a revision loop going on here at some point the PM is gonna say this is good enough to go to the client Together with the account manager, they're gonna take it to the client.
+
+The client is gonna give some feedback The PM is gonna let that feedback go back to the designer.
+
+The sign is gonna implement the feedback There's gonna be another set of revision rounds with between the PM and the designer iterating until the PM or creative director feels that now we've reached a sufficient level This goes back to the client etc at each point.
+
+There is a need for Reinforcement right as The process continues.
+
+There's going to be feedback from the client there's going to be the PM's interpretation of that feedback There's going to be the design and revision and each time we have to keep checking Has the original brand guidelines been broken?
+
+Does the new revision develop to the expectations and the changes?
+
+So, effectively, we can see this kind of five-point flow chart as sort of a repeating loop where creatives flow from the designer, from initial version and upwards, you know, goes through a PM check, a quality check with the PM, then submits to the client, goes through, or basically, you know, goes to the client, receives feedback, then feedback is interpreted by the PM back to the designer.
+
+The designer submits a new version, which is Q8 by the PM, and so you can argue that in the original version of this flow, it's maybe just PM manual QC check, you know, or designer, then manual QC check by PM, then submits to client, feedback comes back, PM interprets feedback back to the designer, the designer submits a new version, etc.
+
+And then the main difference between this and the other is that now we're inserting AI in the middle.
+
+So, every time a designer submits the first version or a new version, it's QC checked by the AI before it goes to the PM, and in every subsequent round, as feedback is given from PM or from client, the AI goes back and rechecks for that feedback, keeps reinforcing it effectively.
+
+So we must understand, through all of this, that effectively the AI's purpose is to act as a multiplier of the PM.
+
+The AI acts, first of all, to help the PM enforce the brand guidelines on the first iterations of creatives, then afterwards the AI works to enforce the PM's own revisions or comments on those creatives, and then finally the AI works to make sure that the client's feedback with the PM as a proxy are also implemented, but the AI is effectively working for the PM all the time to control the designer, to amplify the voice of the project manager, to amplify the guidelines, the project manager, keep in mind is always working under the client's guidelines, but it is the project manager that enforces the brand guidelines, that enforces the client feedback, and so the AI is there to check that every time a new creatives comes in, whether the first time or second, third or fourth version, the AI is constantly pre-checking and pre-screening everything before it goes to the PM, and that is the true strength of the system.
