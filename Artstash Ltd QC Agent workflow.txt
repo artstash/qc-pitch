@@ -1,0 +1,102 @@
+artstash.io
+QC Agent as a managed process, Workflow
+
+
+Some of our clients have gdrives over 10 years old..its a real mess.
+
+Step 1:
+➛designer sends to PM
+
+Step 2
+PM to AM and first cut feedback
+
+Step 3:
+Feedback to PM to Designer
+
+Step 4
+AM to client
+
+Step 5
+Client Feedback
+
+Internal
+External
+Current high level process
+**Next slide is desired process via Artstash
+Typically, 3 rounds of revisions depending on complexity.
+Which in effect means, 3 x AM plus 3x client revisions, on main idea, size variations, plus length variations.  
+
+1 main x 3 sizes x 2 lengths x 3 revisions x 2 people = 36 reviews per concept
+If variations are added or localisations this can number in the 100s of cumulative revisions per concept.  Some studios are doing 100s of concepts per month/week
+
+
+
+Some of our clients have gdrives over 10 years old..its a real mess.
+
+artstash.io
+Step 1:
+➛New client setup (brand guidelines, technical specs, tone guidance)
+➛Update guidance if applicable
+
+Step 2
+Production team deliver V1 of asset ( 1 asset or multiple) and upload into Artstash with correct naming convention
+
+Step 3:
+Asset(s) then selected and pushed to QC agent
+
+
+
+Step 4
+Status(s) updated to QC check by PM
+
+Step 5
+QC agent checks asset(s) and confirms whether asset(s) has passed or failed 
+Asset thumbnail marked as passed/failed
+
+If asset(s) has failed we need a simple report of what has failed
+➛ Wrong font used in x seconds
+➛ Blood visible in x seconds
+➛ Missing App Store buttons on end card
+➛ Logo placement wrong on end card
+➛ Spelling mistake at x seconds
+Step 6:
+Production and client services team gets notified of files that have failed via slack so they can fix 
+
+Step 7:
+Passed assets have links shared over to the client
+
+Step 8:
+Status updated in Artstash to ‘For review’
+
+Failed assets get fixed and sent back through QC Agent
+
+Managed by project  manager
+Managed by Account Manager
+Managed by Project manager
+Overseen by Artstash Support team (Rashi)
+Process repeated until all versions/assets are approved
+
+
+Some of our clients have gdrives over 10 years old..its a real mess.
+
+Reporting and process
+
+Two styles of reporting depending on the frequency of QC agent usage. For internal purposes Artstash C will be sending assets to QC as and when work comes in
+
+For external client usage, its likely vendors will complete all videos and then we run batches of creative through the QC agent in one go.
+
+Both workflows need to be considered to ensure process is efficient and easy to use
+
+End of week QC agent status report per client (Artstash Process + clients)
+Total number of assets passed through QC agent this week
+% of assets that passed QC
+% of assets that failed QC
+List of reasons for failing QC check and each of those need to link out to the asset that failed
+End of batch upload report for batch QC process (agency and 3rd party usage)
+Total number of assets passed through QC agent in batch upload
+% of assets that passed QC
+% of assets that failed QC
+List of reasons for failing QC check and each of those need to link out to the asset that failed
+
+
+Some of our clients have gdrives over 10 years old..its a real mess.

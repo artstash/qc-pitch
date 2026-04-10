@@ -250,31 +250,18 @@
                     The Managed Service
                 </div>
                 <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-4">How ArtStash QC Agent Changes the Workflow</h2>
-                <p class="text-aw-text-secondary max-w-2xl mx-auto text-base">The same process your team runs today — but with AI injected at every high-friction point, compressing the revision loop.</p>
+                <p class="text-aw-text-secondary max-w-2xl mx-auto text-base">The same production steps — but AI eliminates the manual bottlenecks.</p>
             </div>
 
-            <!-- Color Legend -->
-            <div class="flex flex-wrap justify-center gap-3 mb-8 text-[10px] font-bold uppercase tracking-wider">
-                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-[#2a2a2a] px-3 py-1.5 rounded-full">
-                    <span class="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"></span><span class="text-aw-text-muted">Account Manager</span>
+            <!-- Legend: 2 colors only -->
+            <div class="flex justify-center gap-6 mb-6 text-[11px] font-bold uppercase tracking-widest">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-slate-500 inline-block"></span>
+                    <span class="text-aw-text-muted">Human task</span>
                 </div>
-                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-[#2a2a2a] px-3 py-1.5 rounded-full">
-                    <span class="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block"></span><span class="text-aw-text-muted">Project Manager</span>
-                </div>
-                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-[#2a2a2a] px-3 py-1.5 rounded-full">
-                    <span class="w-2.5 h-2.5 rounded-full bg-orange-500 inline-block"></span><span class="text-aw-text-muted">Production Team</span>
-                </div>
-                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-[#2a2a2a] px-3 py-1.5 rounded-full">
-                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span><span class="text-aw-text-muted">QC Reviewer</span>
-                </div>
-                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-aw-accent/40 px-3 py-1.5 rounded-full shadow-[0_0_8px_rgba(139,92,246,0.3)]">
-                    <span class="w-2.5 h-2.5 rounded-full bg-aw-accent inline-block shadow-[0_0_5px_rgba(139,92,246,0.8)]"></span><span class="text-aw-accent">🤖 QC Agent (AI)</span>
-                </div>
-                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-[#2a2a2a] px-3 py-1.5 rounded-full">
-                    <span class="w-2.5 h-2.5 rounded-full bg-teal-500 inline-block"></span><span class="text-aw-text-muted">Creative Director</span>
-                </div>
-                <div class="flex items-center gap-1.5 bg-aw-bg-sidebar border border-[#2a2a2a] px-3 py-1.5 rounded-full">
-                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span><span class="text-aw-text-muted">Client Delivery</span>
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-aw-accent inline-block shadow-[0_0_8px_rgba(139,92,246,0.8)]"></span>
+                    <span class="text-aw-accent">AI / QC Agent</span>
                 </div>
             </div>
 
@@ -292,160 +279,153 @@
                 </div>
             </div>
 
-            <!-- ======================== BEFORE FLOW ======================== -->
-            <div id="flow-before">
-                <div class="overflow-x-auto pb-4">
-                    <div class="flex items-start justify-start md:justify-center gap-0 min-w-max mx-auto px-4">
+            <!-- ── BEFORE ── -->
+            <div id="flow-before" class="mb-3">
+                <div class="flex items-center gap-3 mb-4 pl-1">
+                    <span class="text-xs font-black uppercase tracking-widest text-rose-400 border border-rose-900/50 bg-rose-950/40 px-3 py-1 rounded-full">Before</span>
+                    <span class="text-xs text-aw-text-muted">Manual process — every step is a human handoff</span>
+                </div>
+                <div class="overflow-x-auto pb-2">
+                    <div class="flex items-stretch gap-1.5 min-w-max">
 
-                        <!-- Step card macro: color, icon, label, actor, desc -->
-                        <!-- 1: Account Manager -->
-                        <div class="flex flex-col items-center w-36">
-                            <div class="w-full rounded-xl border-2 border-blue-700 bg-gradient-to-b from-blue-900/60 to-blue-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
-                                <div class="text-2xl">📋</div>
-                                <div class="text-[10px] font-bold text-blue-300 uppercase tracking-widest">Brief & Setup</div>
-                                <div class="text-[10px] text-blue-200/70 leading-tight">Brand guidelines & tech specs</div>
+                        <!-- Human step template: slate -->
+                        <div class="flex flex-col items-center w-32">
+                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
+                                <div class="text-lg">📋</div>
+                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Brief & Setup</div>
                             </div>
-                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Account Manager</span></div>
+                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Account Manager</div>
                         </div>
-                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
 
-                        <!-- 2: Production -->
-                        <div class="flex flex-col items-center w-36">
-                            <div class="w-full rounded-xl border-2 border-orange-700 bg-gradient-to-b from-orange-900/60 to-orange-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
-                                <div class="text-2xl">📤</div>
-                                <div class="text-[10px] font-bold text-orange-300 uppercase tracking-widest">V1 Upload</div>
-                                <div class="text-[10px] text-orange-200/70 leading-tight">Assets uploaded to Artstash</div>
+                        <div class="flex flex-col items-center w-32">
+                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
+                                <div class="text-lg">📤</div>
+                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Asset Upload</div>
                             </div>
-                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Production Team</span></div>
+                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Production</div>
                         </div>
-                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
 
-                        <!-- 3: PM -->
-                        <div class="flex flex-col items-center w-36">
-                            <div class="w-full rounded-xl border-2 border-indigo-700 bg-gradient-to-b from-indigo-900/60 to-indigo-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
-                                <div class="text-2xl">🗂️</div>
-                                <div class="text-[10px] font-bold text-indigo-300 uppercase tracking-widest">Queue & Flag</div>
-                                <div class="text-[10px] text-indigo-200/70 leading-tight">PM pushes assets, sets status manually</div>
+                        <div class="flex flex-col items-center w-32">
+                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
+                                <div class="text-lg">🗂️</div>
+                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Queue & Flag</div>
                             </div>
-                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Project Manager</span></div>
+                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Project Manager</div>
                         </div>
-                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
 
-                        <!-- 4: Human QC -->
-                        <div class="flex flex-col items-center w-36">
-                            <div class="w-full rounded-xl border-2 border-rose-700 bg-gradient-to-b from-rose-900/60 to-rose-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
-                                <div class="text-2xl">🔍</div>
-                                <div class="text-[10px] font-bold text-rose-300 uppercase tracking-widest">Manual QC Check</div>
-                                <div class="text-[10px] text-rose-200/70 leading-tight">Human reviews every asset, writes report</div>
+                        <div class="flex flex-col items-center w-32">
+                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
+                                <div class="text-lg">🔍</div>
+                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Manual QC Check</div>
                             </div>
-                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span><span class="text-[9px] text-rose-400 font-semibold uppercase tracking-wide">QC Reviewer</span></div>
+                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">QC Reviewer</div>
                         </div>
-                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
 
-                        <!-- 5: Fix Loop -->
-                        <div class="flex flex-col items-center w-36">
-                            <div class="w-full rounded-xl border-2 border-rose-900 bg-gradient-to-b from-red-900/70 to-red-950/90 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
-                                <div class="text-2xl">🔁</div>
-                                <div class="text-[10px] font-bold text-red-300 uppercase tracking-widest">Fix & Repeat</div>
-                                <div class="text-[10px] text-red-200/70 leading-tight">Fails loop back. ×3 revisions avg.</div>
+                        <div class="flex flex-col items-center w-32">
+                            <div class="w-full rounded-lg border border-rose-900/60 bg-red-950/60 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
+                                <div class="text-lg">🔁</div>
+                                <div class="text-[10px] font-bold text-red-400 leading-tight">Fix & Repeat<br><span class="text-[9px] text-red-600 font-normal">×3 avg revisions</span></div>
                             </div>
-                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-rose-700"></span><span class="text-[9px] text-rose-400 font-semibold uppercase tracking-wide">Everyone</span></div>
+                            <div class="text-[8px] text-rose-600 mt-1.5 font-semibold uppercase tracking-wider">Everyone</div>
                         </div>
-                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
 
-                        <!-- 6: Client Delivery -->
-                        <div class="flex flex-col items-center w-36">
-                            <div class="w-full rounded-xl border-2 border-blue-800 bg-gradient-to-b from-blue-900/60 to-blue-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
-                                <div class="text-2xl">🚀</div>
-                                <div class="text-[10px] font-bold text-blue-300 uppercase tracking-widest">Client Delivery</div>
-                                <div class="text-[10px] text-blue-200/70 leading-tight">AM sends links, updates status manually</div>
+                        <div class="flex flex-col items-center w-32">
+                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
+                                <div class="text-lg">🚀</div>
+                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Manual Delivery</div>
                             </div>
-                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Account Manager</span></div>
+                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Account Manager</div>
                         </div>
+
                     </div>
                 </div>
-                <div class="mt-6 text-center text-sm text-aw-text-muted bg-aw-bg-sidebar border border-rose-900/40 rounded-xl p-3 max-w-xl mx-auto">
-                    💸 ~<strong class="text-white">40%</strong> of senior staff time lost to manual QC tasks across every revision cycle. <strong class="text-rose-400">36+ reviews per single concept.</strong>
+                <!-- Divider with stat -->
+                <div class="flex items-center gap-4 my-4">
+                    <div class="flex-1 h-px bg-gradient-to-r from-transparent via-aw-border to-transparent"></div>
+                    <div class="text-[10px] text-rose-400 font-bold bg-rose-950/40 border border-rose-900/50 px-3 py-1.5 rounded-full whitespace-nowrap">
+                        ~40% of senior staff time consumed by manual QC
+                    </div>
+                    <div class="flex-1 h-px bg-gradient-to-r from-transparent via-aw-border to-transparent"></div>
                 </div>
             </div>
 
-            <!-- ======================== AFTER FLOW ======================== -->
-            <div id="flow-after" class="hidden">
-                <div class="overflow-x-auto pb-4">
-                    <div class="flex items-start justify-start md:justify-center gap-0 min-w-max mx-auto px-4">
+            <!-- ── AFTER ── -->
+            <div id="flow-after" class="hidden mt-3">
+                <div class="flex items-center gap-3 mb-4 pl-1">
+                    <span class="text-xs font-black uppercase tracking-widest text-aw-accent border border-aw-accent/40 bg-aw-accent/10 px-3 py-1 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.25)]">After</span>
+                    <span class="text-xs text-aw-text-muted">AI handles the high-friction steps — humans focus on creative decisions</span>
+                </div>
+                <div class="overflow-x-auto pb-2">
+                    <div class="flex items-stretch gap-1.5 min-w-max">
 
-                        <!-- 1: AM (unchanged) -->
-                        <div class="flex flex-col items-center w-36">
-                            <div class="w-full rounded-xl border-2 border-blue-700 bg-gradient-to-b from-blue-900/60 to-blue-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
-                                <div class="text-2xl">📋</div>
-                                <div class="text-[10px] font-bold text-blue-300 uppercase tracking-widest">Brief & Setup</div>
-                                <div class="text-[10px] text-blue-200/70 leading-tight">Rules loaded into QC Agent once</div>
+                        <!-- 1: Human (unchanged) -->
+                        <div class="flex flex-col items-center w-32">
+                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
+                                <div class="text-lg">📋</div>
+                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Brief & Setup</div>
                             </div>
-                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Account Manager</span></div>
+                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Account Manager</div>
                         </div>
-                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
 
-                        <!-- 2: Production (unchanged) -->
-                        <div class="flex flex-col items-center w-36">
-                            <div class="w-full rounded-xl border-2 border-orange-700 bg-gradient-to-b from-orange-900/60 to-orange-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
-                                <div class="text-2xl">📤</div>
-                                <div class="text-[10px] font-bold text-orange-300 uppercase tracking-widest">V1 Upload</div>
-                                <div class="text-[10px] text-orange-200/70 leading-tight">Assets uploaded to Artstash</div>
+                        <!-- 2: Human (unchanged) -->
+                        <div class="flex flex-col items-center w-32">
+                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
+                                <div class="text-lg">📤</div>
+                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Asset Upload</div>
                             </div>
-                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Production Team</span></div>
+                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Production</div>
                         </div>
-                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+                        <div class="flex items-center pb-6 text-aw-accent/60 text-sm font-black">→</div>
 
-                        <!-- 3: AI AUTO QC -->
-                        <div class="flex flex-col items-center w-36 relative">
-                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap">
-                                <span class="bg-aw-accent text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.6)]">🤖 AI</span>
+                        <!-- 3: AI -->
+                        <div class="flex flex-col items-center w-32 relative">
+                            <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap">
+                                <span class="bg-aw-accent text-white text-[8px] font-black px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.6)] uppercase tracking-wider">🤖 AI</span>
                             </div>
-                            <div class="w-full rounded-xl border-2 border-aw-accent bg-gradient-to-b from-[#2d1b69] to-[#3b0764] p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-[0_0_20px_rgba(139,92,246,0.35)]">
-                                <div class="text-2xl">⚡</div>
-                                <div class="text-[10px] font-bold text-aw-accent-alt uppercase tracking-widest">Instant QC Scan</div>
-                                <div class="text-[10px] text-purple-200/70 leading-tight">Agent flags violations, @-mentions designer</div>
+                            <div class="w-full rounded-lg border-2 border-aw-accent bg-gradient-to-b from-[#2d1b69]/80 to-[#1e1035]/90 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1 shadow-[0_0_18px_rgba(139,92,246,0.3)]">
+                                <div class="text-lg">⚡</div>
+                                <div class="text-[10px] font-bold text-aw-accent-alt leading-tight">Instant QC Scan</div>
                             </div>
-                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-aw-accent shadow-[0_0_5px_rgba(139,92,246,0.8)]"></span><span class="text-[9px] text-aw-accent font-semibold uppercase tracking-wide">QC Agent</span></div>
+                            <div class="text-[8px] text-aw-accent mt-1.5 font-semibold uppercase tracking-wider">QC Agent</div>
                         </div>
-                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
 
-                        <!-- 4: Creative Director (human value) -->
-                        <div class="flex flex-col items-center w-36">
-                            <div class="w-full rounded-xl border-2 border-teal-700 bg-gradient-to-b from-teal-900/60 to-teal-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-md">
-                                <div class="text-2xl">🎬</div>
-                                <div class="text-[10px] font-bold text-teal-300 uppercase tracking-widest">Creative Review</div>
-                                <div class="text-[10px] text-teal-200/70 leading-tight">Human reviews pacing, story & emotion only</div>
+                        <!-- 4: Human (creative review — preserved) -->
+                        <div class="flex flex-col items-center w-32">
+                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
+                                <div class="text-lg">🎬</div>
+                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Creative Review</div>
                             </div>
-                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span><span class="text-[9px] text-aw-text-muted font-semibold uppercase tracking-wide">Creative Director</span></div>
+                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Creative Director</div>
                         </div>
-                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+                        <div class="flex items-center pb-6 text-aw-accent/60 text-sm font-black">→</div>
 
-                        <!-- 5: AI Auto Re-verify -->
-                        <div class="flex flex-col items-center w-36 relative">
-                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap">
-                                <span class="bg-aw-accent text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.6)]">🤖 AI</span>
+                        <!-- 5: AI -->
+                        <div class="flex flex-col items-center w-32 relative">
+                            <div class="absolute -top-2.5 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap">
+                                <span class="bg-aw-accent text-white text-[8px] font-black px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.6)] uppercase tracking-wider">🤖 AI</span>
                             </div>
-                            <div class="w-full rounded-xl border-2 border-aw-accent bg-gradient-to-b from-[#2d1b69] to-[#3b0764] p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-[0_0_20px_rgba(139,92,246,0.35)]">
-                                <div class="text-2xl">✅</div>
-                                <div class="text-[10px] font-bold text-aw-accent-alt uppercase tracking-widest">Auto Re-Verify</div>
-                                <div class="text-[10px] text-purple-200/70 leading-tight">Checks V2 against all historical comments</div>
+                            <div class="w-full rounded-lg border-2 border-aw-accent bg-gradient-to-b from-[#2d1b69]/80 to-[#1e1035]/90 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1 shadow-[0_0_18px_rgba(139,92,246,0.3)]">
+                                <div class="text-lg">✅</div>
+                                <div class="text-[10px] font-bold text-aw-accent-alt leading-tight">Auto Re-Verify</div>
                             </div>
-                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-aw-accent shadow-[0_0_5px_rgba(139,92,246,0.8)]"></span><span class="text-[9px] text-aw-accent font-semibold uppercase tracking-wide">QC Agent</span></div>
+                            <div class="text-[8px] text-aw-accent mt-1.5 font-semibold uppercase tracking-wider">QC Agent</div>
                         </div>
-                        <div class="flex items-center h-32 px-1 text-aw-text-muted/40 text-lg font-black">→</div>
+                        <div class="flex items-center pb-6 text-slate-700 text-sm font-black">→</div>
 
-                        <!-- 6: Auto Delivery -->
-                        <div class="flex flex-col items-center w-36 relative">
-                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-10 whitespace-nowrap">
-                                <span class="bg-aw-accent text-white text-[9px] font-bold px-2 py-0.5 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.6)]">🤖 AI</span>
+                        <!-- 6: Client Delivery (Human) -->
+                        <div class="flex flex-col items-center w-32">
+                            <div class="w-full rounded-lg border border-slate-700 bg-slate-900/70 px-3 py-4 text-center h-24 flex flex-col justify-center gap-1">
+                                <div class="text-lg">🚀</div>
+                                <div class="text-[10px] font-bold text-slate-300 leading-tight">Client Delivery</div>
                             </div>
-                            <div class="w-full rounded-xl border-2 border-emerald-700 bg-gradient-to-b from-emerald-900/60 to-emerald-950/80 p-4 text-center h-32 flex flex-col justify-center gap-1 shadow-[0_0_20px_rgba(16,185,129,0.2)]">
-                                <div class="text-2xl">🚀</div>
-                                <div class="text-[10px] font-bold text-emerald-300 uppercase tracking-widest">Auto Delivery</div>
-                                <div class="text-[10px] text-emerald-200/70 leading-tight">100% brand-verified "For Review" portal generated</div>
-                            </div>
-                            <div class="flex items-center gap-1 mt-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span><span class="text-[9px] text-emerald-400 font-semibold uppercase tracking-wide">Client ✨</span></div>
+                            <div class="text-[8px] text-slate-500 mt-1.5 font-semibold uppercase tracking-wider">Account Manager</div>
                         </div>
 
                     </div>
@@ -453,8 +433,8 @@
 
                 <!-- Savings stats -->
                 <div class="mt-6 grid grid-cols-3 gap-4 max-w-lg mx-auto">
-                    <div class="text-center bg-aw-bg-sidebar border border-aw-accent/30 rounded-xl p-3">
-                        <div class="text-2xl font-black text-aw-accent">3/6</div>
+                    <div class="text-center bg-aw-bg-sidebar border border-aw-accent/30 rounded-xl p-3 shadow-[0_0_15px_rgba(139,92,246,0.08)]">
+                        <div class="text-2xl font-black text-aw-accent">2/6</div>
                         <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Steps AI-Automated</div>
                     </div>
                     <div class="text-center bg-aw-bg-sidebar border border-emerald-500/30 rounded-xl p-3">
@@ -488,10 +468,6 @@
                 }
             </script>
         </section>
-
-    </main>
-
-
 
     </main>
 
