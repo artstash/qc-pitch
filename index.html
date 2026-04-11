@@ -286,21 +286,12 @@
                     <span class="text-xs text-aw-text-muted">Manual process — every revision depends on PM bandwidth</span>
                 </div>
                 <div class="flex justify-center">
-                    <svg viewBox="0 0 960 380" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-5xl">
+                    <svg viewBox="0 -10 960 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-5xl">
                         <style>.bf{font-family:Inter,system-ui,sans-serif}</style>
                         <defs>
                             <marker id="bA" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0,0 10,3.5 0,7" fill="#64748b"/></marker>
                             <marker id="bR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0,0 10,3.5 0,7" fill="#f43f5e"/></marker>
                         </defs>
-
-                        <!-- Brief / Guidelines doc (top-left) -->
-                        <rect x="85" y="8" width="70" height="46" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
-                        <line x1="96" y1="20" x2="144" y2="20" stroke="#475569" stroke-width="1.5"/>
-                        <line x1="96" y1="28" x2="138" y2="28" stroke="#475569" stroke-width="1.5"/>
-                        <line x1="96" y1="36" x2="141" y2="36" stroke="#475569" stroke-width="1.5"/>
-                        <line x1="96" y1="44" x2="130" y2="44" stroke="#475569" stroke-width="1.5"/>
-                        <text x="120" y="70" text-anchor="middle" class="bf" fill="#94a3b8" font-size="9" font-weight="600">Brief / Guidelines</text>
-                        <path d="M120 74 L120 98" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#bA)"/>
 
                         <!-- DESIGNER node -->
                         <rect x="30" y="102" width="180" height="108" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
@@ -326,12 +317,17 @@
                         <text x="795" y="168" text-anchor="middle" class="bf" fill="#e2e8f0" font-size="13" font-weight="700">Client / Stakeholders</text>
                         <text x="795" y="186" text-anchor="middle" class="bf" fill="#94a3b8" font-size="10">Reviews &amp; Gives Feedback</text>
 
-                        <!-- FEEDBACK LOOP (red dashed curve, bottom) -->
-                        <path d="M795 215 C795 310, 120 310, 120 215" stroke="#f43f5e" stroke-width="2" stroke-dasharray="6 3" fill="none" marker-end="url(#bR)"/>
+                        <!-- FEEDBACK: Client → PM (below boxes, red dashed) -->
+                        <path d="M795 215 C795 290, 460 290, 460 215" stroke="#f43f5e" stroke-width="2" stroke-dasharray="6 3" fill="none" marker-end="url(#bR)"/>
+                        <text x="628" y="278" text-anchor="middle" class="bf" fill="#fb7185" font-size="9" font-weight="600">Client Feedback</text>
+
+                        <!-- FEEDBACK: PM → Designer (above boxes, red dashed) -->
+                        <path d="M460 98 C460 40, 120 40, 120 98" stroke="#f43f5e" stroke-width="2" stroke-dasharray="6 3" fill="none" marker-end="url(#bR)"/>
+                        <text x="290" y="34" text-anchor="middle" class="bf" fill="#fb7185" font-size="9" font-weight="600">Revision Brief</text>
 
                         <!-- ×3 rounds pill -->
-                        <rect x="393" y="274" width="140" height="30" rx="15" fill="#1e293b" stroke="#9f1239" stroke-width="1"/>
-                        <text x="463" y="294" text-anchor="middle" class="bf" fill="#fb7185" font-size="11" font-weight="700">🔁 ×3 avg rounds</text>
+                        <rect x="563" y="256" width="140" height="30" rx="15" fill="#1e293b" stroke="#9f1239" stroke-width="1"/>
+                        <text x="633" y="276" text-anchor="middle" class="bf" fill="#fb7185" font-size="11" font-weight="700">🔁 ×3 avg rounds</text>
 
                         <!-- 40 % stat line -->
                         <text x="460" y="355" text-anchor="middle" class="bf" fill="#fb7185" font-size="11" font-weight="600">~40 % of senior staff time consumed by manual QC</text>
@@ -347,7 +343,7 @@
                 </div>
 
                 <div class="flex justify-center">
-                    <svg viewBox="0 0 960 380" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-5xl">
+                    <svg viewBox="0 -10 960 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-5xl">
                         <style>.af{font-family:Inter,system-ui,sans-serif}</style>
                         <defs>
                             <marker id="aA" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0,0 10,3.5 0,7" fill="#64748b"/></marker>
@@ -357,15 +353,6 @@
                                 <stop offset="100%" stop-color="#1e1035"/>
                             </linearGradient>
                         </defs>
-
-                        <!-- Brief / Guidelines doc -->
-                        <rect x="48" y="8" width="64" height="42" rx="5" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
-                        <line x1="58" y1="18" x2="102" y2="18" stroke="#475569" stroke-width="1.5"/>
-                        <line x1="58" y1="25" x2="96" y2="25" stroke="#475569" stroke-width="1.5"/>
-                        <line x1="58" y1="32" x2="99" y2="32" stroke="#475569" stroke-width="1.5"/>
-                        <line x1="58" y1="39" x2="88" y2="39" stroke="#475569" stroke-width="1.5"/>
-                        <text x="80" y="64" text-anchor="middle" class="af" fill="#94a3b8" font-size="8" font-weight="600">Brief / Guidelines</text>
-                        <path d="M80 68 L80 98" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#aA)"/>
 
                         <!-- DESIGNER node -->
                         <rect x="10" y="102" width="140" height="96" rx="12" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
@@ -423,12 +410,17 @@
                         <text x="878" y="160" text-anchor="middle" class="af" fill="#e2e8f0" font-size="12" font-weight="700">Client</text>
                         <text x="878" y="176" text-anchor="middle" class="af" fill="#94a3b8" font-size="9">Reviews &amp; Feedback</text>
 
-                        <!-- FEEDBACK LOOP (gray, fewer rounds) -->
-                        <path d="M878 203 C878 310, 80 310, 80 203" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 3" fill="none" marker-end="url(#aA)"/>
+                        <!-- FEEDBACK: Client → PM (below boxes) -->
+                        <path d="M878 203 C878 290, 479 290, 479 203" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 3" fill="none" marker-end="url(#aA)"/>
+                        <text x="679" y="278" text-anchor="middle" class="af" fill="#94a3b8" font-size="9" font-weight="600">Client Feedback</text>
+
+                        <!-- FEEDBACK: PM → Designer (above boxes) -->
+                        <path d="M479 98 C479 30, 80 30, 80 98" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 3" fill="none" marker-end="url(#aA)"/>
+                        <text x="280" y="24" text-anchor="middle" class="af" fill="#94a3b8" font-size="9" font-weight="600">Revision Brief</text>
 
                         <!-- Fewer rounds pill -->
-                        <rect x="400" y="274" width="160" height="30" rx="15" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-                        <text x="480" y="294" text-anchor="middle" class="af" fill="#a78bfa" font-size="11" font-weight="700">✨ Fewer Rounds Needed</text>
+                        <rect x="599" y="256" width="160" height="30" rx="15" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+                        <text x="679" y="276" text-anchor="middle" class="af" fill="#a78bfa" font-size="11" font-weight="700">✨ Fewer Rounds Needed</text>
 
                         <!-- Key insight label -->
                         <text x="480" y="355" text-anchor="middle" class="af" fill="#a78bfa" font-size="11" font-weight="600">AI acts as a multiplier of the PM — pre-checking every version</text>
