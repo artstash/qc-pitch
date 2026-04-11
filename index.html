@@ -200,7 +200,7 @@
                         
                         <!-- Lengths -->
                         <div class="bg-[#1a1a1a] border border-[#333] p-4 rounded-xl shadow-aw-subtle w-28 md:w-32 transition-transform hover:-translate-y-1">
-                            <div class="text-3xl mb-2">⏱️</div>
+                            <div class="text-3xl mb-2">⏱</div>
                             <div class="font-bold text-aw-text text-lg">2</div>
                             <div class="text-[10px] md:text-xs text-aw-text-muted uppercase tracking-wider font-semibold mt-1">Lengths</div>
                         </div>
@@ -279,151 +279,151 @@
                 </div>
             </div>
 
-            <!-- ── BEFORE (SVG Loop) ── -->
+            <!-- ── BEFORE (HTML Loop) ── -->
             <div id="flow-before" class="mb-3">
                 <div class="flex items-center gap-3 mb-4 pl-1">
                     <span class="text-xs font-black uppercase tracking-widest text-rose-400 border border-rose-900/50 bg-rose-950/40 px-3 py-1 rounded-full">Before</span>
                     <span class="text-xs text-aw-text-muted">Manual process — every revision depends on PM bandwidth</span>
                 </div>
-                <div class="flex justify-center">
-                    <svg viewBox="0 -10 960 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-5xl">
-                        <style>.bf{font-family:Inter,system-ui,sans-serif}</style>
-                        <defs>
-                            <marker id="bA" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0,0 10,3.5 0,7" fill="#64748b"/></marker>
-                            <marker id="bR" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0,0 10,3.5 0,7" fill="#f43f5e"/></marker>
-                        </defs>
+                <div class="overflow-x-auto pb-2">
+                    <div class="relative mx-auto" style="width:660px; padding:48px 10px 60px;">
 
-                        <!-- DESIGNER node -->
-                        <rect x="30" y="102" width="180" height="108" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
-                        <text x="120" y="144" text-anchor="middle" font-size="28">🎨</text>
-                        <text x="120" y="168" text-anchor="middle" class="bf" fill="#e2e8f0" font-size="13" font-weight="700">Designer</text>
-                        <text x="120" y="186" text-anchor="middle" class="bf" fill="#94a3b8" font-size="10">Creates &amp; Revises</text>
+                        <!-- TOP ARC: PM → Designer -->
+                        <div class="absolute" style="top:0; left:80px; width:240px; height:38px; border:2px dashed rgba(244,63,94,0.6); border-bottom:none; border-radius:200px 200px 0 0;"></div>
+                        <div class="absolute" style="top:36px; left:77px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid rgba(244,63,94,0.6);"></div>
+                        <div class="absolute text-center" style="top:6px; left:80px; width:240px;">
+                            <span class="text-[10px] text-rose-400 font-semibold bg-aw-bg px-2">Revision Brief</span>
+                        </div>
 
-                        <!-- Arrow: Designer → PM -->
-                        <path d="M215 156 L345 156" stroke="#64748b" stroke-width="2" marker-end="url(#bA)"/>
+                        <!-- MAIN ROW -->
+                        <div class="flex items-stretch justify-between">
+                            <!-- Designer -->
+                            <div class="w-40 rounded-xl border border-slate-700 bg-slate-900/70 p-4 text-center flex flex-col items-center justify-center">
+                                <div class="text-4xl mb-1">🎨</div>
+                                <div class="text-xs font-bold text-slate-300">Designer</div>
+                                <div class="text-[9px] text-slate-500 mt-0.5">Creates &amp; Revises</div>
+                            </div>
+                            <div class="flex items-center text-slate-600 font-black text-lg px-1">→</div>
+                            <!-- PM / CD -->
+                            <div class="w-44 rounded-xl border border-slate-700 bg-slate-900/70 p-4 text-center flex flex-col items-center justify-center">
+                                <div class="text-4xl mb-1">👔</div>
+                                <div class="text-xs font-bold text-slate-300">PM / Creative Director</div>
+                                <div class="text-[9px] text-slate-500 mt-0.5">Manual QC Review</div>
+                            </div>
+                            <div class="flex items-center text-slate-600 font-black text-lg px-1">→</div>
+                            <!-- Client -->
+                            <div class="w-44 rounded-xl border border-slate-700 bg-slate-900/70 p-4 text-center flex flex-col items-center justify-center">
+                                <div class="text-4xl mb-1">🤝</div>
+                                <div class="text-xs font-bold text-slate-300">Client / Stakeholders</div>
+                                <div class="text-[9px] text-slate-500 mt-0.5">Reviews &amp; Gives Feedback</div>
+                            </div>
+                        </div>
 
-                        <!-- PM / CREATIVE DIRECTOR (stressed) -->
-                        <rect x="350" y="102" width="220" height="108" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
-                        <text x="460" y="144" text-anchor="middle" font-size="28">😰</text>
-                        <text x="460" y="168" text-anchor="middle" class="bf" fill="#e2e8f0" font-size="13" font-weight="700">PM / Creative Director</text>
-                        <text x="460" y="186" text-anchor="middle" class="bf" fill="#94a3b8" font-size="10">Manual QC Review</text>
+                        <!-- BOTTOM ARC: Client → PM -->
+                        <div class="absolute" style="bottom:0; left:320px; width:260px; height:38px; border:2px dashed rgba(244,63,94,0.6); border-top:none; border-radius:0 0 200px 200px;"></div>
+                        <div class="absolute" style="bottom:36px; left:317px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-bottom:7px solid rgba(244,63,94,0.6);"></div>
+                        <div class="absolute text-center" style="bottom:6px; left:320px; width:260px;">
+                            <span class="text-[10px] text-rose-400 font-semibold bg-aw-bg px-2">Client Feedback</span>
+                        </div>
 
-                        <!-- Arrow: PM → Client -->
-                        <path d="M575 156 L695 156" stroke="#64748b" stroke-width="2" marker-end="url(#bA)"/>
-
-                        <!-- CLIENT node -->
-                        <rect x="700" y="102" width="190" height="108" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
-                        <text x="795" y="144" text-anchor="middle" font-size="28">👥</text>
-                        <text x="795" y="168" text-anchor="middle" class="bf" fill="#e2e8f0" font-size="13" font-weight="700">Client / Stakeholders</text>
-                        <text x="795" y="186" text-anchor="middle" class="bf" fill="#94a3b8" font-size="10">Reviews &amp; Gives Feedback</text>
-
-                        <!-- FEEDBACK: Client → PM (below boxes, red dashed) -->
-                        <path d="M795 215 C795 290, 460 290, 460 215" stroke="#f43f5e" stroke-width="2" stroke-dasharray="6 3" fill="none" marker-end="url(#bR)"/>
-                        <text x="628" y="278" text-anchor="middle" class="bf" fill="#fb7185" font-size="9" font-weight="600">Client Feedback</text>
-
-                        <!-- FEEDBACK: PM → Designer (above boxes, red dashed) -->
-                        <path d="M460 98 C460 40, 120 40, 120 98" stroke="#f43f5e" stroke-width="2" stroke-dasharray="6 3" fill="none" marker-end="url(#bR)"/>
-                        <text x="290" y="34" text-anchor="middle" class="bf" fill="#fb7185" font-size="9" font-weight="600">Revision Brief</text>
-
-                        <!-- ×3 rounds pill -->
-                        <rect x="563" y="256" width="140" height="30" rx="15" fill="#1e293b" stroke="#9f1239" stroke-width="1"/>
-                        <text x="633" y="276" text-anchor="middle" class="bf" fill="#fb7185" font-size="11" font-weight="700">🔁 ×3 avg rounds</text>
-
-                        <!-- 40 % stat line -->
-                        <text x="460" y="355" text-anchor="middle" class="bf" fill="#fb7185" font-size="11" font-weight="600">~40 % of senior staff time consumed by manual QC</text>
-                    </svg>
+                    </div>
+                </div>
+                <!-- Stat pills -->
+                <div class="flex items-center gap-4 my-2">
+                    <div class="flex-1 h-px bg-gradient-to-r from-transparent via-aw-border to-transparent"></div>
+                    <div class="text-[10px] text-rose-400 font-bold bg-rose-950/40 border border-rose-900/50 px-3 py-1.5 rounded-full whitespace-nowrap">🔁 ×3 avg revision rounds</div>
+                    <div class="text-[10px] text-rose-400 font-bold bg-rose-950/40 border border-rose-900/50 px-3 py-1.5 rounded-full whitespace-nowrap">~40% of senior staff time consumed by manual QC</div>
+                    <div class="flex-1 h-px bg-gradient-to-r from-transparent via-aw-border to-transparent"></div>
                 </div>
             </div>
 
-            <!-- ── AFTER (SVG Loop + AI Checkpoints) ── -->
+            <!-- ── AFTER (HTML Loop + AI Checkpoints) ── -->
             <div id="flow-after" class="hidden mt-3">
                 <div class="flex items-center gap-3 mb-4 pl-1">
                     <span class="text-xs font-black uppercase tracking-widest text-aw-accent border border-aw-accent/40 bg-aw-accent/10 px-3 py-1 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.25)]">After</span>
                     <span class="text-xs text-aw-text-muted">AI pre-screens every submission — humans focus on creative decisions</span>
                 </div>
+                <div class="overflow-x-auto pb-2">
+                    <div class="relative mx-auto" style="width:900px; padding:48px 10px 0;">
 
-                <div class="flex justify-center">
-                    <svg viewBox="0 -10 960 430" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-5xl">
-                        <style>.af{font-family:Inter,system-ui,sans-serif}</style>
-                        <defs>
-                            <marker id="aA" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0,0 10,3.5 0,7" fill="#64748b"/></marker>
-                            <marker id="aP" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0,0 10,3.5 0,7" fill="#8b5cf6"/></marker>
-                            <linearGradient id="aiG" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="#2d1b69"/>
-                                <stop offset="100%" stop-color="#1e1035"/>
-                            </linearGradient>
-                        </defs>
+                        <!-- TOP ARC: PM → Designer -->
+                        <div class="absolute" style="top:0; left:60px; width:410px; height:38px; border:2px dashed rgba(100,116,139,0.6); border-bottom:none; border-radius:200px 200px 0 0;"></div>
+                        <div class="absolute" style="top:36px; left:57px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid rgba(100,116,139,0.6);"></div>
+                        <div class="absolute text-center" style="top:6px; left:60px; width:410px;">
+                            <span class="text-[10px] text-slate-400 font-semibold bg-aw-bg px-2">Revision Brief</span>
+                        </div>
 
-                        <!-- DESIGNER node -->
-                        <rect x="20" y="102" width="140" height="96" rx="12" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
-                        <text x="90" y="140" text-anchor="middle" font-size="24">🎨</text>
-                        <text x="90" y="160" text-anchor="middle" class="af" fill="#e2e8f0" font-size="12" font-weight="700">Designer</text>
-                        <text x="90" y="176" text-anchor="middle" class="af" fill="#94a3b8" font-size="9">Creates &amp; Revises</text>
+                        <!-- MAIN ROW -->
+                        <div class="flex items-stretch justify-between">
+                            <!-- Designer -->
+                            <div class="w-[120px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-3 text-center flex flex-col items-center justify-center">
+                                <div class="text-4xl mb-1">🎨</div>
+                                <div class="text-[11px] font-bold text-slate-300">Designer</div>
+                                <div class="text-[9px] text-slate-500 mt-0.5">Creates &amp; Revises</div>
+                            </div>
+                            <div class="flex items-center text-purple-500/60 font-black text-lg px-1">→</div>
 
-                        <!-- Arrow: Designer → AI Zone 1 -->
-                        <path d="M164 150 L191 150" stroke="#8b5cf6" stroke-width="2" marker-end="url(#aP)"/>
+                            <!-- AI ZONE 1 -->
+                            <div class="w-[200px] shrink-0 rounded-2xl border border-purple-500/40 p-3 text-center flex flex-col items-center justify-center gap-1" style="background:rgba(139,92,246,0.05);">
+                                <div class="text-[9px] font-bold text-purple-400 uppercase tracking-widest leading-tight">Guideline Check<br>&amp; Feedback Reinforcement</div>
+                                <div class="w-full rounded-xl p-2 flex flex-col items-center gap-0.5" style="background:linear-gradient(to bottom,#2d1b69,#1e1035); border:2px solid #8b5cf6;">
+                                    <div class="text-3xl">🛡</div>
+                                    <div class="text-[10px] font-bold text-purple-300">AI QC Agent</div>
+                                    <div class="text-[9px] text-purple-400">Pre-Screens Creatives</div>
+                                </div>
+                                <div class="flex gap-1 mt-0.5">
+                                    <span class="text-[8px] text-purple-400 font-semibold bg-purple-500/10 border border-purple-500/20 rounded px-1.5 py-0.5">✓ Brand</span>
+                                    <span class="text-[8px] text-purple-400 font-semibold bg-purple-500/10 border border-purple-500/20 rounded px-1.5 py-0.5">✓ Specs</span>
+                                </div>
+                                <span class="text-[8px] text-purple-400 font-semibold bg-purple-500/10 border border-purple-500/20 rounded px-1.5 py-0.5">🔄 Reinforces Past FB</span>
+                            </div>
+                            <div class="flex items-center text-purple-500/60 font-black text-lg px-1">→</div>
 
-                        <!-- ── AI ZONE 1 ── Guideline Check & Feedback Reinforcement -->
-                        <rect x="195" y="52" width="170" height="216" rx="16" fill="#8b5cf6" fill-opacity="0.05" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="1.5"/>
-                        <text x="280" y="74" text-anchor="middle" class="af" fill="#a78bfa" font-size="9" font-weight="700" letter-spacing="0.5">GUIDELINE CHECK</text>
-                        <text x="280" y="86" text-anchor="middle" class="af" fill="#a78bfa" font-size="9" font-weight="700" letter-spacing="0.5">&amp; FEEDBACK REINFORCEMENT</text>
-                        <rect x="215" y="96" width="130" height="76" rx="10" fill="url(#aiG)" stroke="#8b5cf6" stroke-width="2"/>
-                        <text x="280" y="128" text-anchor="middle" font-size="22">🤖</text>
-                        <text x="280" y="146" text-anchor="middle" class="af" fill="#c4b5fd" font-size="10" font-weight="700">AI QC Agent</text>
-                        <text x="280" y="162" text-anchor="middle" class="af" fill="#a78bfa" font-size="9">Pre-Screens Creatives</text>
-                        <rect x="220" y="184" width="120" height="28" rx="6" fill="#8b5cf6" fill-opacity="0.08" stroke="#8b5cf6" stroke-opacity="0.2" stroke-width="1"/>
-                        <text x="280" y="202" text-anchor="middle" class="af" fill="#a78bfa" font-size="8" font-weight="600">✓ Brand  ✓ Specs</text>
-                        <rect x="220" y="220" width="120" height="32" rx="6" fill="#8b5cf6" fill-opacity="0.08" stroke="#8b5cf6" stroke-opacity="0.2" stroke-width="1"/>
-                        <text x="280" y="240" text-anchor="middle" class="af" fill="#a78bfa" font-size="8" font-weight="600">🔄 Reinforces Past FB</text>
+                            <!-- PM / CD -->
+                            <div class="w-[130px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-3 text-center flex flex-col items-center justify-center">
+                                <div class="text-4xl mb-1">👔</div>
+                                <div class="text-[11px] font-bold text-slate-300">PM / CD</div>
+                                <div class="text-[9px] text-slate-500 mt-0.5">Reviews Pre-Screened</div>
+                            </div>
+                            <div class="flex items-center text-slate-600 font-black text-lg px-1">→</div>
 
-                        <!-- Arrow: AI Zone 1 → PM -->
-                        <path d="M369 150 L396 150" stroke="#8b5cf6" stroke-width="2" marker-end="url(#aP)"/>
+                            <!-- Client -->
+                            <div class="w-[130px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-3 text-center flex flex-col items-center justify-center">
+                                <div class="text-4xl mb-1">🤝</div>
+                                <div class="text-[11px] font-bold text-slate-300">Client</div>
+                                <div class="text-[9px] text-slate-500 mt-0.5">Reviews &amp; Feedback</div>
+                            </div>
+                        </div>
 
-                        <!-- PM / CD (relaxed) -->
-                        <rect x="400" y="102" width="150" height="96" rx="12" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
-                        <text x="475" y="140" text-anchor="middle" font-size="24">😊</text>
-                        <text x="475" y="160" text-anchor="middle" class="af" fill="#e2e8f0" font-size="12" font-weight="700">PM / CD</text>
-                        <text x="475" y="176" text-anchor="middle" class="af" fill="#94a3b8" font-size="9">Reviews Pre-Screened</text>
+                    </div>
+                </div>
 
-                        <!-- Arrow: PM → Client (direct — no AI between) -->
-                        <path d="M554 150 L746 150" stroke="#64748b" stroke-width="2" marker-end="url(#aA)"/>
+                <!-- BOTTOM FEEDBACK PATH (below main row) -->
+                <div class="overflow-x-auto pb-2">
+                    <div class="relative mx-auto flex items-center justify-center gap-3 pt-3 pb-1" style="width:900px;">
+                        <div class="text-[9px] text-slate-400 font-semibold">↑ to PM</div>
+                        <div class="flex items-center text-purple-500/60 font-black text-sm">←</div>
+                        <!-- AI ZONE 2 -->
+                        <div class="w-[220px] shrink-0 rounded-2xl border border-purple-500/40 p-3 text-center flex flex-col items-center justify-center gap-1" style="background:rgba(139,92,246,0.05);">
+                            <div class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Consolidates Client Feedback</div>
+                            <div class="w-full rounded-xl p-2 flex flex-col items-center gap-0.5" style="background:linear-gradient(to bottom,#2d1b69,#1e1035); border:2px solid #8b5cf6;">
+                                <div class="text-2xl">📊</div>
+                                <div class="text-[10px] font-bold text-purple-300">AI QC Agent</div>
+                                <div class="text-[9px] text-purple-400">Actionable Corrections for PM</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center text-slate-500 font-black text-sm">←</div>
+                        <div class="text-[9px] text-slate-400 font-semibold">Client Feedback ↓</div>
+                    </div>
+                </div>
 
-                        <!-- CLIENT node -->
-                        <rect x="750" y="102" width="150" height="96" rx="12" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
-                        <text x="825" y="140" text-anchor="middle" font-size="24">👥</text>
-                        <text x="825" y="160" text-anchor="middle" class="af" fill="#e2e8f0" font-size="12" font-weight="700">Client</text>
-                        <text x="825" y="176" text-anchor="middle" class="af" fill="#94a3b8" font-size="9">Reviews &amp; Feedback</text>
-
-                        <!-- ═══ BOTTOM FEEDBACK PATH ═══ -->
-
-                        <!-- Client → AI Zone 2 (curve down-left) -->
-                        <path d="M825 202 C825 300, 750 340, 700 340" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 3" fill="none" marker-end="url(#aA)"/>
-                        <text x="790" y="272" text-anchor="middle" class="af" fill="#94a3b8" font-size="9" font-weight="600">Client Feedback</text>
-
-                        <!-- ── AI ZONE 2 (bottom) ── Consolidates Client Feedback -->
-                        <rect x="510" y="278" width="190" height="100" rx="14" fill="#8b5cf6" fill-opacity="0.05" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="1.5"/>
-                        <text x="605" y="296" text-anchor="middle" class="af" fill="#a78bfa" font-size="9" font-weight="700" letter-spacing="0.5">CONSOLIDATES</text>
-                        <text x="605" y="308" text-anchor="middle" class="af" fill="#a78bfa" font-size="9" font-weight="700" letter-spacing="0.5">CLIENT FEEDBACK</text>
-                        <rect x="528" y="316" width="154" height="50" rx="10" fill="url(#aiG)" stroke="#8b5cf6" stroke-width="2"/>
-                        <text x="605" y="338" text-anchor="middle" font-size="16">🤖</text>
-                        <text x="605" y="356" text-anchor="middle" class="af" fill="#c4b5fd" font-size="9" font-weight="700">Actionable Corrections for PM</text>
-
-                        <!-- AI Zone 2 → PM (curve up-left) -->
-                        <path d="M510 340 C468 340, 475 280, 475 202" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="6 3" fill="none" marker-end="url(#aP)"/>
-
-                        <!-- ═══ TOP REVISION ARC ═══ -->
-
-                        <!-- PM → Designer (above boxes) -->
-                        <path d="M475 98 C475 30, 90 30, 90 98" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 3" fill="none" marker-end="url(#aA)"/>
-                        <text x="282" y="22" text-anchor="middle" class="af" fill="#94a3b8" font-size="9" font-weight="600">Revision Brief</text>
-
-                        <!-- Key insight -->
-                        <text x="480" y="408" text-anchor="middle" class="af" fill="#a78bfa" font-size="11" font-weight="600">AI acts as a multiplier of the PM — pre-checking every version</text>
-                    </svg>
+                <!-- Key insight -->
+                <div class="text-center mt-2 mb-4">
+                    <span class="text-[11px] text-purple-400 font-semibold">AI acts as a multiplier of the PM — pre-checking every version</span>
                 </div>
 
                 <!-- Savings stats -->
-                <div class="mt-6 grid grid-cols-3 gap-4 max-w-lg mx-auto">
+                <div class="mt-2 grid grid-cols-3 gap-4 max-w-lg mx-auto">
                     <div class="text-center bg-aw-bg-sidebar border border-aw-accent/30 rounded-xl p-3 shadow-[0_0_15px_rgba(139,92,246,0.08)]">
                         <div class="text-2xl font-black text-aw-accent">2</div>
                         <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">AI Checkpoints in Loop</div>
@@ -1045,7 +1045,7 @@
                 id: 'step-1',
                 title: '1. Ruleset Initialization',
                 actor: 'Project Manager (PM)',
-                icon: '⚙️',
+                icon: '⚙',
                 bgColor: 'bg-aw-bg-sidebar',
                 textColor: 'text-aw-text',
                 accentHex: '#9ca3af',
@@ -1090,7 +1090,7 @@
                 id: 'step-4',
                 title: '4. Internal Creative QC',
                 actor: 'Creative Director',
-                icon: '👁️',
+                icon: '👁',
                 bgColor: 'bg-aw-bg-sidebar',
                 textColor: 'text-aw-qc text-yellow-500', 
                 accentHex: '#eab308',
