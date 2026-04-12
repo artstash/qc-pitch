@@ -343,18 +343,20 @@
                     <span class="text-xs font-black uppercase tracking-widest text-aw-accent border border-aw-accent/40 bg-aw-accent/10 px-3 py-1 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.25)]">After</span>
                     <span class="text-xs text-aw-text-muted">AI pre-screens every submission — humans focus on creative decisions</span>
                 </div>
-                <div class="overflow-x-auto pb-2">
-                    <div class="relative mx-auto" style="width:900px; padding:48px 10px 0;">
+                <div class="pb-2 mt-6 mb-6">
+                    <div class="relative mx-auto" style="width:660px; padding:48px 10px 60px;">
 
-                        <!-- TOP ARC: PM → Designer -->
-                        <div class="absolute" style="top:0; left:60px; width:410px; height:38px; border:2px dashed rgba(100,116,139,0.6); border-bottom:none; border-radius:200px 200px 0 0;"></div>
-                        <div class="absolute" style="top:36px; left:57px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid rgba(100,116,139,0.6);"></div>
-                        <div class="absolute text-center" style="top:6px; left:60px; width:410px;">
-                            <span class="text-[10px] text-slate-400 font-semibold bg-aw-bg px-2">Revision Brief</span>
+                        <!-- TOP ARC: PM → Designer (via AI: Visual Tasks) -->
+                        <div class="absolute" style="top:0; left:75px; width:330px; height:38px; border:2px dashed rgba(139,92,246,0.5); border-bottom:none; border-radius:200px 200px 0 0;"></div>
+                        <div class="absolute" style="top:36px; left:72px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid rgba(139,92,246,0.5);"></div>
+                        <!-- AI: Visual Tasks pill on the arc -->
+                        <div class="absolute flex items-center gap-1.5 rounded-full border border-purple-500/50 px-3 py-1.5" style="top:0; left:240px; transform:translate(-50%,-50%); background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
+                            <span class="text-sm">🤖</span>
+                            <span class="text-[9px] text-purple-300 font-bold whitespace-nowrap">Visual Tasks</span>
                         </div>
 
                         <!-- MAIN ROW -->
-                        <div class="flex items-stretch justify-between">
+                        <div class="flex items-center justify-center gap-3">
                             <!-- Designer -->
                             <div class="w-[120px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-3 text-center flex flex-col items-center justify-center">
                                 <div class="text-4xl mb-1">🎨</div>
@@ -363,19 +365,10 @@
                             </div>
                             <div class="flex items-center text-purple-500/60 font-black text-lg px-1">→</div>
 
-                            <!-- AI ZONE 1 -->
-                            <div class="w-[200px] shrink-0 rounded-2xl border border-purple-500/40 p-3 text-center flex flex-col items-center justify-center gap-1" style="background:rgba(139,92,246,0.05);">
-                                <div class="text-[9px] font-bold text-purple-400 uppercase tracking-widest leading-tight">Guideline Check<br>&amp; Feedback Reinforcement</div>
-                                <div class="w-full rounded-xl p-2 flex flex-col items-center gap-0.5" style="background:linear-gradient(to bottom,#2d1b69,#1e1035); border:2px solid #8b5cf6;">
-                                    <div class="text-3xl">🛡</div>
-                                    <div class="text-[10px] font-bold text-purple-300">AI QC Agent</div>
-                                    <div class="text-[9px] text-purple-400">Pre-Screens Creatives</div>
-                                </div>
-                                <div class="flex gap-1 mt-0.5">
-                                    <span class="text-[8px] text-purple-400 font-semibold bg-purple-500/10 border border-purple-500/20 rounded px-1.5 py-0.5">✓ Brand</span>
-                                    <span class="text-[8px] text-purple-400 font-semibold bg-purple-500/10 border border-purple-500/20 rounded px-1.5 py-0.5">✓ Specs</span>
-                                </div>
-                                <span class="text-[8px] text-purple-400 font-semibold bg-purple-500/10 border border-purple-500/20 rounded px-1.5 py-0.5">🔄 Reinforces Past FB</span>
+                            <!-- AI: Enforce Guidelines & Feedback (compact inline) -->
+                            <div class="shrink-0 flex items-center gap-1.5 rounded-full border border-purple-500/50 px-3 py-2" style="background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
+                                <span class="text-sm">🤖</span>
+                                <span class="text-[9px] text-purple-300 font-bold whitespace-nowrap leading-tight">Enforce Guidelines<br>&amp; Feedback</span>
                             </div>
                             <div class="flex items-center text-purple-500/60 font-black text-lg px-1">→</div>
 
@@ -395,25 +388,15 @@
                             </div>
                         </div>
 
-                    </div>
-                </div>
-
-                <!-- BOTTOM FEEDBACK PATH (below main row) -->
-                <div class="overflow-x-auto pb-2">
-                    <div class="relative mx-auto flex items-center justify-center gap-3 pt-3 pb-1" style="width:900px;">
-                        <div class="text-[9px] text-slate-400 font-semibold">↑ to PM</div>
-                        <div class="flex items-center text-purple-500/60 font-black text-sm">←</div>
-                        <!-- AI ZONE 2 -->
-                        <div class="w-[220px] shrink-0 rounded-2xl border border-purple-500/40 p-3 text-center flex flex-col items-center justify-center gap-1" style="background:rgba(139,92,246,0.05);">
-                            <div class="text-[9px] font-bold text-purple-400 uppercase tracking-widest">Consolidates Client Feedback</div>
-                            <div class="w-full rounded-xl p-2 flex flex-col items-center gap-0.5" style="background:linear-gradient(to bottom,#2d1b69,#1e1035); border:2px solid #8b5cf6;">
-                                <div class="text-2xl">📊</div>
-                                <div class="text-[10px] font-bold text-purple-300">AI QC Agent</div>
-                                <div class="text-[9px] text-purple-400">Actionable Corrections for PM</div>
-                            </div>
+                        <!-- BOTTOM ARC: Client → AI → PM (feedback path) -->
+                        <div class="absolute" style="bottom:0; left:390px; width:185px; height:38px; border:2px dashed rgba(139,92,246,0.5); border-top:none; border-radius:0 0 200px 200px;"></div>
+                        <div class="absolute" style="bottom:36px; left:387px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-bottom:7px solid rgba(139,92,246,0.5);"></div>
+                        <!-- AI Zone: compact pill on the arc -->
+                        <div class="absolute flex items-center gap-1.5 rounded-full border border-purple-500/50 px-3 py-1.5" style="bottom:0; left:483px; transform:translate(-50%,50%); background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
+                            <span class="text-sm">🤖</span>
+                            <span class="text-[9px] text-purple-300 font-bold whitespace-nowrap">Consolidates Feedback</span>
                         </div>
-                        <div class="flex items-center text-slate-500 font-black text-sm">←</div>
-                        <div class="text-[9px] text-slate-400 font-semibold">Client Feedback ↓</div>
+
                     </div>
                 </div>
 
@@ -425,7 +408,7 @@
                 <!-- Savings stats -->
                 <div class="mt-2 grid grid-cols-3 gap-4 max-w-lg mx-auto">
                     <div class="text-center bg-aw-bg-sidebar border border-aw-accent/30 rounded-xl p-3 shadow-[0_0_15px_rgba(139,92,246,0.08)]">
-                        <div class="text-2xl font-black text-aw-accent">2</div>
+                        <div class="text-2xl font-black text-aw-accent">3</div>
                         <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">AI Checkpoints in Loop</div>
                     </div>
                     <div class="text-center bg-aw-bg-sidebar border border-emerald-500/30 rounded-xl p-3">
