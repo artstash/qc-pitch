@@ -280,7 +280,7 @@
             </div>
 
             <!-- ── BEFORE (HTML Loop) ── -->
-            <div id="flow-before" class="mb-3">
+            <div id="flow-before" class="mb-3" style="transition: opacity 0.25s ease-out, transform 0.25s ease-out;">
                 <div class="flex items-center justify-center gap-3 mb-8">
                     <span class="text-xs font-black uppercase tracking-widest text-rose-400 border border-rose-900/50 bg-rose-950/40 px-3 py-1 rounded-full">Before</span>
                     <span class="text-xs text-aw-text-muted">Manual process — every revision depends on PM bandwidth</span>
@@ -351,7 +351,7 @@
             </div>
 
             <!-- ── AFTER (HTML Loop + AI Checkpoints) ── -->
-            <div id="flow-after" class="hidden mt-3">
+            <div id="flow-after" class="hidden mt-3" style="transition: opacity 0.25s ease-out, transform 0.25s ease-out;">
                 <div class="flex items-center justify-center gap-3 mb-8">
                     <span class="text-xs font-black uppercase tracking-widest text-aw-accent border border-aw-accent/40 bg-aw-accent/10 px-3 py-1 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.25)]">After</span>
                     <span class="text-xs text-aw-text-muted">AI pre-screens every submission — humans focus on creative decisions</span>
@@ -441,14 +441,28 @@
                     const after = document.getElementById('flow-after');
                     const btnBefore = document.getElementById('flow-btn-before');
                     const btnAfter = document.getElementById('flow-btn-after');
+                    const show = state === 'before' ? before : after;
+                    const hide = state === 'before' ? after : before;
+
+                    // Fade out current
+                    hide.style.opacity = '0';
+                    hide.style.transform = 'translateY(8px)';
+                    setTimeout(() => {
+                        hide.classList.add('hidden');
+                        // Fade in next
+                        show.classList.remove('hidden');
+                        show.style.opacity = '0';
+                        show.style.transform = 'translateY(-8px)';
+                        requestAnimationFrame(() => {
+                            show.style.opacity = '1';
+                            show.style.transform = 'translateY(0)';
+                        });
+                    }, 250);
+
                     if (state === 'before') {
-                        before.classList.remove('hidden');
-                        after.classList.add('hidden');
                         btnBefore.className = 'px-5 py-2 rounded-lg text-sm font-bold transition-all bg-[#2a2a2a] text-white border border-[#444]';
                         btnAfter.className = 'px-5 py-2 rounded-lg text-sm font-bold transition-all text-aw-text-muted hover:text-white';
                     } else {
-                        after.classList.remove('hidden');
-                        before.classList.add('hidden');
                         btnAfter.className = 'px-5 py-2 rounded-lg text-sm font-bold transition-all bg-aw-accent text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]';
                         btnBefore.className = 'px-5 py-2 rounded-lg text-sm font-bold transition-all text-aw-text-muted hover:text-white';
                     }
