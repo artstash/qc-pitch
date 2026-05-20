@@ -20,20 +20,21 @@
                     },
                     colors: {
                         aw: {
-                            bg: '#121212',
-                            'bg-sidebar': '#0b0b0b',
-                            'bg-elevated': '#1a1a1e',
-                            'bg-highlight': 'rgba(139, 92, 246, 0.05)',
-                            border: '#2e2e2e',
-                            'border-soft': '#1f1f23',
-                            'border-highlight': 'rgba(139, 92, 246, 0.2)',
-                            text: '#ffffff',
-                            'text-secondary': '#d1d1d6',
-                            'text-muted': '#9ca3af',
+                            /* Subtle violet-tinted dark theme */
+                            bg: '#0f0d18',
+                            'bg-sidebar': '#0a0813',
+                            'bg-elevated': '#181624',
+                            'bg-highlight': 'rgba(139, 92, 246, 0.08)',
+                            border: '#262436',
+                            'border-soft': '#1f1d2c',
+                            'border-highlight': 'rgba(139, 92, 246, 0.30)',
+                            text: '#e7e9ea',
+                            'text-secondary': '#cfd1d3',
+                            'text-muted': '#a1a1aa',
                             accent: '#8b5cf6',
-                            'accent-dark': 'rgba(168, 85, 247, 0.15)',
-                            'accent-alt': '#a855f7',
-                            'accent-metric': '#a78bfa',
+                            'accent-dark': 'rgba(139, 92, 246, 0.15)',
+                            'accent-alt': '#a78bfa',
+                            'accent-metric': '#c4b5fd',
                             qc: '#eab308',
                             ua: '#22c55e',
                             universe: '#8b5cf6'
@@ -49,27 +50,176 @@
         }
     </script>
     
-    <!-- Custom Styles that map to UI_STYLE_GUIDE.md -->
+    <!-- Tokens aligned with lp.artstash.io/ua-teams reference -->
     <style>
+        :root {
+            /* Subtle violet-tinted dark palette */
+            --lp-background: #0f0d18;
+            --lp-card: #181624;
+            --lp-border: #262436;
+            --lp-foreground: #e7e9ea;
+            --lp-muted: #a1a1aa;
+            --lp-primary: #8b5cf6;
+            --lp-primary-300: #c4b5fd;
+            --lp-primary-400: #a78bfa;
+
+            /* Type scale */
+            --fs-eyebrow: 14px;
+            --fs-body: 16px;
+            --fs-body-lg: 18px;
+            --lh-tight: 1.15;
+            --lh-snug: 1.4;
+            --lh-normal: 1.55;
+            --lh-relaxed: 1.7;
+        }
+
         body {
-            background-color: theme('colors.aw.bg');
-            color: theme('colors.aw.text');
-            /* Radial gradient for hero header feel, subtle */
-            background-image: radial-gradient(circle at top right, #1a1a2e, #121212 50%);
+            background-color: var(--lp-background);
+            color: var(--lp-foreground);
+            color-scheme: dark;
+            background-image:
+                /* Faint starfield — sparse, low-contrast */
+                radial-gradient(1px 1px at 14% 22%, rgba(255,255,255,0.18), transparent 60%),
+                radial-gradient(1px 1px at 78% 14%, rgba(255,255,255,0.14), transparent 60%),
+                radial-gradient(1px 1px at 38% 68%, rgba(255,255,255,0.16), transparent 60%),
+                radial-gradient(1px 1px at 92% 48%, rgba(255,255,255,0.12), transparent 60%),
+                radial-gradient(1px 1px at 22% 88%, rgba(255,255,255,0.14), transparent 60%),
+                radial-gradient(1px 1px at 64% 92%, rgba(255,255,255,0.12), transparent 60%),
+                /* Soft violet glow — low intensity */
+                radial-gradient(70% 60% at 80% -10%, rgba(139,92,246,0.10), transparent 65%),
+                radial-gradient(55% 50% at 0% 0%, rgba(99,102,241,0.06), transparent 60%),
+                /* Calm gradient base */
+                linear-gradient(180deg, #131120 0%, #0f0d18 60%);
             background-attachment: fixed;
             scroll-behavior: smooth;
+            font-size: 16px;
+            line-height: var(--lh-normal);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        body p { color: #cfd1d3; }
+
+        /* Single source of truth for horizontal margins/grid alignment */
+        .page-container {
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+        @media (min-width: 768px) {
+            .page-container { padding-left: 32px; padding-right: 32px; }
+        }
+        @media (min-width: 1280px) {
+            .page-container { padding-left: 40px; padding-right: 40px; }
+        }
+
+        /* Pill toggle group used everywhere a binary/multi switch appears */
+        .pill-group {
+            display: inline-flex;
+            gap: 4px;
+            padding: 4px;
+            background: var(--lp-card);
+            border: 1px solid var(--lp-border);
+            border-radius: 999px;
+        }
+        .pill-btn {
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--lp-muted);
+            transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+        .pill-btn:hover { color: var(--lp-foreground); }
+        .pill-btn.is-active {
+            background: rgba(255,255,255,0.06);
+            color: var(--lp-foreground);
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+        }
+        .pill-btn.is-active-accent {
+            background: var(--lp-primary);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(139,92,246,0.35);
+        }
+
+        /* Section eyebrow / pill label */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: var(--fs-eyebrow);
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--lp-muted);
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--lp-border);
+            padding: 6px 14px;
+            border-radius: 999px;
+        }
+        .eyebrow.is-accent {
+            color: var(--lp-primary-400);
+            border-color: rgba(139,92,246,0.35);
+            background: rgba(139,92,246,0.08);
+        }
+        .eyebrow .dot {
+            width: 6px; height: 6px; border-radius: 999px;
+            background: currentColor;
+            opacity: 0.85;
+        }
+
+        /* Headings */
+        h1, h2, h3, h4 { letter-spacing: -0.015em; color: var(--lp-foreground); }
+        h1 { line-height: var(--lh-tight); }
+        h2 { line-height: 1.15; }
+        h3 { line-height: var(--lh-snug); }
+
+        .lead {
+            font-size: var(--fs-body-lg);
+            line-height: var(--lh-relaxed);
+            color: #cfd1d3;
+        }
+
+        .section-rule {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--lp-border), transparent);
+            margin: 0 auto;
         }
 
         .aw-card {
-            background-color: theme('colors.aw.bg-elevated');
-            border: 1px solid theme('colors.aw.border');
-            border-radius: 12px;
-            box-shadow: theme('boxShadow.aw-subtle');
-            transition: transform 0.2s, box-shadow 0.2s;
+            background-color: var(--lp-card);
+            border: 1px solid var(--lp-border);
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
         }
-        
-        .aw-card-large {
-            border-radius: 16px;
+        .aw-card:hover { border-color: #3a3a44; }
+        .aw-card-large { border-radius: 1.25rem; }
+
+        /* Stat tile shared style */
+        .stat-tile {
+            background: var(--lp-card);
+            border: 1px solid var(--lp-border);
+            border-radius: 1rem;
+            padding: 18px;
+            text-align: center;
+        }
+        .stat-tile .stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+        .stat-tile .stat-label {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--lp-muted);
+            margin-top: 8px;
         }
 
         /* Interactive Timeline Styles */
@@ -107,17 +257,20 @@
 
         /* Buttons */
         .aw-btn-primary {
-            background-color: theme('colors.aw.accent');
-            color: white;
-            border: 1px solid theme('colors.aw.accent');
-            border-radius: 8px;
-            padding: 8px 16px;
-            font-weight: 500;
-            transition: all 0.2s;
+            background-color: var(--lp-primary);
+            color: #fff;
+            border: 1px solid var(--lp-primary);
+            border-radius: 999px;
+            padding: 9px 20px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+            box-shadow: 0 4px 14px rgba(139,92,246,0.35);
         }
         .aw-btn-primary:hover {
-            background-color: theme('colors.aw.accent-alt');
-            box-shadow: theme('boxShadow.aw-medium');
+            background-color: #7c3aed;
+            box-shadow: 0 6px 20px rgba(139,92,246,0.5);
+            transform: translateY(-1px);
         }
 
         /* Custom Scrollbar */
@@ -139,86 +292,88 @@
 <body class="antialiased pb-24 text-sm md:text-base">
 
     <!-- Top Navigation Panel -->
-    <nav class="sticky top-0 z-50 bg-aw-bg-elevated border-b border-aw-border px-6 py-4 flex justify-between items-center shadow-aw-subtle">
-        <div class="flex items-center space-x-3 font-bold tracking-tight">
-            <div class="w-8 h-8 rounded-full bg-aw-accent flex items-center justify-center text-white shadow-aw-medium">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-[rgba(15,13,24,0.75)] border-b border-aw-border">
+        <div class="page-container h-16 flex justify-between items-center">
+            <a href="#vision" class="flex items-center gap-2.5 font-semibold tracking-tight">
+                <span class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#a78bfa] to-[#7c3aed] flex items-center justify-center text-white shadow-[0_4px_12px_rgba(139,92,246,0.35)]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                </span>
+                <span class="text-aw-text text-base">ArtStash QC Agent</span>
+            </a>
+            <div class="hidden md:flex items-center gap-1 text-sm font-medium text-aw-text-secondary">
+                <a href="#vision" class="px-3 py-1.5 rounded-full hover:text-aw-text hover:bg-white/5 transition-colors">The Bottleneck</a>
+                <a href="#business-model" class="px-3 py-1.5 rounded-full hover:text-aw-text hover:bg-white/5 transition-colors">Managed Service</a>
+                <a href="#workflow" class="px-3 py-1.5 rounded-full hover:text-aw-text hover:bg-white/5 transition-colors">QC Engine</a>
+                <a href="#reporting" class="px-3 py-1.5 rounded-full hover:text-aw-text hover:bg-white/5 transition-colors">ROI Telemetry</a>
             </div>
-            <span class="text-aw-text text-xl">ArtStash QC Agent</span>
+            <button class="aw-btn-primary text-sm hidden md:inline-flex items-center gap-1.5">
+                Schedule Demo
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </button>
         </div>
-        <div class="hidden md:flex space-x-8 text-sm font-medium text-aw-text-secondary">
-            <a href="#vision" class="hover:text-aw-text transition-colors">The Bottleneck</a>
-            <a href="#business-model" class="hover:text-aw-accent transition-colors">Managed Service & SaaS</a>
-            <a href="#workflow" class="hover:text-aw-text transition-colors">The QC Engine</a>
-            <a href="#reporting" class="hover:text-aw-text transition-colors">ROI Telemetry</a>
-        </div>
-        <button class="aw-btn-primary text-sm shadow-aw-medium hidden md:block">Schedule Demo</button>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+    <main class="page-container py-12 md:py-16 space-y-24">
 
         <!-- SECTION 1: Vision & The Bottleneck -->
         <section id="vision" class="animate-fade-up">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <div class="inline-block border border-aw-border bg-aw-bg-sidebar text-aw-text-muted text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
-                    The Volume Challenge
-                </div>
-                <h1 class="text-4xl sm:text-5xl font-extrabold text-aw-text leading-tight mb-6">
-                    Creative Production is Scaling.<br>Your QC Process Isn't.
+            <div class="text-center max-w-5xl mx-auto mb-20">
+                <div class="eyebrow mb-6"><span class="dot"></span>The Volume Challenge</div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-aw-text mb-6 leading-[1.25]">
+                    <span class="block whitespace-nowrap mb-2 md:mb-3">Creative production is scaling.</span>
+                    <span class="block whitespace-nowrap">Your QC process isn't.</span>
                 </h1>
-                <p class="text-lg text-aw-text-secondary leading-relaxed">
+                <p class="lead max-w-3xl mx-auto">
                     Creative production volume is exploding as brands move toward thousands of automated variations. But higher volume shouldn't mean higher risk. ArtStash QC Agent automates the repetitive work of brand guideline compliance, catching "silent" errors so your senior talent can focus on high-impact storytelling, not manual proofreading.
                 </p>
             </div>
 
             <div class="mb-24 text-center">
-                <div class="inline-block border border-aw-border bg-aw-bg-sidebar text-aw-accent-alt text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 border-aw-accent/30 shadow-[0_0_10px_rgba(168,85,247,0.15)]">
-                    The Equation
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-6">The Quality Control Wall</h2>
-                <p class="text-aw-text-secondary max-w-2xl mx-auto mb-12 text-lg">In an AI-augmented world where studios now test thousands of variations simultaneously, manual QC isn't just slow—it's impossible. Human error is statistically inevitable.</p>
+                <div class="eyebrow is-accent mb-6"><span class="dot"></span>The Equation</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-5">The quality control wall</h2>
+                <p class="lead max-w-2xl mx-auto mb-12">In an AI-augmented world where studios now test thousands of variations simultaneously, manual QC isn't just slow—it's impossible. Human error is statistically inevitable.</p>
                 
                 <!-- Visual Math Illustration -->
                 <div class="p-8 md:p-12 bg-aw-bg-sidebar border border-aw-border rounded-2xl shadow-aw-subtle max-w-5xl mx-auto relative overflow-hidden">
-                    
+
                     <div class="flex flex-wrap items-center justify-center gap-4 text-center relative z-10">
                         <!-- Concept -->
-                        <div class="bg-[#1a1a1a] border border-[#333] p-4 rounded-xl shadow-aw-subtle w-28 md:w-32 transition-transform hover:-translate-y-1">
+                        <div class="bg-[#1a1a1a] border border-[#333] p-5 rounded-xl shadow-aw-subtle w-32 md:w-36 transition-transform hover:-translate-y-1">
                             <div class="text-3xl mb-2">💡</div>
-                            <div class="font-bold text-aw-text text-lg">1</div>
-                            <div class="text-[10px] md:text-xs text-aw-text-muted uppercase tracking-wider font-semibold mt-1">Concept</div>
+                            <div class="font-extrabold text-aw-text text-2xl leading-none">1</div>
+                            <div class="text-sm text-aw-text-muted uppercase tracking-wider font-semibold mt-2">Concept</div>
                         </div>
-                        <div class="text-aw-text-muted text-xl md:text-2xl font-black opacity-50">×</div>
-                        
+                        <div class="text-aw-text-muted text-2xl md:text-3xl font-black opacity-40">×</div>
+
                         <!-- Sizes -->
-                        <div class="bg-[#1a1a1a] border border-[#333] p-4 rounded-xl shadow-aw-subtle w-28 md:w-32 transition-transform hover:-translate-y-1">
+                        <div class="bg-[#1a1a1a] border border-[#333] p-5 rounded-xl shadow-aw-subtle w-32 md:w-36 transition-transform hover:-translate-y-1">
                             <div class="text-3xl mb-2">📱</div>
-                            <div class="font-bold text-aw-text text-lg">3</div>
-                            <div class="text-[10px] md:text-xs text-aw-text-muted uppercase tracking-wider font-semibold mt-1">Sizes</div>
+                            <div class="font-extrabold text-aw-text text-2xl leading-none">3</div>
+                            <div class="text-sm text-aw-text-muted uppercase tracking-wider font-semibold mt-2">Sizes</div>
                         </div>
-                        <div class="text-aw-text-muted text-xl md:text-2xl font-black opacity-50">×</div>
-                        
+                        <div class="text-aw-text-muted text-2xl md:text-3xl font-black opacity-40">×</div>
+
                         <!-- Lengths -->
-                        <div class="bg-[#1a1a1a] border border-[#333] p-4 rounded-xl shadow-aw-subtle w-28 md:w-32 transition-transform hover:-translate-y-1">
+                        <div class="bg-[#1a1a1a] border border-[#333] p-5 rounded-xl shadow-aw-subtle w-32 md:w-36 transition-transform hover:-translate-y-1">
                             <div class="text-3xl mb-2">⏱</div>
-                            <div class="font-bold text-aw-text text-lg">2</div>
-                            <div class="text-[10px] md:text-xs text-aw-text-muted uppercase tracking-wider font-semibold mt-1">Lengths</div>
+                            <div class="font-extrabold text-aw-text text-2xl leading-none">2</div>
+                            <div class="text-sm text-aw-text-muted uppercase tracking-wider font-semibold mt-2">Lengths</div>
                         </div>
-                        <div class="text-aw-text-muted text-xl md:text-2xl font-black opacity-50">×</div>
-                        
+                        <div class="text-aw-text-muted text-2xl md:text-3xl font-black opacity-40">×</div>
+
                         <!-- Revisions -->
-                        <div class="bg-[#1a1a1a] border border-[#333] p-4 rounded-xl shadow-aw-subtle w-28 md:w-32 transition-transform hover:-translate-y-1">
+                        <div class="bg-[#1a1a1a] border border-[#333] p-5 rounded-xl shadow-aw-subtle w-32 md:w-36 transition-transform hover:-translate-y-1">
                             <div class="text-3xl mb-2">🔄</div>
-                            <div class="font-bold text-aw-text text-lg">3</div>
-                            <div class="text-[10px] md:text-xs text-aw-text-muted uppercase tracking-wider font-semibold mt-1">Revisions</div>
+                            <div class="font-extrabold text-aw-text text-2xl leading-none">3</div>
+                            <div class="text-sm text-aw-text-muted uppercase tracking-wider font-semibold mt-2">Revisions</div>
                         </div>
-                        <div class="text-aw-text-muted text-xl md:text-2xl font-black opacity-50">×</div>
-                        
+                        <div class="text-aw-text-muted text-2xl md:text-3xl font-black opacity-40">×</div>
+
                         <!-- Reviewers -->
-                        <div class="bg-[#1a1a1a] border border-[#333] p-4 rounded-xl shadow-aw-subtle w-28 md:w-32 transition-transform hover:-translate-y-1">
+                        <div class="bg-[#1a1a1a] border border-[#333] p-5 rounded-xl shadow-aw-subtle w-32 md:w-36 transition-transform hover:-translate-y-1">
                             <div class="text-3xl mb-2">👀</div>
-                            <div class="font-bold text-aw-text text-lg">2</div>
-                            <div class="text-[10px] md:text-xs text-aw-text-muted uppercase tracking-wider font-semibold mt-1">Reviewers</div>
+                            <div class="font-extrabold text-aw-text text-2xl leading-none">2</div>
+                            <div class="text-sm text-aw-text-muted uppercase tracking-wider font-semibold mt-2">Reviewers</div>
                         </div>
                     </div>
 
@@ -230,11 +385,11 @@
                                 <h3 class="text-6xl md:text-7xl font-black text-white leading-none">36</h3>
                                 <div class="flex flex-col text-left">
                                     <span class="text-xl md:text-2xl font-bold text-aw-text-secondary leading-tight">Reviews</span>
-                                    <span class="text-aw-accent-alt font-bold uppercase tracking-widest text-[10px] md:text-xs leading-tight">Per Single Concept</span>
+                                    <span class="text-aw-accent-alt font-semibold uppercase tracking-widest text-sm leading-tight mt-1">Per single concept</span>
                                 </div>
                             </div>
                         </div>
-                        <p class="text-sm text-aw-text-muted mt-6 max-w-xl mx-auto italic">
+                        <p class="text-base text-aw-text-muted mt-6 max-w-xl mx-auto italic leading-relaxed">
                             "With standard ad variations and global localizations, this easily hits hundreds of cumulative manual revisions."
                         </p>
                     </div>
@@ -245,16 +400,14 @@
 
         <!-- SECTION 2: The Managed Service — Before & After -->
         <section id="business-model" class="scroll-mt-24">
-            <div class="text-center mb-10">
-                <div class="inline-block border border-aw-border bg-aw-bg-sidebar text-aw-text-muted text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
-                    The Managed Service
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-4">How ArtStash QC Agent Changes the Workflow</h2>
-                <p class="text-aw-text-secondary max-w-2xl mx-auto text-base">Same creative loop — AI pre-screens every submission before the PM sees it.</p>
+            <div class="text-center mb-12">
+                <div class="eyebrow mb-6"><span class="dot"></span>The Managed Service</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-5">How ArtStash QC Agent changes the workflow</h2>
+                <p class="lead max-w-2xl mx-auto">Same creative loop — AI pre-screens every submission before the PM sees it.</p>
             </div>
 
             <!-- Legend -->
-            <div class="flex justify-center gap-6 mb-6 text-[11px] font-bold uppercase tracking-widest">
+            <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm font-semibold uppercase tracking-widest">
                 <div class="flex items-center gap-2">
                     <span class="w-3 h-3 rounded-full bg-slate-500 inline-block"></span>
                     <span class="text-aw-text-muted">Human task</span>
@@ -266,171 +419,169 @@
             </div>
 
             <!-- Toggle Buttons -->
-            <div class="flex justify-center mb-8">
-                <div class="bg-aw-bg-sidebar border border-aw-border p-1 rounded-xl flex gap-1">
-                    <button id="flow-btn-before" onclick="setFlow('before')"
-                        class="px-5 py-2 rounded-lg text-sm font-bold transition-all bg-[#2a2a2a] text-white border border-[#444]">
-                        😰 Current Process
+            <div class="flex justify-center mb-10">
+                <div class="pill-group">
+                    <button id="flow-btn-before" onclick="setFlow('before')" class="pill-btn is-active">
+                        Current Process
                     </button>
-                    <button id="flow-btn-after" onclick="setFlow('after')"
-                        class="px-5 py-2 rounded-lg text-sm font-bold transition-all text-aw-text-muted hover:text-white">
-                        ⚡ With ArtStash QC Agent
+                    <button id="flow-btn-after" onclick="setFlow('after')" class="pill-btn">
+                        With ArtStash QC Agent
                     </button>
                 </div>
             </div>
 
             <!-- ── BEFORE (HTML Loop) ── -->
             <div id="flow-before" class="mb-3" style="transition: opacity 0.25s ease-out, transform 0.25s ease-out;">
-                <div class="flex items-center justify-center gap-3 mb-8">
-                    <span class="text-xs font-black uppercase tracking-widest text-rose-400 border border-rose-900/50 bg-rose-950/40 px-3 py-1 rounded-full">Before</span>
-                    <span class="text-xs text-aw-text-muted">Manual process — every revision depends on PM bandwidth</span>
+                <div class="flex items-center justify-center gap-3 mb-10">
+                    <span class="text-sm font-bold uppercase tracking-widest text-rose-400 border border-rose-900/50 bg-rose-950/40 px-3 py-1 rounded-full">Before</span>
+                    <span class="text-sm text-aw-text-muted">Manual process — every revision depends on PM bandwidth</span>
                 </div>
                 <div class="overflow-x-auto pb-2">
-                    <div class="relative mx-auto" style="width:660px; padding:48px 10px 60px;">
+                    <div class="relative mx-auto" style="width:720px; padding:56px 10px 64px;">
 
                         <!-- TOP ARC: PM → Designer -->
-                        <div class="absolute" style="top:0; left:80px; width:240px; height:38px; border:2px dashed rgba(244,63,94,0.6); border-bottom:none; border-radius:200px 200px 0 0;"></div>
-                        <div class="absolute" style="top:36px; left:77px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid rgba(244,63,94,0.6);"></div>
-                        <div class="absolute text-center" style="top:6px; left:80px; width:240px;">
-                            <span class="text-[10px] text-rose-400 font-semibold bg-aw-bg px-2">Revision Brief</span>
+                        <div class="absolute" style="top:0; left:88px; width:264px; height:42px; border:2px dashed rgba(244,63,94,0.55); border-bottom:none; border-radius:240px 240px 0 0;"></div>
+                        <div class="absolute" style="top:40px; left:85px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid rgba(244,63,94,0.55);"></div>
+                        <div class="absolute text-center" style="top:8px; left:88px; width:264px;">
+                            <span class="text-sm text-rose-400 font-semibold bg-aw-bg px-2">Revision Brief</span>
                         </div>
 
                         <!-- MAIN ROW -->
                         <div class="flex items-stretch justify-between">
                             <!-- Designer -->
-                            <div class="w-[130px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-3 text-center flex flex-col items-center justify-center">
-                                <div class="text-4xl mb-1">🎨</div>
-                                <div class="text-[11px] font-bold text-slate-300">Designer</div>
-                                <div class="text-[9px] text-slate-500 mt-0.5">Creates &amp; Revises</div>
+                            <div class="w-[150px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-4 text-center flex flex-col items-center justify-center">
+                                <div class="text-4xl mb-2">🎨</div>
+                                <div class="text-sm font-semibold text-slate-200">Designer</div>
+                                <div class="text-sm text-slate-500 mt-1">Creates &amp; Revises</div>
                             </div>
-                            <div class="flex items-center text-slate-600 font-black text-lg px-1">→</div>
+                            <div class="flex items-center text-slate-600 font-black text-xl px-1">→</div>
                             <!-- PM / CD -->
-                            <div class="w-[130px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-3 text-center flex flex-col items-center justify-center">
-                                <div class="text-4xl mb-1">😰</div>
-                                <div class="text-[11px] font-bold text-slate-300">PM / CD</div>
-                                <div class="text-[9px] text-slate-500 mt-0.5">Manual QC Review</div>
+                            <div class="w-[150px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-4 text-center flex flex-col items-center justify-center">
+                                <div class="text-4xl mb-2">😰</div>
+                                <div class="text-sm font-semibold text-slate-200">PM / CD</div>
+                                <div class="text-sm text-slate-500 mt-1">Manual QC Review</div>
                             </div>
-                            <div class="flex items-center text-slate-600 font-black text-lg px-1">→</div>
+                            <div class="flex items-center text-slate-600 font-black text-xl px-1">→</div>
                             <!-- Client -->
-                            <div class="w-[130px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-3 text-center flex flex-col items-center justify-center">
-                                <div class="text-4xl mb-1">🤝</div>
-                                <div class="text-[11px] font-bold text-slate-300">Client</div>
-                                <div class="text-[9px] text-slate-500 mt-0.5">Reviews &amp; Feedback</div>
+                            <div class="w-[150px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-4 text-center flex flex-col items-center justify-center">
+                                <div class="text-4xl mb-2">🤝</div>
+                                <div class="text-sm font-semibold text-slate-200">Client</div>
+                                <div class="text-sm text-slate-500 mt-1">Reviews &amp; Feedback</div>
                             </div>
                         </div>
 
                         <!-- BOTTOM ARC: Client → PM -->
-                        <div class="absolute" style="bottom:0; left:320px; width:260px; height:38px; border:2px dashed rgba(244,63,94,0.6); border-top:none; border-radius:0 0 200px 200px;"></div>
-                        <div class="absolute" style="bottom:36px; left:317px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-bottom:7px solid rgba(244,63,94,0.6);"></div>
-                        <div class="absolute text-center" style="bottom:6px; left:320px; width:260px;">
-                            <span class="text-[10px] text-rose-400 font-semibold bg-aw-bg px-2">Client Feedback</span>
+                        <div class="absolute" style="bottom:0; left:352px; width:284px; height:42px; border:2px dashed rgba(244,63,94,0.55); border-top:none; border-radius:0 0 240px 240px;"></div>
+                        <div class="absolute" style="bottom:40px; left:349px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-bottom:7px solid rgba(244,63,94,0.55);"></div>
+                        <div class="absolute text-center" style="bottom:8px; left:352px; width:284px;">
+                            <span class="text-sm text-rose-400 font-semibold bg-aw-bg px-2">Client Feedback</span>
                         </div>
 
                     </div>
                 </div>
                 <!-- Key insight -->
-                <div class="text-center mt-2 mb-4">
-                    <span class="text-[11px] text-rose-400 font-semibold">Every revision depends on PM bandwidth — the bottleneck grows with scale</span>
+                <div class="text-center mt-2 mb-6">
+                    <span class="text-sm text-rose-400 font-medium">Every revision depends on PM bandwidth — the bottleneck grows with scale</span>
                 </div>
 
                 <!-- Pain stats -->
-                <div class="mt-2 grid grid-cols-3 gap-4 max-w-lg mx-auto">
-                    <div class="text-center bg-aw-bg-sidebar border border-rose-900/50 rounded-xl p-3">
-                        <div class="text-2xl font-black text-rose-400">×3</div>
-                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Avg Revision Rounds</div>
+                <div class="mt-2 grid grid-cols-3 gap-4 max-w-xl mx-auto">
+                    <div class="stat-tile" style="border-color:rgba(244,63,94,0.35);">
+                        <div class="stat-value text-rose-400">×3</div>
+                        <div class="stat-label">Avg Revision Rounds</div>
                     </div>
-                    <div class="text-center bg-aw-bg-sidebar border border-rose-900/50 rounded-xl p-3">
-                        <div class="text-2xl font-black text-rose-400">~40%</div>
-                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Senior Staff Time on QC</div>
+                    <div class="stat-tile" style="border-color:rgba(244,63,94,0.35);">
+                        <div class="stat-value text-rose-400">~40%</div>
+                        <div class="stat-label">Senior Time on QC</div>
                     </div>
-                    <div class="text-center bg-aw-bg-sidebar border border-rose-900/50 rounded-xl p-3">
-                        <div class="text-2xl font-black text-rose-400">0%</div>
-                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Automated QC Coverage</div>
+                    <div class="stat-tile" style="border-color:rgba(244,63,94,0.35);">
+                        <div class="stat-value text-rose-400">0%</div>
+                        <div class="stat-label">Automated Coverage</div>
                     </div>
                 </div>
             </div>
 
             <!-- ── AFTER (HTML Loop + AI Checkpoints) ── -->
             <div id="flow-after" class="hidden mt-3" style="transition: opacity 0.25s ease-out, transform 0.25s ease-out;">
-                <div class="flex items-center justify-center gap-3 mb-8">
-                    <span class="text-xs font-black uppercase tracking-widest text-aw-accent border border-aw-accent/40 bg-aw-accent/10 px-3 py-1 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.25)]">After</span>
-                    <span class="text-xs text-aw-text-muted">AI pre-screens every submission — humans focus on creative decisions</span>
+                <div class="flex items-center justify-center gap-3 mb-10">
+                    <span class="text-sm font-bold uppercase tracking-widest text-aw-accent border border-aw-accent/40 bg-aw-accent/10 px-3 py-1 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.25)]">After</span>
+                    <span class="text-sm text-aw-text-muted">AI pre-screens every submission — humans focus on creative decisions</span>
                 </div>
-                <div class="pb-2 mt-6 mb-6">
-                    <div class="relative mx-auto" style="width:660px; padding:48px 10px 60px;">
+                <div class="overflow-x-auto pb-2">
+                    <div class="relative mx-auto" style="width:780px; padding:56px 10px 64px;">
 
                         <!-- TOP ARC: PM → Designer (via AI: Visual Tasks) -->
-                        <div class="absolute" style="top:0; left:75px; width:330px; height:38px; border:2px dashed rgba(139,92,246,0.5); border-bottom:none; border-radius:200px 200px 0 0;"></div>
-                        <div class="absolute" style="top:36px; left:72px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid rgba(139,92,246,0.5);"></div>
+                        <div class="absolute" style="top:0; left:84px; width:360px; height:42px; border:2px dashed rgba(139,92,246,0.5); border-bottom:none; border-radius:240px 240px 0 0;"></div>
+                        <div class="absolute" style="top:40px; left:81px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid rgba(139,92,246,0.5);"></div>
                         <!-- AI: Visual Tasks pill on the arc -->
-                        <div class="absolute flex items-center gap-1.5 rounded-full border border-purple-500/50 px-3 py-1.5" style="top:0; left:240px; transform:translate(-50%,-50%); background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
+                        <div class="absolute flex items-center gap-2 rounded-full border border-purple-500/50 px-4 py-1.5" style="top:0; left:264px; transform:translate(-50%,-50%); background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
                             <span class="text-sm">🤖</span>
-                            <span class="text-[9px] text-purple-300 font-bold whitespace-nowrap">Visual Tasks</span>
+                            <span class="text-sm text-purple-200 font-semibold whitespace-nowrap">Visual Tasks</span>
                         </div>
 
                         <!-- MAIN ROW -->
                         <div class="flex items-center justify-center gap-3">
                             <!-- Designer -->
-                            <div class="w-[130px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-3 text-center flex flex-col items-center justify-center">
-                                <div class="text-4xl mb-1">🎨</div>
-                                <div class="text-[11px] font-bold text-slate-300">Designer</div>
-                                <div class="text-[9px] text-slate-500 mt-0.5">Creates &amp; Revises</div>
+                            <div class="w-[150px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-4 text-center flex flex-col items-center justify-center">
+                                <div class="text-4xl mb-2">🎨</div>
+                                <div class="text-sm font-semibold text-slate-200">Designer</div>
+                                <div class="text-sm text-slate-500 mt-1">Creates &amp; Revises</div>
                             </div>
-                            <div class="flex items-center text-purple-500/60 font-black text-lg px-1">→</div>
+                            <div class="flex items-center text-purple-500/60 font-black text-xl px-1">→</div>
 
                             <!-- AI: Enforce Guidelines & Feedback (compact inline) -->
-                            <div class="shrink-0 flex items-center gap-1.5 rounded-full border border-purple-500/50 px-3 py-2" style="background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
+                            <div class="shrink-0 flex items-center gap-2 rounded-full border border-purple-500/50 px-4 py-2" style="background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
                                 <span class="text-sm">🤖</span>
-                                <span class="text-[9px] text-purple-300 font-bold whitespace-nowrap leading-tight text-center">Enforce<br>Guidelines<br>&amp; Feedback</span>
+                                <span class="text-sm text-purple-200 font-semibold whitespace-nowrap leading-tight text-center">Enforce<br>Guidelines &amp; Feedback</span>
                             </div>
-                            <div class="flex items-center text-purple-500/60 font-black text-lg px-1">→</div>
+                            <div class="flex items-center text-purple-500/60 font-black text-xl px-1">→</div>
 
                             <!-- PM / CD -->
-                            <div class="w-[130px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-3 text-center flex flex-col items-center justify-center">
-                                <div class="text-4xl mb-1">😎</div>
-                                <div class="text-[11px] font-bold text-slate-300">PM / CD</div>
-                                <div class="text-[9px] text-slate-500 mt-0.5">Manual QC Review</div>
+                            <div class="w-[150px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-4 text-center flex flex-col items-center justify-center">
+                                <div class="text-4xl mb-2">😎</div>
+                                <div class="text-sm font-semibold text-slate-200">PM / CD</div>
+                                <div class="text-sm text-slate-500 mt-1">Manual QC Review</div>
                             </div>
-                            <div class="flex items-center text-slate-600 font-black text-lg px-1">→</div>
+                            <div class="flex items-center text-slate-600 font-black text-xl px-1">→</div>
 
                             <!-- Client -->
-                            <div class="w-[130px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-3 text-center flex flex-col items-center justify-center">
-                                <div class="text-4xl mb-1">🤝</div>
-                                <div class="text-[11px] font-bold text-slate-300">Client</div>
-                                <div class="text-[9px] text-slate-500 mt-0.5">Reviews &amp; Feedback</div>
+                            <div class="w-[150px] shrink-0 rounded-xl border border-slate-700 bg-slate-900/70 p-4 text-center flex flex-col items-center justify-center">
+                                <div class="text-4xl mb-2">🤝</div>
+                                <div class="text-sm font-semibold text-slate-200">Client</div>
+                                <div class="text-sm text-slate-500 mt-1">Reviews &amp; Feedback</div>
                             </div>
                         </div>
 
                         <!-- BOTTOM ARC: Client → AI → PM (feedback path) -->
-                        <div class="absolute" style="bottom:0; left:390px; width:185px; height:38px; border:2px dashed rgba(139,92,246,0.5); border-top:none; border-radius:0 0 200px 200px;"></div>
-                        <div class="absolute" style="bottom:36px; left:387px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-bottom:7px solid rgba(139,92,246,0.5);"></div>
+                        <div class="absolute" style="bottom:0; left:430px; width:215px; height:42px; border:2px dashed rgba(139,92,246,0.5); border-top:none; border-radius:0 0 240px 240px;"></div>
+                        <div class="absolute" style="bottom:40px; left:427px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-bottom:7px solid rgba(139,92,246,0.5);"></div>
                         <!-- AI Zone: compact pill on the arc -->
-                        <div class="absolute flex items-center gap-1.5 rounded-full border border-purple-500/50 px-3 py-1.5" style="bottom:0; left:483px; transform:translate(-50%,50%); background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
+                        <div class="absolute flex items-center gap-2 rounded-full border border-purple-500/50 px-4 py-1.5" style="bottom:0; left:537px; transform:translate(-50%,50%); background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
                             <span class="text-sm">🤖</span>
-                            <span class="text-[9px] text-purple-300 font-bold whitespace-nowrap">Consolidates Feedback</span>
+                            <span class="text-sm text-purple-200 font-semibold whitespace-nowrap">Consolidates Feedback</span>
                         </div>
 
                     </div>
                 </div>
 
                 <!-- Key insight -->
-                <div class="text-center mt-2 mb-4">
-                    <span class="text-[11px] text-purple-400 font-semibold">AI acts as a multiplier of the PM — pre-checking every version</span>
+                <div class="text-center mt-2 mb-6">
+                    <span class="text-sm text-purple-400 font-medium">AI acts as a multiplier of the PM — pre-checking every version</span>
                 </div>
 
                 <!-- Savings stats -->
-                <div class="mt-2 grid grid-cols-3 gap-4 max-w-lg mx-auto">
-                    <div class="text-center bg-aw-bg-sidebar border border-aw-accent/30 rounded-xl p-3 shadow-[0_0_15px_rgba(139,92,246,0.08)]">
-                        <div class="text-2xl font-black text-aw-accent">3</div>
-                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">AI Checkpoints in Loop</div>
+                <div class="mt-2 grid grid-cols-3 gap-4 max-w-xl mx-auto">
+                    <div class="stat-tile" style="border-color:rgba(139,92,246,0.35); box-shadow:0 0 15px rgba(139,92,246,0.08);">
+                        <div class="stat-value text-aw-accent">3</div>
+                        <div class="stat-label">AI Checkpoints in Loop</div>
                     </div>
-                    <div class="text-center bg-aw-bg-sidebar border border-emerald-500/30 rounded-xl p-3">
-                        <div class="text-2xl font-black text-emerald-400">100%</div>
-                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Pre-Screened Before PM</div>
+                    <div class="stat-tile" style="border-color:rgba(16,185,129,0.35);">
+                        <div class="stat-value text-emerald-400">100%</div>
+                        <div class="stat-label">Pre-Screened Before PM</div>
                     </div>
-                    <div class="text-center bg-aw-bg-sidebar border border-aw-border rounded-xl p-3">
-                        <div class="text-2xl font-black text-white">~60%</div>
-                        <div class="text-[9px] text-aw-text-muted uppercase tracking-widest mt-0.5">Fewer Revision Rounds</div>
+                    <div class="stat-tile">
+                        <div class="stat-value text-white">~60%</div>
+                        <div class="stat-label">Fewer Revision Rounds</div>
                     </div>
                 </div>
             </div>
@@ -460,11 +611,11 @@
                     }, 250);
 
                     if (state === 'before') {
-                        btnBefore.className = 'px-5 py-2 rounded-lg text-sm font-bold transition-all bg-[#2a2a2a] text-white border border-[#444]';
-                        btnAfter.className = 'px-5 py-2 rounded-lg text-sm font-bold transition-all text-aw-text-muted hover:text-white';
+                        btnBefore.className = 'pill-btn is-active';
+                        btnAfter.className = 'pill-btn';
                     } else {
-                        btnAfter.className = 'px-5 py-2 rounded-lg text-sm font-bold transition-all bg-aw-accent text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]';
-                        btnBefore.className = 'px-5 py-2 rounded-lg text-sm font-bold transition-all text-aw-text-muted hover:text-white';
+                        btnAfter.className = 'pill-btn is-active-accent';
+                        btnBefore.className = 'pill-btn';
                     }
                 }
             </script>
@@ -473,29 +624,27 @@
     </main>
 
     <!-- SECTION 2.5: The Gatekeeper Integration (Mockup) — FULL WIDTH, outside main -->
-    <section id="mockup" class="scroll-mt-24 py-16 border-y border-aw-border bg-aw-bg">
-        <div class="mb-10 text-center max-w-3xl mx-auto px-4">
-            <div class="inline-block border border-aw-border bg-aw-bg-sidebar text-aw-text-muted text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
-                Product Integration
-            </div>
-            <h2 class="text-3xl font-bold text-aw-text mb-6">The QC Agent Experience</h2>
-            
-            <!-- Step Navigation -->
-            <div class="flex flex-wrap justify-center gap-2 mb-6 bg-aw-bg-sidebar p-1.5 rounded-lg border border-aw-border inline-flex">
-                <button onclick="setMockupStep(1)" id="btn-mockup-1" class="px-4 py-2 rounded text-sm font-bold bg-[#8b5cf6] text-white shadow-aw-subtle transition-all">1. AI Pre-Check</button>
-                <button onclick="setMockupStep(2)" id="btn-mockup-2" class="px-4 py-2 rounded text-sm font-bold text-aw-text-muted hover:text-white transition-all">2. Designer Fix</button>
-                <button onclick="setMockupStep(3)" id="btn-mockup-3" class="px-4 py-2 rounded text-sm font-bold text-aw-text-muted hover:text-white transition-all">3. Art Director Review</button>
-                <button onclick="setMockupStep(4)" id="btn-mockup-4" class="px-4 py-2 rounded text-sm font-bold text-aw-text-muted hover:text-white transition-all">4. AI Sign-off</button>
+    <section id="mockup" class="scroll-mt-24 py-20 border-y border-aw-border bg-aw-bg">
+        <div class="page-container">
+            <div class="mb-12 text-center max-w-3xl mx-auto">
+                <div class="eyebrow mb-6"><span class="dot"></span>Product Integration</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-5">The QC Agent experience</h2>
+
+                <!-- Step Navigation -->
+                <div class="pill-group mb-8">
+                    <button onclick="setMockupStep(1)" id="btn-mockup-1" class="pill-btn is-active-accent">1. AI Pre-Check</button>
+                    <button onclick="setMockupStep(2)" id="btn-mockup-2" class="pill-btn">2. Designer Fix</button>
+                    <button onclick="setMockupStep(3)" id="btn-mockup-3" class="pill-btn">3. Art Director Review</button>
+                    <button onclick="setMockupStep(4)" id="btn-mockup-4" class="pill-btn">4. AI Sign-off</button>
+                </div>
+
+                <!-- Dynamic Step Description -->
+                <p id="mockup-desc-text" class="text-base text-aw-text-secondary leading-relaxed min-h-[3rem] transition-opacity duration-300">
+                    ArtStash QC Agent scans the new asset automatically. It flags an issue, changes the status to 'QC Failed', and leaves a timestamped comment tagging the designer over the timeline.
+                </p>
             </div>
 
-            <!-- Dynamic Step Description -->
-            <p id="mockup-desc-text" class="text-aw-text-secondary h-12 transition-opacity duration-300">
-                ArtStash QC Agent scans the new asset automatically. It flags an issue, changes the status to 'QC Failed', and leaves a timestamped comment tagging the designer over the timeline.
-            </p>
-        </div>
-
-        <!-- 16:9 Aspect Ratio Wrapper with horizontal margins -->
-        <div class="px-8 lg:px-16">
+            <!-- 16:9 Aspect Ratio Wrapper -->
             <div class="relative w-full" style="aspect-ratio: 16/9; min-height: 480px;">
                 <!-- UI Mockup Container -->
                 <div class="absolute inset-0 rounded-xl border border-aw-border bg-[#121212] shadow-aw-strong flex flex-col font-sans overflow-hidden transition-all duration-500" id="mockup-container">
@@ -512,24 +661,24 @@
                         <!-- Status Wrapper -->
                         <div class="relative z-30 group">
                             <!-- Failed Button State -->
-                            <div id="mockup-status-btn-failed" class="flex items-center gap-2 bg-[#1a1a1a] border border-[#f43f5e] text-[#f43f5e] px-2 py-1.5 rounded text-[10px] font-bold cursor-pointer transition-colors shadow-[0_0_10px_rgba(244,63,94,0.1)]">
+                            <div id="mockup-status-btn-failed" class="flex items-center gap-2 bg-[#1a1a1a] border border-[#f43f5e] text-[#f43f5e] px-2 py-1.5 rounded text-xs font-bold cursor-pointer transition-colors shadow-[0_0_10px_rgba(244,63,94,0.1)]">
                                 <span class="w-1.5 h-1.5 rounded-full bg-[#f43f5e] animate-pulse"></span> QC Failed <svg class="w-3 h-3 text-[#f43f5e]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             </div>
                             <!-- In Progress Button State -->
-                            <div id="mockup-status-btn-prog" class="hidden items-center gap-2 bg-[#1a1a1a] border border-blue-500 text-blue-400 px-2 py-1.5 rounded text-[10px] font-bold cursor-pointer transition-colors">
+                            <div id="mockup-status-btn-prog" class="hidden items-center gap-2 bg-[#1a1a1a] border border-blue-500 text-blue-400 px-2 py-1.5 rounded text-xs font-bold cursor-pointer transition-colors">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> In Progress <svg class="w-3 h-3 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             </div>
                             <!-- Needs Review Button State -->
-                            <div id="mockup-status-btn-needs-review" class="hidden items-center gap-2 bg-[#1a1a1a] border border-yellow-500 text-yellow-500 px-2 py-1.5 rounded text-[10px] font-bold cursor-pointer transition-colors">
+                            <div id="mockup-status-btn-needs-review" class="hidden items-center gap-2 bg-[#1a1a1a] border border-yellow-500 text-yellow-500 px-2 py-1.5 rounded text-xs font-bold cursor-pointer transition-colors">
                                 <span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span> Needs Review <svg class="w-3 h-3 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             </div>
                             <!-- Passed Button State -->
-                            <div id="mockup-status-btn-passed" class="hidden items-center gap-2 bg-[#1a1a1a] border border-emerald-500 text-emerald-400 px-2 py-1.5 rounded text-[10px] font-bold cursor-pointer transition-colors shadow-[0_0_10px_rgba(16,185,129,0.1)]">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> QC Passed <span class="ml-1 text-[8px] bg-emerald-500/20 px-1 rounded text-emerald-300 uppercase font-bold">AI</span>
+                            <div id="mockup-status-btn-passed" class="hidden items-center gap-2 bg-[#1a1a1a] border border-emerald-500 text-emerald-400 px-2 py-1.5 rounded text-xs font-bold cursor-pointer transition-colors shadow-[0_0_10px_rgba(16,185,129,0.1)]">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> QC Passed <span class="ml-1 text-[13px] bg-emerald-500/20 px-1 rounded text-emerald-300 uppercase font-bold">AI</span>
                             </div>
 
                             <!-- Dropdown Menu (Status) -->
-                            <div id="mockup-status-dropdown" class="absolute top-8 right-0 w-36 bg-[#2a2a2a] border border-[#333] rounded-lg shadow-aw-strong overflow-hidden font-medium text-[10px] flex flex-col py-1 transition-opacity duration-300">
+                            <div id="mockup-status-dropdown" class="absolute top-8 right-0 w-36 bg-[#2a2a2a] border border-[#333] rounded-lg shadow-aw-strong overflow-hidden font-medium text-xs flex flex-col py-1 transition-opacity duration-300">
                                 <div class="px-3 py-2 flex items-center gap-2 hover:bg-[#333] cursor-pointer text-white">
                                     <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> In Progress
                                 </div>
@@ -544,13 +693,13 @@
                                     <div class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-[#f43f5e] animate-pulse"></span> <span class="font-bold">QC Failed</span>
                                     </div>
-                                    <span class="text-[8px] bg-[#f43f5e]/20 px-1 rounded uppercase font-bold">AI</span>
+                                    <span class="text-[13px] bg-[#f43f5e]/20 px-1 rounded uppercase font-bold">AI</span>
                                 </div>
                                 <div class="px-3 py-2 flex items-center justify-between hover:bg-emerald-500/10 cursor-pointer text-emerald-400">
                                     <div class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> QC Passed
                                     </div>
-                                    <span class="text-[8px] bg-emerald-500/20 px-1 rounded text-emerald-300 uppercase font-bold">AI</span>
+                                    <span class="text-[13px] bg-emerald-500/20 px-1 rounded text-emerald-300 uppercase font-bold">AI</span>
                                 </div>
                             </div>
                         </div>
@@ -563,7 +712,7 @@
                             </div>
                             
                             <!-- Dropdown Menu (Version) -->
-                            <div id="mockup-version-dropdown" class="hidden absolute top-8 right-0 w-64 bg-[#2a2a2a] border border-[#444] rounded-lg shadow-aw-strong overflow-hidden font-medium text-[10px] flex flex-col p-1 transition-opacity py-1 z-50">
+                            <div id="mockup-version-dropdown" class="hidden absolute top-8 right-0 w-64 bg-[#2a2a2a] border border-[#444] rounded-lg shadow-aw-strong overflow-hidden font-medium text-xs flex flex-col p-1 transition-opacity py-1 z-50">
                                 <!-- Populated dynamically by JS -->
                             </div>
                         </div>
@@ -611,11 +760,11 @@
                             <div class="flex justify-between items-center text-[#9ca3af] text-xs">
                                 <div class="flex items-center gap-3">
                                     <svg class="w-4 h-4 hover:text-white cursor-pointer" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
-                                    <span class="font-mono text-[10px] font-bold">0:01 / 0:08</span>
+                                    <span class="font-mono text-xs font-bold">0:01 / 0:08</span>
                                 </div>
                                 <div class="flex items-center gap-4">
                                     <svg class="w-4 h-4 hover:text-white cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /></svg>
-                                    <span class="text-[#8b5cf6] font-semibold text-[9px] tracking-widest border border-[#8b5cf6]/50 bg-[#8b5cf6]/10 px-1.5 py-0.5 rounded">VEO</span>
+                                    <span class="text-[#8b5cf6] font-semibold text-[13px] tracking-widest border border-[#8b5cf6]/50 bg-[#8b5cf6]/10 px-1.5 py-0.5 rounded">VEO</span>
                                     <svg class="w-4 h-4 hover:text-white cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
                                 </div>
                             </div>
@@ -634,11 +783,11 @@
                         <!-- Add Comment Box -->
                         <div class="bg-[#1e1e1e] rounded-lg p-3 border border-[#2e2e2e] mb-5 shadow-sm">
                             <div class="flex gap-3 items-start">
-                                <div class="w-6 h-6 rounded-full bg-emerald-700 flex items-center justify-center text-[9px] text-white font-bold shrink-0 shadow-sm border border-[#222]">RB</div>
+                                <div class="w-6 h-6 rounded-full bg-emerald-700 flex items-center justify-center text-[13px] text-white font-bold shrink-0 shadow-sm border border-[#222]">RB</div>
                                 <textarea class="bg-transparent border-none outline-none text-xs text-white placeholder-[#666] resize-none w-full h-10 font-sans mt-0.5" placeholder="Leave a comment or @ mention..."></textarea>
                             </div>
                             <div class="flex justify-end mt-2">
-                                <button class="bg-[#a855f7] hover:bg-[#9333ea] text-white text-[10px] font-bold py-1 px-4 rounded shadow-sm transition-colors">Send</button>
+                                <button class="bg-[#a855f7] hover:bg-[#9333ea] text-white text-xs font-bold py-1 px-4 rounded shadow-sm transition-colors">Send</button>
                             </div>
                         </div>
 
@@ -646,13 +795,13 @@
                         <div class="flex-grow overflow-y-auto flex flex-col gap-4 pr-1 tailwind-scrollbar-hide" id="mockup-thread-container">
                             <!-- Comment 4: AI Sign-off (newest) -->
                             <div class="hidden gap-3 transition-all duration-500 opacity-0 transform translate-y-2" id="comment-4-ai">
-                                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-[10px] text-white shadow-[0_0_10px_rgba(16,185,129,0.3)] shrink-0 border border-white/20">✅</div>
+                                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center text-xs text-white shadow-[0_0_10px_rgba(16,185,129,0.3)] shrink-0 border border-white/20">✅</div>
                                 <div class="flex flex-col flex-grow">
                                     <div class="flex items-center gap-2 mb-1.5">
-                                        <span class="text-[11px] font-bold text-emerald-400 flex px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20">Gatekeeper Verified</span>
-                                        <span class="text-[9px] text-[#666]">Just now</span>
+                                        <span class="text-[13px] font-bold text-emerald-400 flex px-1.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20">Gatekeeper Verified</span>
+                                        <span class="text-[13px] text-[#666]">Just now</span>
                                     </div>
-                                    <div class="text-[11px] text-[#d1d5db] bg-[#1a1a1e] p-3 rounded-lg rounded-tl-none border border-emerald-500/40 leading-relaxed shadow-sm">
+                                    <div class="text-sm text-[#d1d5db] bg-[#1a1a1e] p-3 rounded-lg rounded-tl-none border border-emerald-500/40 leading-relaxed shadow-sm">
                                         Verified manual fix on V3. Looks like everything is in order here. <br><br>
                                         <strong class="text-[#a855f7] cursor-pointer hover:underline">@art_director</strong> Ready for final human sign-off flag.
                                     </div>
@@ -661,13 +810,13 @@
 
                             <!-- Comment 3: Art Director Review -->
                             <div class="hidden gap-3 transition-all duration-500 opacity-0 transform translate-y-2" id="comment-3-ad">
-                                <div class="w-7 h-7 rounded-full bg-blue-700 flex items-center justify-center text-[10px] text-white font-bold shadow-sm shrink-0 border border-[#222]">AD</div>
+                                <div class="w-7 h-7 rounded-full bg-blue-700 flex items-center justify-center text-xs text-white font-bold shadow-sm shrink-0 border border-[#222]">AD</div>
                                 <div class="flex flex-col flex-grow">
                                     <div class="flex items-center gap-2 mb-1.5">
-                                        <span class="text-[11px] font-bold text-white">Art Director</span>
-                                        <span class="text-[9px] text-[#666]">Just now</span>
+                                        <span class="text-[13px] font-bold text-white">Art Director</span>
+                                        <span class="text-[13px] text-[#666]">Just now</span>
                                     </div>
-                                    <div class="text-[11px] text-[#d1d5db] bg-[#222] p-3 rounded-lg rounded-tl-none border border-[#333] leading-relaxed shadow-sm">
+                                    <div class="text-sm text-[#d1d5db] bg-[#222] p-3 rounded-lg rounded-tl-none border border-[#333] leading-relaxed shadow-sm">
                                         <strong class="text-blue-400 cursor-pointer hover:underline">@designer</strong> But you're still overlapping the arrow pointer. Can you please move it down a bit to clear it?
                                     </div>
                                 </div>
@@ -675,13 +824,13 @@
 
                             <!-- Comment 2: Designer Fix -->
                             <div class="hidden gap-3 transition-all duration-500 opacity-0 transform translate-y-2" id="comment-2-designer">
-                                <div class="w-7 h-7 rounded-full bg-emerald-700 flex items-center justify-center text-[10px] text-white font-bold shadow-sm shrink-0 border border-[#222]">DS</div>
+                                <div class="w-7 h-7 rounded-full bg-emerald-700 flex items-center justify-center text-xs text-white font-bold shadow-sm shrink-0 border border-[#222]">DS</div>
                                 <div class="flex flex-col flex-grow">
                                     <div class="flex items-center gap-2 mb-1.5">
-                                        <span class="text-[11px] font-bold text-white">Designer</span>
-                                        <span class="text-[9px] text-[#666]">Just now</span>
+                                        <span class="text-[13px] font-bold text-white">Designer</span>
+                                        <span class="text-[13px] text-[#666]">Just now</span>
                                     </div>
-                                    <div class="text-[11px] text-[#d1d5db] bg-[#222] p-3 rounded-lg rounded-tl-none border border-[#333] leading-relaxed shadow-sm">
+                                    <div class="text-sm text-[#d1d5db] bg-[#222] p-3 rounded-lg rounded-tl-none border border-[#333] leading-relaxed shadow-sm">
                                         Okay, I'm pushing it out to the right and centering it so it's no longer overlapping the character. Ready for review.
                                     </div>
                                 </div>
@@ -689,13 +838,13 @@
 
                             <!-- Comment 1: AI Initial Pre-Check (oldest) -->
                             <div class="flex gap-3 group transition-opacity duration-300" id="comment-1-ai">
-                                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#6d28d9] flex items-center justify-center text-[10px] text-white shadow-[0_0_10px_rgba(139,92,246,0.3)] shrink-0 border border-white/20">🤖</div>
+                                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#6d28d9] flex items-center justify-center text-xs text-white shadow-[0_0_10px_rgba(139,92,246,0.3)] shrink-0 border border-white/20">🤖</div>
                                 <div class="flex flex-col flex-grow">
                                     <div class="flex items-center gap-2 mb-1.5">
                                         <span class="text-xs font-bold text-white">Gatekeeper AI</span>
-                                        <span class="text-[9px] bg-[#2a2a2a] text-[#a855f7] border border-[#a855f7]/30 px-1.5 py-0.5 rounded font-mono font-bold">0:01</span>
+                                        <span class="text-[13px] bg-[#2a2a2a] text-[#a855f7] border border-[#a855f7]/30 px-1.5 py-0.5 rounded font-mono font-bold">0:01</span>
                                     </div>
-                                    <div class="text-[11px] text-[#d1d5db] bg-[#1a1a1e] p-3 rounded-lg rounded-tl-none border border-[#f43f5e]/40 leading-relaxed shadow-sm">
+                                    <div class="text-sm text-[#d1d5db] bg-[#1a1a1e] p-3 rounded-lg rounded-tl-none border border-[#f43f5e]/40 leading-relaxed shadow-sm">
                                         <strong class="text-[#a855f7] cursor-pointer hover:underline">@designer</strong> According to brand guidelines, the logo is not allowed to overlap the primary subject or the Play Now button. Please reposition.<br><br>
                                         <span class="text-rose-400 font-medium">Policy check failed: Visual-Safety-04</span>
                                     </div>
@@ -714,11 +863,11 @@
                     // Reset all buttons
                     for(let i=1; i<=4; i++) {
                         const btn = document.getElementById('btn-mockup-' + i);
-                        btn.className = 'px-4 py-2 rounded text-sm font-bold text-aw-text-muted hover:text-white transition-all';
+                        btn.className = 'pill-btn';
                     }
                     // Highlight active button
                     const activeBtn = document.getElementById('btn-mockup-' + step);
-                    activeBtn.className = 'px-4 py-2 rounded text-sm font-bold bg-[#8b5cf6] text-white shadow-aw-subtle transition-all';
+                    activeBtn.className = 'pill-btn is-active-accent';
 
                     // Elements
                     const desc = document.getElementById('mockup-desc-text');
@@ -928,17 +1077,18 @@
     </section>
 
     <!-- Re-open constrained main wrapper for remaining sections -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+    <main class="page-container py-12 md:py-16 space-y-24">
 
         <!-- SECTION 3: Interactive Workflow Requirements -->
-        <section id="workflow" class="scroll-mt-24 pt-10 border-t border-aw-border mt-10">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 border-b border-aw-border pb-6">
-                <div>
-                    <h2 class="text-3xl font-bold text-aw-text mb-2">The Deep Dive: QC Engine Workflow</h2>
-                    <p class="text-aw-text-secondary">How the AI and Human staff interact behind the scenes to process an asset.</p>
+        <section id="workflow" class="scroll-mt-24 pt-12 border-t border-aw-border mt-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-8">
+                <div class="max-w-2xl">
+                    <div class="eyebrow mb-5"><span class="dot"></span>Deep Dive</div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-3">The QC engine workflow</h2>
+                    <p class="lead">How the AI and human staff interact behind the scenes to process an asset.</p>
                 </div>
                 <!-- Interactive hint -->
-                <div class="bg-aw-bg-elevated border border-aw-border text-xs text-aw-text-muted px-4 py-2 rounded-full flex items-center gap-2 shadow-aw-subtle">
+                <div class="bg-aw-bg-elevated border border-aw-border text-sm text-aw-text-muted px-4 py-2 rounded-full flex items-center gap-2 shadow-aw-subtle whitespace-nowrap">
                     <span class="w-2 h-2 rounded-full bg-aw-accent animate-pulse"></span>
                     Click steps below to explore
                 </div>
@@ -946,13 +1096,13 @@
 
             <div class="flex flex-col lg:flex-row gap-10">
                 <!-- Left: Interactive Timeline -->
-                <div class="lg:w-1/3 flex flex-col pt-4" id="timeline-container">
+                <div class="lg:w-1/3 flex flex-col" id="timeline-container">
                     <!-- Populated by JS -->
                 </div>
 
                 <!-- Right: Requirement Detail Card -->
                 <div class="lg:w-2/3">
-                    <div class="aw-card aw-card-large p-8 sticky top-28 min-h-[500px] flex flex-col shadow-aw-strong" id="detail-card">
+                    <div class="aw-card aw-card-large p-8 flex flex-col shadow-aw-strong" id="detail-card">
                         <!-- Populated by JS -->
                     </div>
                 </div>
@@ -960,86 +1110,87 @@
         </section>
 
         <!-- SECTION 4: Reporting & ROI -->
-        <section id="reporting" class="scroll-mt-24 pt-10 border-t border-aw-border">
-            <div class="max-w-3xl mb-12">
-                <h2 class="text-3xl font-bold text-aw-text mb-4">Telemetry to Prove ROI Content Quality</h2>
-                <p class="text-aw-text-secondary">Whether proving SLA compliance for a managed client, or demonstrating software ROI for a SaaS client, our dashboards convert messy revision loops into hard data.</p>
+        <section id="reporting" class="scroll-mt-24 pt-12 border-t border-aw-border">
+            <div class="max-w-3xl mb-14">
+                <div class="eyebrow mb-5"><span class="dot"></span>Reporting</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-3">Telemetry to prove ROI &amp; content quality</h2>
+                <p class="lead">Whether proving SLA compliance for a managed client, or demonstrating software ROI for a SaaS client, our dashboards convert messy revision loops into hard data.</p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8">
                 <!-- Ongoing Internal Report -->
                 <div class="aw-card p-8 border-t-2 border-t-aw-universe">
-                    <div class="flex justify-between items-center mb-8">
+                    <div class="flex justify-between items-center mb-8 flex-wrap gap-3">
                         <h3 class="text-xl font-bold text-aw-text flex items-center gap-2">
                             <span class="text-aw-universe">📊</span> Ongoing / EOW Report
                         </h3>
-                        <span class="text-xs bg-aw-bg-sidebar border border-aw-border-soft text-aw-text-muted px-3 py-1 rounded font-bold uppercase tracking-wider">Internal Training</span>
+                        <span class="text-sm bg-aw-bg-sidebar border border-aw-border-soft text-aw-text-muted px-3 py-1 rounded-full font-semibold uppercase tracking-wider">Internal Training</span>
                     </div>
-                    
+
                     <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="bg-aw-bg p-5 rounded-lg border border-aw-border-soft text-center shadow-aw-subtle">
-                            <div class="text-4xl font-black text-aw-text mb-1">342</div>
-                            <div class="text-xs text-aw-text-muted uppercase tracking-wider font-semibold">Weekly Assets</div>
+                        <div class="bg-aw-bg p-5 rounded-xl border border-aw-border-soft text-center shadow-aw-subtle">
+                            <div class="text-4xl font-black text-aw-text mb-2 leading-none">342</div>
+                            <div class="text-sm text-aw-text-muted uppercase tracking-wider font-semibold">Weekly Assets</div>
                         </div>
-                        <div class="bg-aw-bg p-5 rounded-lg border border-aw-border-soft text-center flex divide-x divide-aw-border">
+                        <div class="bg-aw-bg p-5 rounded-xl border border-aw-border-soft text-center flex divide-x divide-aw-border">
                             <div class="w-1/2 px-2 flex flex-col justify-center">
-                                <div class="text-2xl font-bold text-aw-ua text-emerald-400">82%</div>
-                                <div class="text-[10px] text-aw-text-muted uppercase mt-1">Pass</div>
+                                <div class="text-2xl font-bold text-emerald-400 leading-none">82%</div>
+                                <div class="text-sm text-aw-text-muted uppercase mt-2 font-semibold tracking-wider">Pass</div>
                             </div>
                             <div class="w-1/2 px-2 flex flex-col justify-center">
-                                <div class="text-2xl font-bold text-rose-500">18%</div>
-                                <div class="text-[10px] text-aw-text-muted uppercase mt-1">Fail</div>
+                                <div class="text-2xl font-bold text-rose-500 leading-none">18%</div>
+                                <div class="text-sm text-aw-text-muted uppercase mt-2 font-semibold tracking-wider">Fail</div>
                             </div>
                         </div>
                     </div>
 
-                    <h4 class="text-xs font-bold text-aw-text-secondary uppercase tracking-widest mb-4">Trending Technical Failures</h4>
-                    <ul class="space-y-2 text-sm text-aw-text-secondary">
-                        <li class="flex justify-between items-center p-3 bg-aw-bg border border-aw-border-soft hover:border-aw-border rounded cursor-pointer transition-colors group">
-                            <span class="flex items-center gap-2"><span class="text-aw-text-muted group-hover:text-aw-accent">#</span> Incorrect safe-zone margins</span> 
-                            <span class="bg-aw-bg-sidebar px-3 py-1 border border-aw-border-soft rounded-full text-xs font-mono">24 items</span>
+                    <h4 class="text-sm font-semibold text-aw-text-secondary uppercase tracking-widest mb-4">Trending Technical Failures</h4>
+                    <ul class="space-y-2 text-base text-aw-text-secondary">
+                        <li class="flex justify-between items-center p-4 bg-aw-bg border border-aw-border-soft hover:border-aw-border rounded-lg cursor-pointer transition-colors group">
+                            <span class="flex items-center gap-2"><span class="text-aw-text-muted group-hover:text-aw-accent">#</span> Incorrect safe-zone margins</span>
+                            <span class="bg-aw-bg-sidebar px-3 py-1 border border-aw-border-soft rounded-full text-sm font-mono">24 items</span>
                         </li>
-                        <li class="flex justify-between items-center p-3 bg-aw-bg border border-aw-border-soft hover:border-aw-border rounded cursor-pointer transition-colors group">
-                            <span class="flex items-center gap-2"><span class="text-aw-text-muted group-hover:text-aw-accent">#</span> Wrong brand font</span> 
-                            <span class="bg-aw-bg-sidebar px-3 py-1 border border-aw-border-soft rounded-full text-xs font-mono">15 items</span>
+                        <li class="flex justify-between items-center p-4 bg-aw-bg border border-aw-border-soft hover:border-aw-border rounded-lg cursor-pointer transition-colors group">
+                            <span class="flex items-center gap-2"><span class="text-aw-text-muted group-hover:text-aw-accent">#</span> Wrong brand font</span>
+                            <span class="bg-aw-bg-sidebar px-3 py-1 border border-aw-border-soft rounded-full text-sm font-mono">15 items</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Batch External Report -->
                 <div class="aw-card p-8 border-t-2 border-t-aw-qc">
-                    <div class="flex justify-between items-center mb-8">
+                    <div class="flex justify-between items-center mb-8 flex-wrap gap-3">
                         <h3 class="text-xl font-bold text-aw-text flex items-center gap-2">
                             <span class="text-aw-qc">📦</span> Batch Completion Report
                         </h3>
-                        <span class="text-xs bg-aw-bg-sidebar border border-aw-border-soft text-aw-text-muted px-3 py-1 rounded font-bold uppercase tracking-wider">Vendor scoring</span>
+                        <span class="text-sm bg-aw-bg-sidebar border border-aw-border-soft text-aw-text-muted px-3 py-1 rounded-full font-semibold uppercase tracking-wider">Vendor Scoring</span>
                     </div>
-                    
+
                     <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="bg-aw-bg p-5 rounded-lg border border-aw-border-soft text-center shadow-aw-subtle">
-                            <div class="text-4xl font-black text-aw-text mb-1">1,250</div>
-                            <div class="text-xs text-aw-text-muted uppercase tracking-wider font-semibold">Total in Batch</div>
+                        <div class="bg-aw-bg p-5 rounded-xl border border-aw-border-soft text-center shadow-aw-subtle">
+                            <div class="text-4xl font-black text-aw-text mb-2 leading-none">1,250</div>
+                            <div class="text-sm text-aw-text-muted uppercase tracking-wider font-semibold">Total in Batch</div>
                         </div>
-                        <div class="bg-aw-bg p-5 rounded-lg border border-aw-border-soft text-center flex divide-x divide-aw-border">
+                        <div class="bg-aw-bg p-5 rounded-xl border border-aw-border-soft text-center flex divide-x divide-aw-border">
                             <div class="w-1/2 px-2 flex flex-col justify-center">
-                                <div class="text-2xl font-bold text-aw-ua text-emerald-400">91%</div>
-                                <div class="text-[10px] text-aw-text-muted uppercase mt-1">Pass</div>
+                                <div class="text-2xl font-bold text-emerald-400 leading-none">91%</div>
+                                <div class="text-sm text-aw-text-muted uppercase mt-2 font-semibold tracking-wider">Pass</div>
                             </div>
                             <div class="w-1/2 px-2 flex flex-col justify-center">
-                                <div class="text-2xl font-bold text-rose-500">9%</div>
-                                <div class="text-[10px] text-aw-text-muted uppercase mt-1">Fail</div>
+                                <div class="text-2xl font-bold text-rose-500 leading-none">9%</div>
+                                <div class="text-sm text-aw-text-muted uppercase mt-2 font-semibold tracking-wider">Fail</div>
                             </div>
                         </div>
                     </div>
 
-                    <h4 class="text-xs font-bold text-aw-text-secondary uppercase tracking-widest mb-4">Batch Policy Violations</h4>
-                    <ul class="space-y-2 text-sm text-aw-text-secondary">
-                        <li class="flex justify-between items-center p-3 bg-aw-bg border border-aw-border-soft hover:border-aw-border rounded cursor-pointer transition-colors group">
+                    <h4 class="text-sm font-semibold text-aw-text-secondary uppercase tracking-widest mb-4">Batch Policy Violations</h4>
+                    <ul class="space-y-2 text-base text-aw-text-secondary">
+                        <li class="flex justify-between items-center p-4 bg-aw-bg border border-aw-border-soft hover:border-aw-border rounded-lg cursor-pointer transition-colors group">
                             <span class="flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-rose-500"></span>
                                 Brand safety: Visible violence
-                            </span> 
-                            <span class="bg-aw-bg-sidebar px-3 py-1 border border-aw-border-soft rounded-full text-xs font-mono">85 items</span>
+                            </span>
+                            <span class="bg-aw-bg-sidebar px-3 py-1 border border-aw-border-soft rounded-full text-sm font-mono">85 items</span>
                         </li>
                     </ul>
                 </div>
@@ -1091,7 +1242,7 @@
                 accentHex: '#8b5cf6',
                 description: 'The automated evaluation occurs instantly upon upload. The AI Agent acts as a high-precision guardrail, separating assets that violate brand guidelines from those ready for creative review.',
                 interactions: [
-                    'Agent scans frames against the rigid ruleset. If violations are found, it sets the Status field to <span class="text-rose-400 font-bold mx-1 text-xs px-2 py-0.5 rounded bg-[rgba(244,63,94,0.1)] border border-[rgba(244,63,94,0.2)]">QC FAILED</span>.',
+                    'Agent scans frames against the rigid ruleset. If violations are found, it sets the Status field to <span class="text-rose-400 font-semibold mx-1 text-sm px-2 py-0.5 rounded bg-[rgba(244,63,94,0.1)] border border-[rgba(244,63,94,0.25)]">QC FAILED</span>.',
                     'Agent identifies "brand hallucinations" and technical drift in automated variations.',
                     'Agent leaves Frame.io-style timestamped comments and actively @-mentions the designer with fix instructions.'
                 ]
@@ -1138,7 +1289,7 @@
                 interactions: [
                     'Agent verifies the designer correctly addressed the previous brand violations.',
                     'Agent looks at human review feedback to confirm narrative adjustments were implemented.',
-                    'If verified, Agent autonomously resolves thread, sets status to <span class="text-emerald-400 font-bold ml-1 text-xs px-2 py-0.5 rounded bg-[rgba(52,211,153,0.1)] border border-[rgba(52,211,153,0.2)]">QC PASSED</span>, and clears the flag.'
+                    'If verified, Agent autonomously resolves thread, sets status to <span class="text-emerald-400 font-semibold ml-1 text-sm px-2 py-0.5 rounded bg-[rgba(52,211,153,0.1)] border border-[rgba(52,211,153,0.25)]">QC PASSED</span>, and clears the flag.'
                 ]
             },
             {
@@ -1160,7 +1311,7 @@
 
         function renderTimeline() {
             const container = document.getElementById('timeline-container');
-            let html = '<div class="flex flex-col border-l border-aw-border-soft ml-4 pt-2 relative">';
+            let html = '<div class="flex flex-col border-l border-aw-border-soft ml-4 pt-8 relative">';
             
             // Adding a subtle glowing gradient line down the timeline tracking
             html += '<div class="absolute left-[-1px] top-0 w-0.5 h-full bg-gradient-to-b from-aw-border-soft via-aw-accent to-aw-border-soft opacity-20"></div>';
@@ -1168,11 +1319,11 @@
             workflowNodes.forEach((node, index) => {
                 html += `
                     <div class="timeline-node relative pl-8 py-5 cursor-pointer z-10 group" id="node-${index}" onclick="selectNode(${index})">
-                        <div class="node-icon absolute -left-4 top-5 w-8 h-8 rounded-full flex items-center justify-center text-sm z-20 shadow-aw-subtle">
+                        <div class="node-icon absolute -left-4 top-5 w-9 h-9 rounded-full flex items-center justify-center text-base z-20 shadow-aw-subtle">
                             ${node.icon}
                         </div>
-                        <h4 class="font-bold text-aw-text group-hover:text-white transition-colors text-sm">${node.title}</h4>
-                        <p class="text-[11px] font-bold uppercase tracking-wider mt-1 ${node.textColor}">${node.actor}</p>
+                        <h4 class="font-semibold text-aw-text group-hover:text-white transition-colors text-base">${node.title}</h4>
+                        <p class="text-sm font-semibold uppercase tracking-wider mt-1 ${node.textColor}">${node.actor}</p>
                     </div>
                 `;
             });
@@ -1199,30 +1350,30 @@
                 ).join('');
 
                 card.innerHTML = `
-                    <div class="flex items-center gap-4 border-b border-aw-border pb-6 mb-6">
-                        <div class="w-14 h-14 rounded-full ${data.bgColor} flex items-center justify-center text-2xl border border-aw-border shadow-aw-subtle">
+                    <div class="flex items-center gap-5 border-b border-aw-border pb-6 mb-7">
+                        <div class="w-16 h-16 rounded-2xl ${data.bgColor} flex items-center justify-center text-3xl border border-aw-border shadow-aw-subtle shrink-0">
                             ${data.icon}
                         </div>
                         <div class="flex-grow">
-                            <span class="text-[10px] font-bold ${data.textColor} uppercase tracking-widest bg-aw-bg-sidebar border border-aw-border px-2 py-1 rounded inline-block mb-1">Actor: ${data.actor}</span>
-                            <h3 class="text-2xl font-bold text-aw-text leading-tight mt-1">${data.title}</h3>
+                            <span class="text-sm font-semibold ${data.textColor} uppercase tracking-widest inline-block mb-2">Actor · ${data.actor}</span>
+                            <h3 class="text-2xl md:text-3xl font-bold text-aw-text leading-tight">${data.title}</h3>
                         </div>
                     </div>
-                    
+
                     <div class="space-y-8 flex-grow">
                         <div>
-                            <h4 class="text-xs font-bold text-aw-text-muted uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <h4 class="text-sm font-semibold text-aw-text-muted uppercase tracking-widest mb-3 flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                                 Stage Objective
                             </h4>
-                            <p class="text-aw-text-secondary leading-relaxed bg-aw-bg p-4 rounded-lg border border-aw-border-soft text-sm">
+                            <p class="text-aw-text-secondary leading-relaxed bg-aw-bg p-5 rounded-xl border border-aw-border-soft text-base">
                                 ${data.description}
                             </p>
                         </div>
 
                         <div>
-                            <h4 class="text-xs font-bold text-aw-text-muted uppercase tracking-widest mb-4">System Interactions</h4>
-                            <ul class="space-y-4 text-sm text-aw-text-secondary">
+                            <h4 class="text-sm font-semibold text-aw-text-muted uppercase tracking-widest mb-4">System Interactions</h4>
+                            <ul class="space-y-4 text-base text-aw-text-secondary leading-relaxed">
                                 ${interactionsHtml}
                             </ul>
                         </div>
