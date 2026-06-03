@@ -6,7 +6,9 @@
     <title>Pitch Deck: ArtStash QC Agent Process</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS with Custom Agent Workbench Config -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,27 +19,28 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        mono: ['"Roboto Mono"', 'monospace'],
                     },
                     colors: {
                         aw: {
-                            /* Subtle violet-tinted dark theme */
-                            bg: '#0f0d18',
-                            'bg-sidebar': '#0a0813',
-                            'bg-elevated': '#181624',
-                            'bg-highlight': 'rgba(139, 92, 246, 0.08)',
-                            border: '#262436',
-                            'border-soft': '#1f1d2c',
-                            'border-highlight': 'rgba(139, 92, 246, 0.30)',
-                            text: '#e7e9ea',
-                            'text-secondary': '#cfd1d3',
-                            'text-muted': '#a1a1aa',
-                            accent: '#8b5cf6',
-                            'accent-dark': 'rgba(139, 92, 246, 0.15)',
-                            'accent-alt': '#a78bfa',
-                            'accent-metric': '#c4b5fd',
+                            /* Evervault-inspired blue-tinted dark theme */
+                            bg: '#0b0d1c',
+                            'bg-sidebar': '#010314',
+                            'bg-elevated': '#171825',
+                            'bg-highlight': 'rgba(120, 75, 255, 0.08)',
+                            border: 'rgba(255,255,255,0.10)',
+                            'border-soft': 'rgba(255,255,255,0.06)',
+                            'border-highlight': 'rgba(120, 75, 255, 0.30)',
+                            text: '#ffffff',
+                            'text-secondary': '#babcd2',
+                            'text-muted': '#9fa2b9',
+                            accent: '#6633ee',
+                            'accent-dark': 'rgba(120, 75, 255, 0.15)',
+                            'accent-alt': '#8e64ff',
+                            'accent-metric': '#a584ff',
                             qc: '#eab308',
                             ua: '#22c55e',
-                            universe: '#8b5cf6'
+                            universe: '#8e64ff'
                         }
                     },
                     boxShadow: {
@@ -53,10 +56,25 @@
     <!-- Tokens aligned with lp.artstash.io/ua-teams reference -->
     <style>
         :root {
-            /* Subtle violet-tinted dark palette */
-            --lp-background: #0f0d18;
-            --lp-card: #181624;
-            --lp-border: #262436;
+            /* Evervault-inspired blue-tinted grayscale */
+            --grey-00: #ffffff;
+            --grey-40: #babcd2;
+            --grey-50: #9fa2b9;
+            --grey-60: #5e6077;
+            --grey-70: #383a4d;
+            --grey-80: #2a2b3a;
+            --grey-85: #212230;
+            --grey-90: #171825;
+            --grey-95: #0b0d1c;
+            --grey-100: #010314;
+            --primary: #6633ee;
+            --primary-light: #8e64ff;
+            --glow: rgba(120,75,255,0.60);
+            --hairline: rgba(255,255,255,0.10);
+
+            --lp-background: var(--grey-95);
+            --lp-card: var(--grey-90);
+            --lp-border: var(--hairline);
             --lp-foreground: #e7e9ea;
             --lp-muted: #a1a1aa;
             --lp-primary: #8b5cf6;
@@ -75,21 +93,14 @@
 
         body {
             background-color: var(--lp-background);
-            color: var(--lp-foreground);
+            color: #ffffff;
             color-scheme: dark;
             background-image:
-                /* Faint starfield — sparse, low-contrast */
-                radial-gradient(1px 1px at 14% 22%, rgba(255,255,255,0.18), transparent 60%),
-                radial-gradient(1px 1px at 78% 14%, rgba(255,255,255,0.14), transparent 60%),
-                radial-gradient(1px 1px at 38% 68%, rgba(255,255,255,0.16), transparent 60%),
-                radial-gradient(1px 1px at 92% 48%, rgba(255,255,255,0.12), transparent 60%),
-                radial-gradient(1px 1px at 22% 88%, rgba(255,255,255,0.14), transparent 60%),
-                radial-gradient(1px 1px at 64% 92%, rgba(255,255,255,0.12), transparent 60%),
-                /* Soft violet glow — low intensity */
-                radial-gradient(70% 60% at 80% -10%, rgba(139,92,246,0.10), transparent 65%),
-                radial-gradient(55% 50% at 0% 0%, rgba(99,102,241,0.06), transparent 60%),
-                /* Calm gradient base */
-                linear-gradient(180deg, #131120 0%, #0f0d18 60%);
+                /* Subtle dot grid — technical, Evervault-style */
+                radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px),
+                /* Soft accent glow top-right */
+                radial-gradient(60% 50% at 88% -5%, rgba(120,75,255,0.12), transparent 65%);
+            background-size: 24px 24px, 100% 100%;
             background-attachment: fixed;
             scroll-behavior: smooth;
             font-size: 16px;
@@ -97,7 +108,9 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        body p { color: #cfd1d3; }
+        body p { color: var(--grey-40); }
+        /* Mono-styled numerical metrics */
+        .num { font-family: 'Roboto Mono', monospace; font-feature-settings: "tnum" 1; }
 
         /* Single source of truth for horizontal margins/grid alignment */
         .page-container {
@@ -115,137 +128,177 @@
             .page-container { padding-left: 40px; padding-right: 40px; }
         }
 
-        /* Pill toggle group used everywhere a binary/multi switch appears */
+        /* Segmented control — boxy, technical */
         .pill-group {
             display: inline-flex;
-            gap: 4px;
+            gap: 0;
             padding: 4px;
             background: var(--lp-card);
-            border: 1px solid var(--lp-border);
-            border-radius: 999px;
+            border: 1px solid var(--hairline);
+            border-radius: 6px;
         }
         .pill-btn {
-            padding: 8px 18px;
-            border-radius: 999px;
+            padding: 7px 16px;
+            border-radius: 4px;
             font-size: 14px;
-            font-weight: 600;
-            color: var(--lp-muted);
-            transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+            font-weight: 500;
+            color: var(--grey-50);
+            transition: color 0.2s, background 0.2s;
             white-space: nowrap;
         }
-        .pill-btn:hover { color: var(--lp-foreground); }
+        .pill-btn:hover { color: #fff; }
         .pill-btn.is-active {
             background: rgba(255,255,255,0.06);
-            color: var(--lp-foreground);
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+            color: #fff;
         }
         .pill-btn.is-active-accent {
-            background: var(--lp-primary);
+            background: var(--primary);
             color: #fff;
-            box-shadow: 0 4px 14px rgba(139,92,246,0.35);
         }
 
-        /* Section eyebrow / pill label */
+        /* Section eyebrow — mono, technical */
         .eyebrow {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: var(--fs-eyebrow);
-            font-weight: 600;
-            letter-spacing: 0.12em;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.10em;
             text-transform: uppercase;
-            color: var(--lp-muted);
-            background: rgba(255,255,255,0.02);
-            border: 1px solid var(--lp-border);
-            padding: 6px 14px;
-            border-radius: 999px;
+            color: var(--grey-50);
+            background: transparent;
+            border: 1px solid var(--hairline);
+            padding: 5px 12px;
+            border-radius: 4px;
         }
         .eyebrow.is-accent {
-            color: var(--lp-primary-400);
-            border-color: rgba(139,92,246,0.35);
-            background: rgba(139,92,246,0.08);
+            color: var(--primary-light);
+            border-color: rgba(120,75,255,0.35);
+            background: rgba(120,75,255,0.06);
         }
         .eyebrow .dot {
-            width: 6px; height: 6px; border-radius: 999px;
+            width: 5px; height: 5px; border-radius: 999px;
             background: currentColor;
-            opacity: 0.85;
         }
 
-        /* Headings */
-        h1, h2, h3, h4 { letter-spacing: -0.015em; color: var(--lp-foreground); }
-        h1 { line-height: var(--lh-tight); }
-        h2 { line-height: 1.15; }
-        h3 { line-height: var(--lh-snug); }
+        /* Headings — sharper, tighter */
+        h1, h2, h3, h4 { letter-spacing: -0.02em; color: #fff; }
+        h1 { line-height: 1.05; font-weight: 600; }
+        h2 { line-height: 1.1; font-weight: 600; }
+        h3 { line-height: var(--lh-snug); font-weight: 600; }
 
         .lead {
-            font-size: var(--fs-body-lg);
-            line-height: var(--lh-relaxed);
-            color: #cfd1d3;
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--grey-40);
         }
 
         .section-rule {
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--lp-border), transparent);
+            background: var(--hairline);
             margin: 0 auto;
         }
 
         .aw-card {
             background-color: var(--lp-card);
-            border: 1px solid var(--lp-border);
-            border-radius: 1rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            border: 1px solid var(--hairline);
+            border-radius: 8px;
+            transition: border-color 0.2s;
         }
-        .aw-card:hover { border-color: #3a3a44; }
-        .aw-card-large { border-radius: 1.25rem; }
+        .aw-card:hover { border-color: rgba(255,255,255,0.18); }
+        .aw-card-large { border-radius: 10px; }
 
-        /* Stat tile shared style */
+        /* Stat tile — Evervault-style: hairline border, mono number */
         .stat-tile {
-            background: var(--lp-card);
-            border: 1px solid var(--lp-border);
-            border-radius: 1rem;
-            padding: 18px;
-            text-align: center;
+            background: transparent;
+            border: 1px solid var(--hairline);
+            border-radius: 6px;
+            padding: 18px 16px;
+            text-align: left;
+            transition: border-color 0.2s, background 0.2s;
         }
+        .stat-tile:hover { border-color: rgba(255,255,255,0.18); background: rgba(255,255,255,0.015); }
         .stat-tile .stat-value {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
+            font-family: 'Roboto Mono', monospace;
+            font-feature-settings: "tnum" 1;
+            font-size: 30px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            line-height: 1;
+            color: #fff;
         }
         .stat-tile .stat-label {
-            font-size: 13px;
-            font-weight: 600;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--lp-muted);
-            margin-top: 8px;
+            color: var(--grey-50);
+            margin-top: 10px;
         }
 
-        /* Interactive Timeline Styles */
+        /* Interactive Timeline — explicitly clickable cards */
         .timeline-node {
-            transition: all 0.3s ease-in-out;
-            border-left: 2px solid theme('colors.aw.border');
+            position: relative;
+            display: block;
+            padding: 14px 18px 14px 50px;
+            margin-left: 12px;
+            border: 1px solid var(--hairline);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.015);
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s, transform 0.15s;
+        }
+        .timeline-node + .timeline-node { margin-top: 10px; }
+        .timeline-node::after {
+            /* right-side chevron hint */
+            content: "›";
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-52%);
+            color: var(--grey-60);
+            font-size: 20px;
+            line-height: 1;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .timeline-node:hover {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(255,255,255,0.20);
+            transform: translateX(2px);
+        }
+        .timeline-node:hover::after {
+            color: #fff;
+            transform: translate(2px, -52%);
         }
         .timeline-node.active {
-            border-left-color: theme('colors.aw.accent');
-            background-color: theme('colors.aw.bg-highlight');
+            background: rgba(120,75,255,0.10);
+            border-color: rgba(120,75,255,0.55);
+            box-shadow: inset 3px 0 0 var(--primary);
         }
-        .timeline-node:hover:not(.active) {
-            background-color: rgba(255, 255, 255, 0.02);
+        .timeline-node.active::after {
+            color: var(--primary-light);
         }
         .node-icon {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background-color: theme('colors.aw.bg-sidebar');
-            border: 1px solid theme('colors.aw.border');
-            color: theme('colors.aw.text-secondary');
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--hairline);
+            transition: background 0.2s, border-color 0.2s;
         }
         .timeline-node.active .node-icon {
-            transform: scale(1.15);
-            background-color: theme('colors.aw.accent');
-            color: white;
-            border-color: theme('colors.aw.accent-alt');
-            box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+            background: var(--primary);
+            border-color: var(--primary-light);
         }
 
         /* Highlight Boxes */
@@ -255,22 +308,34 @@
             border-radius: 12px;
         }
 
-        /* Buttons */
+        /* Buttons — Evervault-style boxy */
         .aw-btn-primary {
-            background-color: var(--lp-primary);
+            background-color: var(--primary);
             color: #fff;
-            border: 1px solid var(--lp-primary);
-            border-radius: 999px;
-            padding: 9px 20px;
-            font-weight: 600;
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-weight: 500;
             font-size: 14px;
-            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-            box-shadow: 0 4px 14px rgba(139,92,246,0.35);
+            transition: background 0.2s, border-color 0.2s;
         }
         .aw-btn-primary:hover {
-            background-color: #7c3aed;
-            box-shadow: 0 6px 20px rgba(139,92,246,0.5);
-            transform: translateY(-1px);
+            background-color: var(--primary-light);
+            border-color: var(--primary-light);
+        }
+        .aw-btn-secondary {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid var(--hairline);
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .aw-btn-secondary:hover {
+            border-color: rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.03);
         }
 
         /* Custom Scrollbar */
@@ -292,24 +357,24 @@
 <body class="antialiased pb-24 text-sm md:text-base">
 
     <!-- Top Navigation Panel -->
-    <nav class="sticky top-0 z-50 backdrop-blur-md bg-[rgba(15,13,24,0.75)] border-b border-aw-border">
-        <div class="page-container h-16 flex justify-between items-center">
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-[rgba(11,13,28,0.80)] border-b border-aw-border">
+        <div class="page-container h-14 flex justify-between items-center">
             <a href="#vision" class="flex items-center gap-2.5 font-semibold tracking-tight">
-                <span class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#a78bfa] to-[#7c3aed] flex items-center justify-center text-white shadow-[0_4px_12px_rgba(139,92,246,0.35)]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                <span class="w-7 h-7 rounded-md bg-aw-accent flex items-center justify-center text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                 </span>
-                <span class="text-aw-text text-base">ArtStash QC Agent</span>
+                <span class="text-aw-text text-sm font-semibold">ArtStash QC</span>
             </a>
-            <div class="hidden md:flex items-center gap-1 text-sm font-medium text-aw-text-secondary">
-                <a href="#vision" class="px-3 py-1.5 rounded-full hover:text-aw-text hover:bg-white/5 transition-colors">The Bottleneck</a>
-                <a href="#business-model" class="px-3 py-1.5 rounded-full hover:text-aw-text hover:bg-white/5 transition-colors">Managed Service</a>
-                <a href="#workflow" class="px-3 py-1.5 rounded-full hover:text-aw-text hover:bg-white/5 transition-colors">QC Engine</a>
-                <a href="#reporting" class="px-3 py-1.5 rounded-full hover:text-aw-text hover:bg-white/5 transition-colors">ROI Telemetry</a>
+            <div class="hidden md:flex items-center gap-7 text-sm text-aw-text-secondary">
+                <a href="#vision" class="hover:text-aw-text transition-colors">Bottleneck</a>
+                <a href="#business-model" class="hover:text-aw-text transition-colors">Workflow</a>
+                <a href="#workflow" class="hover:text-aw-text transition-colors">QC Engine</a>
+                <a href="#reporting" class="hover:text-aw-text transition-colors">Reporting</a>
             </div>
-            <button class="aw-btn-primary text-sm hidden md:inline-flex items-center gap-1.5">
-                Schedule Demo
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-            </button>
+            <div class="hidden md:flex items-center gap-2">
+                <button class="aw-btn-secondary text-sm">Docs</button>
+                <button class="aw-btn-primary text-sm">Schedule Demo</button>
+            </div>
         </div>
     </nav>
 
@@ -319,9 +384,9 @@
         <section id="vision" class="animate-fade-up">
             <div class="text-center max-w-5xl mx-auto mb-20">
                 <div class="eyebrow mb-6"><span class="dot"></span>The Volume Challenge</div>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-aw-text mb-6 leading-[1.25]">
-                    <span class="block whitespace-nowrap mb-2 md:mb-3">Creative production is scaling.</span>
-                    <span class="block whitespace-nowrap">Your QC process isn't.</span>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-aw-text mb-6 leading-[1.05] tracking-tight">
+                    <span class="block whitespace-nowrap">Creative production is scaling.</span>
+                    <span class="block whitespace-nowrap text-aw-text-muted">Your QC process isn't.</span>
                 </h1>
                 <p class="lead max-w-3xl mx-auto">
                     Creative production volume is exploding as brands move toward thousands of automated variations. But higher volume shouldn't mean higher risk. ArtStash QC Agent automates the repetitive work of brand guideline compliance, catching "silent" errors so your senior talent can focus on high-impact storytelling, not manual proofreading.
@@ -330,7 +395,7 @@
 
             <div class="mb-24 text-center">
                 <div class="eyebrow is-accent mb-6"><span class="dot"></span>The Equation</div>
-                <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-5">The quality control wall</h2>
+                <h2 class="text-3xl md:text-5xl font-semibold text-aw-text mb-5 tracking-tight">The quality control wall</h2>
                 <p class="lead max-w-2xl mx-auto mb-12">In an AI-augmented world where studios now test thousands of variations simultaneously, manual QC isn't just slow—it's impossible. Human error is statistically inevitable.</p>
                 
                 <!-- Visual Math Illustration -->
@@ -340,40 +405,40 @@
                     <div class="flex items-stretch justify-between gap-2 sm:gap-3 text-center relative z-10">
                         <!-- Concept -->
                         <div class="flex-1 min-w-0 bg-aw-bg-elevated/40 border border-aw-border p-3 sm:p-5 rounded-2xl transition-transform hover:-translate-y-1">
-                            <div class="text-xl sm:text-2xl mb-1 sm:mb-2">💡</div>
-                            <div class="font-extrabold text-aw-text text-xl sm:text-2xl leading-none">1</div>
+                            <div class="flex justify-center mb-3 sm:mb-4"><div class="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-aw-universe/10 border border-aw-universe/20 flex items-center justify-center"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-aw-universe" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" /></svg></div></div>
+                            <div class="font-medium text-aw-text text-xl sm:text-2xl leading-none num">1</div>
                             <div class="text-xs sm:text-sm text-aw-text-muted uppercase tracking-wider font-semibold mt-1 sm:mt-2">Concept</div>
                         </div>
                         <div class="flex items-center text-aw-text-muted text-xl sm:text-2xl font-light opacity-50 shrink-0">×</div>
 
                         <!-- Sizes -->
                         <div class="flex-1 min-w-0 bg-aw-bg-elevated/40 border border-aw-border p-3 sm:p-5 rounded-2xl transition-transform hover:-translate-y-1">
-                            <div class="text-xl sm:text-2xl mb-1 sm:mb-2">📱</div>
-                            <div class="font-extrabold text-aw-text text-xl sm:text-2xl leading-none">3</div>
+                            <div class="flex justify-center mb-3 sm:mb-4"><div class="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-aw-universe/10 border border-aw-universe/20 flex items-center justify-center"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-aw-universe" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" /></svg></div></div>
+                            <div class="font-medium text-aw-text text-xl sm:text-2xl leading-none num">3</div>
                             <div class="text-xs sm:text-sm text-aw-text-muted uppercase tracking-wider font-semibold mt-1 sm:mt-2">Sizes</div>
                         </div>
                         <div class="flex items-center text-aw-text-muted text-xl sm:text-2xl font-light opacity-50 shrink-0">×</div>
 
                         <!-- Lengths -->
                         <div class="flex-1 min-w-0 bg-aw-bg-elevated/40 border border-aw-border p-3 sm:p-5 rounded-2xl transition-transform hover:-translate-y-1">
-                            <div class="text-xl sm:text-2xl mb-1 sm:mb-2">⏱</div>
-                            <div class="font-extrabold text-aw-text text-xl sm:text-2xl leading-none">2</div>
+                            <div class="flex justify-center mb-3 sm:mb-4"><div class="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-aw-universe/10 border border-aw-universe/20 flex items-center justify-center"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-aw-universe" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg></div></div>
+                            <div class="font-medium text-aw-text text-xl sm:text-2xl leading-none num">2</div>
                             <div class="text-xs sm:text-sm text-aw-text-muted uppercase tracking-wider font-semibold mt-1 sm:mt-2">Lengths</div>
                         </div>
                         <div class="flex items-center text-aw-text-muted text-xl sm:text-2xl font-light opacity-50 shrink-0">×</div>
 
                         <!-- Revisions -->
                         <div class="flex-1 min-w-0 bg-aw-bg-elevated/40 border border-aw-border p-3 sm:p-5 rounded-2xl transition-transform hover:-translate-y-1">
-                            <div class="text-xl sm:text-2xl mb-1 sm:mb-2">🔄</div>
-                            <div class="font-extrabold text-aw-text text-xl sm:text-2xl leading-none">3</div>
+                            <div class="flex justify-center mb-3 sm:mb-4"><div class="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-aw-universe/10 border border-aw-universe/20 flex items-center justify-center"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-aw-universe" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" /></svg></div></div>
+                            <div class="font-medium text-aw-text text-xl sm:text-2xl leading-none num">3</div>
                             <div class="text-xs sm:text-sm text-aw-text-muted uppercase tracking-wider font-semibold mt-1 sm:mt-2">Revisions</div>
                         </div>
                         <div class="flex items-center text-aw-text-muted text-xl sm:text-2xl font-light opacity-50 shrink-0">×</div>
 
                         <!-- Reviewers -->
                         <div class="flex-1 min-w-0 bg-aw-bg-elevated/40 border border-aw-border p-3 sm:p-5 rounded-2xl transition-transform hover:-translate-y-1">
-                            <div class="text-xl sm:text-2xl mb-1 sm:mb-2">👀</div>
-                            <div class="font-extrabold text-aw-text text-xl sm:text-2xl leading-none">2</div>
+                            <div class="flex justify-center mb-3 sm:mb-4"><div class="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-aw-universe/10 border border-aw-universe/20 flex items-center justify-center"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-aw-universe" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg></div></div>
+                            <div class="font-medium text-aw-text text-xl sm:text-2xl leading-none num">2</div>
                             <div class="text-xs sm:text-sm text-aw-text-muted uppercase tracking-wider font-semibold mt-1 sm:mt-2">Reviewers</div>
                         </div>
                     </div>
@@ -383,7 +448,7 @@
                         <div class="inline-flex items-center gap-5 border border-aw-border bg-aw-bg-elevated/40 pl-5 pr-7 py-4 rounded-2xl">
                             <div class="text-aw-text-muted text-3xl font-light">=</div>
                             <div class="flex items-baseline gap-3">
-                                <h3 class="text-5xl md:text-6xl font-extrabold text-aw-text leading-none">36</h3>
+                                <h3 class="text-5xl md:text-6xl font-medium text-aw-universe leading-none num" style="text-shadow: 0 0 28px rgba(142,100,255,0.45)">36</h3>
                                 <div class="flex flex-col text-left">
                                     <span class="text-lg md:text-xl font-semibold text-aw-text-secondary leading-tight">Reviews</span>
                                     <span class="text-aw-text-muted uppercase tracking-widest text-sm leading-tight mt-1">Per single concept</span>
@@ -403,7 +468,7 @@
         <section id="business-model" class="scroll-mt-24">
             <div class="text-center mb-12">
                 <div class="eyebrow mb-6"><span class="dot"></span>The Managed Service</div>
-                <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-5">How ArtStash QC Agent changes the workflow</h2>
+                <h2 class="text-3xl md:text-5xl font-semibold text-aw-text mb-5 tracking-tight">How ArtStash QC Agent changes the workflow</h2>
                 <p class="lead max-w-2xl mx-auto">Same creative loop — AI pre-screens every submission before the PM sees it.</p>
             </div>
 
@@ -504,18 +569,18 @@
 
             <!-- ── AFTER (HTML Loop + AI Checkpoints) ── -->
             <div id="flow-after" class="hidden mt-3" style="transition: opacity 0.25s ease-out, transform 0.25s ease-out;">
-                <div class="flex items-center justify-center gap-3 mb-10">
+                <div class="flex items-center justify-center gap-3 mb-4">
                     <span class="text-sm font-bold uppercase tracking-widest text-aw-accent border border-aw-accent/40 bg-aw-accent/10 px-3 py-1 rounded-full shadow-[0_0_10px_rgba(139,92,246,0.25)]">After</span>
                     <span class="text-sm text-aw-text-muted">AI pre-screens every submission — humans focus on creative decisions</span>
                 </div>
-                <div class="overflow-x-auto pb-2">
+                <div class="overflow-x-auto pt-6 pb-6">
                     <div class="relative mx-auto" style="width:780px; padding:56px 10px 64px;">
 
                         <!-- TOP ARC: PM → Designer (via AI: Visual Tasks) -->
                         <div class="absolute" style="top:0; left:84px; width:360px; height:42px; border:2px dashed rgba(139,92,246,0.5); border-bottom:none; border-radius:240px 240px 0 0;"></div>
                         <div class="absolute" style="top:40px; left:81px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:7px solid rgba(139,92,246,0.5);"></div>
                         <!-- AI: Visual Tasks pill on the arc -->
-                        <div class="absolute flex items-center gap-2 rounded-full border border-purple-500/50 px-4 py-1.5" style="top:0; left:264px; transform:translate(-50%,-50%); background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
+                        <div class="absolute flex items-center gap-2 rounded-full border border-aw-accent/60 px-4 py-1.5" style="top:0; left:264px; transform:translate(-50%,-50%); background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
                             <span class="text-sm">🤖</span>
                             <span class="text-sm text-purple-200 font-semibold whitespace-nowrap">Visual Tasks</span>
                         </div>
@@ -531,7 +596,7 @@
                             <div class="flex items-center text-purple-500/60 font-black text-xl px-1">→</div>
 
                             <!-- AI: Enforce Guidelines & Feedback (compact inline) -->
-                            <div class="shrink-0 flex items-center gap-2 rounded-full border border-purple-500/50 px-4 py-2" style="background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
+                            <div class="shrink-0 flex items-center gap-2 rounded-full border border-aw-accent/60 px-4 py-2" style="background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
                                 <span class="text-sm">🤖</span>
                                 <span class="text-sm text-purple-200 font-semibold whitespace-nowrap leading-tight text-center">Enforce<br>Guidelines &amp; Feedback</span>
                             </div>
@@ -557,7 +622,7 @@
                         <div class="absolute" style="bottom:0; left:430px; width:215px; height:42px; border:2px dashed rgba(139,92,246,0.5); border-top:none; border-radius:0 0 240px 240px;"></div>
                         <div class="absolute" style="bottom:40px; left:427px; width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-bottom:7px solid rgba(139,92,246,0.5);"></div>
                         <!-- AI Zone: compact pill on the arc -->
-                        <div class="absolute flex items-center gap-2 rounded-full border border-purple-500/50 px-4 py-1.5" style="bottom:0; left:537px; transform:translate(-50%,50%); background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
+                        <div class="absolute flex items-center gap-2 rounded-full border border-aw-accent/60 px-4 py-1.5" style="bottom:0; left:537px; transform:translate(-50%,50%); background:linear-gradient(to right,#1e1035,#2d1b69); box-shadow:0 0 12px rgba(139,92,246,0.2);">
                             <span class="text-sm">🤖</span>
                             <span class="text-sm text-purple-200 font-semibold whitespace-nowrap">Consolidates Feedback</span>
                         </div>
@@ -629,7 +694,7 @@
         <div class="page-container">
             <div class="mb-12 text-center max-w-3xl mx-auto">
                 <div class="eyebrow mb-6"><span class="dot"></span>Product Integration</div>
-                <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-5">The QC Agent experience</h2>
+                <h2 class="text-3xl md:text-5xl font-semibold text-aw-text mb-5 tracking-tight">The QC Agent experience</h2>
 
                 <!-- Step Navigation -->
                 <div class="pill-group mb-8">
@@ -1082,28 +1147,28 @@
 
         <!-- SECTION 3: Interactive Workflow Requirements -->
         <section id="workflow" class="scroll-mt-24 pt-12 border-t border-aw-border mt-10">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-8">
-                <div class="max-w-2xl">
-                    <div class="eyebrow mb-5"><span class="dot"></span>Deep Dive</div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-3">The QC engine workflow</h2>
-                    <p class="lead">How the AI and human staff interact behind the scenes to process an asset.</p>
-                </div>
-                <!-- Interactive hint -->
-                <div class="bg-aw-bg-elevated border border-aw-border text-sm text-aw-text-muted px-4 py-2 rounded-full flex items-center gap-2 shadow-aw-subtle whitespace-nowrap">
-                    <span class="w-2 h-2 rounded-full bg-aw-accent animate-pulse"></span>
-                    Click steps below to explore
-                </div>
+            <div class="mb-12 max-w-2xl">
+                <div class="eyebrow mb-5"><span class="dot"></span>Deep Dive</div>
+                <h2 class="text-3xl md:text-5xl font-semibold text-aw-text mb-3 tracking-tight">The QC engine workflow</h2>
+                <p class="lead">How the AI and human staff interact behind the scenes to process an asset.</p>
             </div>
 
-            <div class="flex flex-col lg:flex-row gap-10">
+            <div class="flex flex-col lg:flex-row lg:items-stretch gap-10">
                 <!-- Left: Interactive Timeline -->
-                <div class="lg:w-1/3 flex flex-col" id="timeline-container">
-                    <!-- Populated by JS -->
+                <div class="lg:w-1/3 flex flex-col">
+                    <!-- Contextual hint, directly above the steps -->
+                    <div class="inline-flex self-start items-center gap-2 border border-aw-border text-sm text-aw-text-muted px-3 py-1.5 rounded-md font-mono mb-3 ml-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-aw-accent animate-pulse"></span>
+                        Click steps to explore
+                    </div>
+                    <div id="timeline-container">
+                        <!-- Populated by JS -->
+                    </div>
                 </div>
 
-                <!-- Right: Requirement Detail Card -->
-                <div class="lg:w-2/3">
-                    <div class="aw-card aw-card-large p-8 flex flex-col shadow-aw-strong" id="detail-card">
+                <!-- Right: Requirement Detail Card (top-aligned with first step, stretches to bottom of steps column) -->
+                <div class="lg:w-2/3 lg:mt-[44px] flex">
+                    <div class="aw-card aw-card-large p-8 flex flex-col flex-1 shadow-aw-strong" id="detail-card">
                         <!-- Populated by JS -->
                     </div>
                 </div>
@@ -1114,13 +1179,13 @@
         <section id="reporting" class="scroll-mt-24 pt-12 border-t border-aw-border">
             <div class="max-w-3xl mb-14">
                 <div class="eyebrow mb-5"><span class="dot"></span>Reporting</div>
-                <h2 class="text-3xl md:text-4xl font-bold text-aw-text mb-3">Telemetry to prove ROI &amp; content quality</h2>
+                <h2 class="text-3xl md:text-5xl font-semibold text-aw-text mb-3 tracking-tight whitespace-nowrap">Telemetry to prove ROI &amp; content quality</h2>
                 <p class="lead">Whether proving SLA compliance for a managed client, or demonstrating software ROI for a SaaS client, our dashboards convert messy revision loops into hard data.</p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8">
                 <!-- Ongoing Internal Report -->
-                <div class="aw-card p-8 border-t-2 border-t-aw-universe">
+                <div class="aw-card p-8 border-t-2 hover:border-t-aw-universe">
                     <div class="flex justify-between items-center mb-8 flex-wrap gap-3">
                         <h3 class="text-xl font-bold text-aw-text flex items-center gap-2">
                             <span class="text-aw-universe">📊</span> Ongoing / EOW Report
@@ -1130,16 +1195,16 @@
 
                     <div class="grid grid-cols-2 gap-4 mb-8">
                         <div class="bg-aw-bg p-5 rounded-xl border border-aw-border-soft text-center shadow-aw-subtle">
-                            <div class="text-4xl font-black text-aw-text mb-2 leading-none">342</div>
+                            <div class="text-4xl font-medium text-aw-text mb-2 leading-none num">342</div>
                             <div class="text-sm text-aw-text-muted uppercase tracking-wider font-semibold">Weekly Assets</div>
                         </div>
                         <div class="bg-aw-bg p-5 rounded-xl border border-aw-border-soft text-center flex divide-x divide-aw-border">
                             <div class="w-1/2 px-2 flex flex-col justify-center">
-                                <div class="text-2xl font-bold text-emerald-400 leading-none">82%</div>
+                                <div class="text-2xl font-medium text-aw-text leading-none num">82%</div>
                                 <div class="text-sm text-aw-text-muted uppercase mt-2 font-semibold tracking-wider">Pass</div>
                             </div>
                             <div class="w-1/2 px-2 flex flex-col justify-center">
-                                <div class="text-2xl font-bold text-rose-500 leading-none">18%</div>
+                                <div class="text-2xl font-medium text-aw-text-muted leading-none num">18%</div>
                                 <div class="text-sm text-aw-text-muted uppercase mt-2 font-semibold tracking-wider">Fail</div>
                             </div>
                         </div>
@@ -1159,7 +1224,7 @@
                 </div>
 
                 <!-- Batch External Report -->
-                <div class="aw-card p-8 border-t-2 border-t-aw-qc">
+                <div class="aw-card p-8 border-t-2 hover:border-t-aw-qc">
                     <div class="flex justify-between items-center mb-8 flex-wrap gap-3">
                         <h3 class="text-xl font-bold text-aw-text flex items-center gap-2">
                             <span class="text-aw-qc">📦</span> Batch Completion Report
@@ -1169,16 +1234,16 @@
 
                     <div class="grid grid-cols-2 gap-4 mb-8">
                         <div class="bg-aw-bg p-5 rounded-xl border border-aw-border-soft text-center shadow-aw-subtle">
-                            <div class="text-4xl font-black text-aw-text mb-2 leading-none">1,250</div>
+                            <div class="text-4xl font-medium text-aw-text mb-2 leading-none num">1,250</div>
                             <div class="text-sm text-aw-text-muted uppercase tracking-wider font-semibold">Total in Batch</div>
                         </div>
                         <div class="bg-aw-bg p-5 rounded-xl border border-aw-border-soft text-center flex divide-x divide-aw-border">
                             <div class="w-1/2 px-2 flex flex-col justify-center">
-                                <div class="text-2xl font-bold text-emerald-400 leading-none">91%</div>
+                                <div class="text-2xl font-medium text-aw-text leading-none num">91%</div>
                                 <div class="text-sm text-aw-text-muted uppercase mt-2 font-semibold tracking-wider">Pass</div>
                             </div>
                             <div class="w-1/2 px-2 flex flex-col justify-center">
-                                <div class="text-2xl font-bold text-rose-500 leading-none">9%</div>
+                                <div class="text-2xl font-medium text-aw-text-muted leading-none num">9%</div>
                                 <div class="text-sm text-aw-text-muted uppercase mt-2 font-semibold tracking-wider">Fail</div>
                             </div>
                         </div>
@@ -1312,19 +1377,13 @@
 
         function renderTimeline() {
             const container = document.getElementById('timeline-container');
-            let html = '<div class="flex flex-col border-l border-aw-border-soft ml-4 pt-8 relative">';
-            
-            // Adding a subtle glowing gradient line down the timeline tracking
-            html += '<div class="absolute left-[-1px] top-0 w-0.5 h-full bg-gradient-to-b from-aw-border-soft via-aw-accent to-aw-border-soft opacity-20"></div>';
-
+            let html = '<div class="flex flex-col" role="list">';
             workflowNodes.forEach((node, index) => {
                 html += `
-                    <div class="timeline-node relative pl-8 py-5 cursor-pointer z-10 group" id="node-${index}" onclick="selectNode(${index})">
-                        <div class="node-icon absolute -left-4 top-5 w-9 h-9 rounded-full flex items-center justify-center text-base z-20 shadow-aw-subtle">
-                            ${node.icon}
-                        </div>
-                        <h4 class="font-semibold text-aw-text group-hover:text-white transition-colors text-base">${node.title}</h4>
-                        <p class="text-sm font-semibold uppercase tracking-wider mt-1 ${node.textColor}">${node.actor}</p>
+                    <div class="timeline-node" role="button" tabindex="0" id="node-${index}" onclick="selectNode(${index})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectNode(${index})}">
+                        <div class="node-icon">${node.icon}</div>
+                        <h4 class="font-semibold text-aw-text text-[15px]">${node.title}</h4>
+                        <p class="text-xs font-medium uppercase tracking-wider mt-0.5 text-aw-text-muted">${node.actor}</p>
                     </div>
                 `;
             });
